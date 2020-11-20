@@ -5,10 +5,10 @@ import androidx.room.*
 
 @Dao
 interface DAO {
-    @Query("SELECT * FROM model")
+    @Query("SELECT * FROM hotel")
     fun getAll(): List<Model?>?
 
-    @Query("SELECT * FROM model WHERE id = :id")
+    @Query("SELECT * FROM hotel WHERE id = :id")
     fun getById(id: Long): Model?
 
     @Insert
