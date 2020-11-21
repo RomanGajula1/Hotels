@@ -3,7 +3,7 @@ package com.example.hotels
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Hotels")
+@Entity(tableName = "hotels")
 class Hotel(
     @PrimaryKey
     var id: Int? = null,
