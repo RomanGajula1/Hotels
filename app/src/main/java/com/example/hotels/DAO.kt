@@ -18,5 +18,5 @@ interface DAO {
     fun update(hotel: Hotel?)
 
     @Delete
-    fun delete(hotel: Model?)
+    fun delete(hotel: Hotel?)
 }

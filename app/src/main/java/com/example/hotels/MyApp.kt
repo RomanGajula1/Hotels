@@ -9,16 +9,16 @@ import org.koin.core.context.startKoin
 class MyApp : Application() {
 
     lateinit var instasce: MyApp
-    var dataBase: DataBase? = null
+    lateinit var dataBase: DataBase
 
     override fun onCreate() {
         super.onCreate()
         startKoin {
             androidContext(this@MyApp)
             modules(listOf(appModule))
-
-            dataBase = Room.databaseBuilder(this@MyApp, DataBase::class.java, "database")
-                .build()
         }
+        instasce = this
+        dataBase = Room.databaseBuilder(this@MyApp, DataBase::class.java, "database")
+            .build()
     }
 }
