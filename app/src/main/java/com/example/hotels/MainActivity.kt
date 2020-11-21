@@ -22,15 +22,12 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = hotelsListViewModel.adapter
 
-        var model = Model()
-        model.id = 1
-        model.name = "Roman"
-        model.descriptions = "Descroption"
+        var hotel = Hotel(1, "Roman", "http", "Gajula")
 
         var db = MyApp().instasce.dataBase
         var dao: DAO = db!!.dao
-        dao.insert(model)
-        val list: List<Model> = dao.getAll() as List<Model>
+        dao.insert(hotel)
+        val list: List<Hotel?>? = dao.getAll()
         Log.d("Message", list.toString())
 
     }

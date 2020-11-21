@@ -11,7 +11,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class Adapter(var hotelsList: ArrayList<Model>?) : RecyclerView.Adapter<Adapter.MyViewHolder>(){
+class Adapter(var hotelsList: ArrayList<Hotel>?) : RecyclerView.Adapter<Adapter.MyViewHolder>(){
     val context: Context = MainActivity()
 
     companion object {
@@ -45,7 +45,7 @@ class Adapter(var hotelsList: ArrayList<Model>?) : RecyclerView.Adapter<Adapter.
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) { // выполняет привязку объекта, OnBindViewHolder – загружает данные в указанной позиции в представления, ссылки на которые хранятся в заданном заполнителе представления
-        val itemText: Model = hotelsList!![position]
+        val itemText: Hotel = hotelsList!![position]
         holder.nameHotel.text = itemText.name
 
         Picasso.get()
