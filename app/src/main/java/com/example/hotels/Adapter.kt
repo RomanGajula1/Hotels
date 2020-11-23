@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.task_hotel.view.*
 
-class Adapter(var hotelsList: ArrayList<Hotel>?) : RecyclerView.Adapter<Adapter.MyViewHolder>(){
+class Adapter(var hotelsList: List<Hotel>?) : RecyclerView.Adapter<Adapter.MyViewHolder>(){
 
     companion object {
         @JvmStatic
@@ -44,7 +46,7 @@ class Adapter(var hotelsList: ArrayList<Hotel>?) : RecyclerView.Adapter<Adapter.
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) { // выполняет привязку объекта, OnBindViewHolder – загружает данные в указанной позиции в представления, ссылки на которые хранятся в заданном заполнителе представления
-        val itemText: Hotel = hotelsList!![position]
+        val itemText = hotelsList!![position]
         holder.nameHotel.text = itemText.name
 
 //        Picasso.get()
