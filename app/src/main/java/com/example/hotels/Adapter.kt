@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 class Adapter(var hotelsList: ArrayList<Hotel>?) : RecyclerView.Adapter<Adapter.MyViewHolder>(){
-    val context: Context = MainActivity()
 
     companion object {
         @JvmStatic
@@ -48,10 +47,10 @@ class Adapter(var hotelsList: ArrayList<Hotel>?) : RecyclerView.Adapter<Adapter.
         val itemText: Hotel = hotelsList!![position]
         holder.nameHotel.text = itemText.name
 
-        Picasso.get()
-            .load(hotelsList!![position].image)
-            .error(R.drawable.rotate)
-            .into(holder.imageView)
+//        Picasso.get()
+//            .load(hotelsList!![position].image)
+//            .error(R.drawable.rotate)
+//            .into(holder.imageView)
 
 //        holder.nameHotel.setOnClickListener{
 //            val intent = Intent(context.applicationContext, DetailsHotel::class.java)

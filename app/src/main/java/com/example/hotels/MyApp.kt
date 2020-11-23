@@ -7,8 +7,7 @@ import org.koin.core.context.startKoin
 
 
 class MyApp : Application() {
-
-    var instasce: MyApp? = null
+    companion object {var instasce: MyApp? = null}
     var dataBase: DataBase? = null
 
     override fun onCreate() {
@@ -18,7 +17,7 @@ class MyApp : Application() {
             modules(listOf(appModule))
         }
         instasce = this
-        dataBase = Room.databaseBuilder(this@MyApp, DataBase::class.java, "database")
-            .build()
+        dataBase = Room.databaseBuilder(this@MyApp, DataBase::class.java, "MyBD")
+            .allowMainThreadQueries().build()
     }
 }

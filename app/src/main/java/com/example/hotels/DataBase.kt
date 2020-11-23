@@ -6,8 +6,8 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = [Hotel::class], version = 1, exportSchema = false)
+@Database(entities = [Hotel::class], version = 1)
 abstract class DataBase : RoomDatabase() {
-    abstract val dao: DAO?
+    abstract val dao: DAO
 
 }

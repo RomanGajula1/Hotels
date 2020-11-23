@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hotels.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
@@ -13,6 +12,7 @@ import org.koin.android.ext.android.inject
 class MainActivity : AppCompatActivity() {
 
     val hotelsListViewModel: ListHotelViewModel by inject()
+    var TAG = "myLog"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,13 +22,16 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = hotelsListViewModel.adapter
 
-        var hotel = Hotel(1, "Roman", "http", "Gajula")
+        val hotel = Hotel(1, "Elite Hotel", "https://bestvietnam.ru/wp-content/uploads/2019/09/%D0%BE%D1%82%D0%B5%D0%BB%D1%8C.jpg", "Gajula")
 
-        var db = MyApp().instasce?.dataBase
-        var dao: DAO? = db?.dao
-        dao?.insert(hotel)
-        val list: List<Hotel?>? = dao?.getAll()
-        Log.d("Message", list.toString())
+        val db = MyApp.instasce?.dataBase
+        val dao = db?.dao
+        dao?.insert(listOf(hotel))
+        val list: List<Hotel?> = dao?.getAll()!!
+        Log.d(TAG, MyApp.instasce.toString())
+        Log.d(TAG, db.toString())
+        Log.d(TAG, list.toString())
+
 
     }
 }

@@ -16,7 +16,7 @@ class DetailsHotel : AppCompatActivity() {
 
         var id = intent.getIntExtra("id", 0)
 
-        detailsHotelViewModel.loadDetailsHotel(id)
+//        detailsHotelViewModel.loadDetailsHotel(id)
 
         binding.lifecycleOwner = this
         binding.viewModel = detailsHotelViewModel

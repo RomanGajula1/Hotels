@@ -9,7 +9,7 @@ class ListHotelViewModel : ViewModel(), KoinComponent {
     var adapter: Adapter = Adapter(null)
     lateinit var list: ArrayList<Hotel>
     init {
-        adapter.hotelsList = repository.getListHotel()
+        adapter.hotelsList = repository.getHotel() as ArrayList<Hotel>?
     }
 
 }
