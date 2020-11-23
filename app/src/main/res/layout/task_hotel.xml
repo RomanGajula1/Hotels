@@ -34,8 +34,8 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="38dp"
             android:fontFamily="@font/montserrat_bold"
-            android:text="Roman"
-            android:textColor="#2C2B2B"
+            android:text="@{model.name}"
+            android:textColor="#434242"
             android:textSize="30sp" />
 
         <ImageView

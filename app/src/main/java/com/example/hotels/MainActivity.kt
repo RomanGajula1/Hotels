@@ -24,16 +24,5 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = hotelsListViewModel.adapter
-
-        var hotel: Hotel = Hotel(1, "Roman", "http", "sdfghjkldsciyuhvb")
-        val db = MyApp.instasce?.dataBase
-        val dao = db?.dao
-        dao?.insert(hotel)
-//        Log.d(TAG, MyApp.instasce.toString())
-//        Log.d(TAG, db.toString())
-//        Log.d(TAG, list.toString())
-
-
-
     }
 }

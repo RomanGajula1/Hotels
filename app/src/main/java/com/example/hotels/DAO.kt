@@ -12,7 +12,7 @@ interface DAO{
     fun getById(id: Int): Hotel
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(hotel: Hotel)
+    fun insert(vararg hotel: Hotel)
 
     @Update
     fun update(hotel: Hotel)
