@@ -8,8 +8,8 @@ import org.koin.core.context.startKoin
 
 class MyApp : Application() {
 
-    lateinit var instasce: MyApp
-    lateinit var dataBase: DataBase
+    var instasce: MyApp? = null
+    var dataBase: DataBase? = null
 
     override fun onCreate() {
         super.onCreate()

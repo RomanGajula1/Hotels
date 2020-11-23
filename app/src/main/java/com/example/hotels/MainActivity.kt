@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
 
         var hotel = Hotel(1, "Roman", "http", "Gajula")
 
-        var db = MyApp().instasce.dataBase
-        var dao: DAO = db.dao
+        var db = MyApp().instasce?.dataBase
+        var dao: DAO = db!!.dao
         dao.insert(hotel)
         val list: List<Hotel?>? = dao.getAll()
         Log.d("Message", list.toString())
