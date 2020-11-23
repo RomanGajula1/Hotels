@@ -7,9 +7,8 @@ import org.koin.dsl.module
 
 val appModule = module {
     viewModel { ListHotelViewModel() }
-    viewModel { DetailsHotelViewModel() }
     single { Repository() }
-    single { Room.databaseBuilder(get(), DataBase::class.java, "MyBD")
+    single { Room.databaseBuilder(get(), DataBase::class.java, "myDB")
         .allowMainThreadQueries().build() }
     single { get<DataBase>().dao }
 }

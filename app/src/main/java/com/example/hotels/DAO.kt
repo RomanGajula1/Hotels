@@ -1,11 +1,10 @@
 package com.example.hotels
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 
 
 @Dao
-interface DAO {
+interface DAO{
     @Query("SELECT * FROM hotels")
     fun getAll(): List<Hotel>
 
@@ -13,7 +12,7 @@ interface DAO {
     fun getById(id: Int): Hotel
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(hotel: List<Hotel>)
+    fun insert(hotel: Hotel)
 
     @Update
     fun update(hotel: Hotel)

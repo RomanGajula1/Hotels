@@ -34,8 +34,9 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="38dp"
             android:fontFamily="@font/montserrat_bold"
-            android:text="@{model.name}"
-            android:textSize="30sp"/>
+            android:text="Roman"
+            android:textColor="#2C2B2B"
+            android:textSize="30sp" />
 
         <ImageView
             android:id="@+id/button_delete"

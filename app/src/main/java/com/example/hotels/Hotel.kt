@@ -10,5 +10,4 @@ class Hotel(
     var name: String? = null,
     var image: String? = null,
     var descriptions: String? = null,
-) {
-}
+) {}

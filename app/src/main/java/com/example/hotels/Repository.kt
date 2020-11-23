@@ -1,17 +1,16 @@
 package com.example.hotels
 
-import androidx.room.Dao
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class Repository : KoinComponent {
 
     val dao: DAO by inject()
-    lateinit var list: List<Hotel>
+    var list: List<Hotel>? = null
 
     fun getHotel() : List<Hotel> {
-        list = dao?.getAll()!!
-        return list
+        list = dao.getAll()
+        return list!!
     }
 
 

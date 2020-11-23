@@ -1,5 +1,6 @@
 package com.example.hotels
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import org.koin.core.KoinComponent

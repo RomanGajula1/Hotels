@@ -2,6 +2,7 @@ package com.example.hotels
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,18 +16,17 @@ import kotlinx.android.synthetic.main.task_hotel.view.*
 
 class Adapter(var hotelsList: List<Hotel>?) : RecyclerView.Adapter<Adapter.MyViewHolder>(){
 
-    companion object {
-        @JvmStatic
-        @BindingAdapter("app:image")
-        fun loadImage(view: ImageView, url: String) {
-            Picasso.get().load(url).into(view)
-        }
-    }
+//    companion object {
+//        @JvmStatic
+//        @BindingAdapter("app:image")
+//        fun loadImage(view: ImageView, url: String) {
+//            Picasso.get().load(url).into(view)
+//        }
+//    }
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) { // MyViewHolder хранит тэги корнегого представления каждого элемента списка.
         val nameHotel: TextView = view.findViewById<View>(R.id.nameHotel) as TextView
         val imageView: ImageView = view.findViewById<View>(R.id.imageHotel) as ImageView
-        val buttonDelete: ImageView = view.findViewById<View>(R.id.button_delete) as ImageView
 
 //        private val hotel = hotelsList?.get(bindingAdapterPosition) as Model
 //
@@ -49,10 +49,10 @@ class Adapter(var hotelsList: List<Hotel>?) : RecyclerView.Adapter<Adapter.MyVie
         val itemText = hotelsList!![position]
         holder.nameHotel.text = itemText.name
 
-//        Picasso.get()
-//            .load(hotelsList!![position].image)
-//            .error(R.drawable.rotate)
-//            .into(holder.imageView)
+        Picasso.get()
+            .load(hotelsList!![position].image)
+            .error(R.drawable.rotate)
+            .into(holder.imageView)
 
 //        holder.nameHotel.setOnClickListener{
 //            val intent = Intent(context.applicationContext, DetailsHotel::class.java)
