@@ -24,5 +24,6 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = hotelsListViewModel.adapter
+        Repository().insert()
     }
 }

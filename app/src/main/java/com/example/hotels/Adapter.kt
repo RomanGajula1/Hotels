@@ -7,13 +7,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 class Adapter(var hotelsList: List<Hotel>?) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
-
-    val db = MyApp.instasce?.dataBase
-    val dao = db?.dao
 
     companion object {
         @JvmStatic
@@ -36,9 +34,11 @@ class Adapter(var hotelsList: List<Hotel>?) : RecyclerView.Adapter<Adapter.MyVie
                 intent.putExtra("id", hotelsList?.get(bindingAdapterPosition)?.id)
                 view.context.startActivity(intent)
             }
-//            imageDelete.setOnClickListener{
-//                dao?.delete(view.)
-//            }
+            imageDelete.setOnClickListener{
+                val hotel = Hotel()
+                hotel.id = hotelsList?.get(bindingAdapterPosition)?.id
+                Repository().deleteHotel(hotel)
+            }
         }
     }
 
