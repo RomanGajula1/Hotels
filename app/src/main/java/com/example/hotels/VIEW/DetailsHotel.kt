@@ -1,13 +1,13 @@
-package com.example.hotels
+package com.example.hotels.VIEW
 
-import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
+import com.example.hotels.R
+import com.example.hotels.DetailsViewModel
 import com.example.hotels.databinding.ActivityDetailsHotelBinding
-import kotlinx.android.synthetic.main.activity_details_hotel.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailsHotel : AppCompatActivity() {
@@ -17,7 +17,9 @@ class DetailsHotel : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding : ActivityDetailsHotelBinding = DataBindingUtil.setContentView(this, R.layout.activity_details_hotel)
+        val binding : ActivityDetailsHotelBinding = DataBindingUtil.setContentView(this,
+            R.layout.activity_details_hotel
+        )
 
         var id = intent.getIntExtra("id", 0)
 

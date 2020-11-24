@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity(tableName = "hotels")
 class Hotel(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     var id: Int? = null,
     var name: String? = null,
     var image: String? = null,

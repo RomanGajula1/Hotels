@@ -8,11 +8,10 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Update
+import com.example.hotels.VIEW.DetailsHotel
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_details_hotel.view.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 class Adapter(var hotelsList: List<Hotel>?) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
 

@@ -1,7 +1,9 @@
-package com.example.hotels
+package com.example.hotels.Koin
 
-import androidx.room.Database
 import androidx.room.Room
+import com.example.hotels.*
+import com.example.hotels.ROOM.DataBase
+import com.example.hotels.VIEW.DetailsHotel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -10,7 +12,7 @@ val appModule = module {
     viewModel { DetailsViewModel() }
     viewModel { UpdateViewModel() }
     single { Repository() }
-    single { Room.databaseBuilder(get(), DataBase::class.java, "dataBase")
+    single { Room.databaseBuilder(get(), DataBase::class.java, "BD")
         .allowMainThreadQueries().build() }
     single { get<DataBase>().dao }
     single { DetailsHotel() }

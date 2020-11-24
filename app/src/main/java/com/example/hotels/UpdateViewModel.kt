@@ -2,11 +2,10 @@ package com.example.hotels
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.View
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.hotels.VIEW.MainActivity
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 

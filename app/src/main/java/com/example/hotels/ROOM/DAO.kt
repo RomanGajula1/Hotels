@@ -1,6 +1,7 @@
-package com.example.hotels
+package com.example.hotels.ROOM
 
 import androidx.room.*
+import com.example.hotels.Hotel
 
 
 @Dao

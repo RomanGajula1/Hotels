@@ -1,7 +1,7 @@
-package com.example.hotels
+package com.example.hotels.Koin
 
 import android.app.Application
-import androidx.room.Room
+import com.example.hotels.ROOM.DataBase
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin

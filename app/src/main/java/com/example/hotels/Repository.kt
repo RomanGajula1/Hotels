@@ -1,5 +1,7 @@
 package com.example.hotels
 
+import com.example.hotels.ROOM.DAO
+import com.example.hotels.Koin.MyApp
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -22,6 +24,10 @@ class Repository : KoinComponent {
         dao?.insert(Hotel(6, "Gurman", "https://avatars.mds.yandex.net/get-zen_doc/16074/pub_5b976ee5afa75b00a9930277_5b976fe904327700ab9a8f68/scale_1200", "Featuring free wifi, country house Gurman is located in Balti. Each room has a fully equipped private bathroom with a Hairdryer and a bidet."))
         dao?.insert(Hotel(7, "Paulina", "https://pic.voombu.ru/img/hotel/max1280x900/183/183111728.jpg", "The hotel Paulina is located in the town of Falesti. Free Wi-Fi is available. Each room here will provide you with air conditioning and a balcony. An electric kettle is also provided."))
         dao?.insert(Hotel(8, "Paulina", "https://pic.voombu.ru/img/hotel/max1280x900/183/183111728.jpg", "The hotel Paulina is located in the town of Falesti. Free Wi-Fi is available. Each room here will provide you with air conditioning and a balcony. An electric kettle is also provided."))
+    }
+
+    fun addHotel(hotel: Hotel){
+        dao.insert(hotel)
     }
 
     fun updateHotel(hotel: Hotel){

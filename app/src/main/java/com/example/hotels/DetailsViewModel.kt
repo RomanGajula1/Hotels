@@ -5,7 +5,7 @@ import android.content.Intent
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kotlinx.android.synthetic.main.activity_details_hotel.*
+import com.example.hotels.VIEW.UpdateHotel
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 

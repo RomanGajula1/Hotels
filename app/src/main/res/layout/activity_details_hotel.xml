@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="ViewModel"
+            name="viewModel"
             type="com.example.hotels.DetailsViewModel" />
         <variable
             name="adapter"
@@ -29,7 +29,7 @@
             android:layout_marginStart="49dp"
             android:layout_marginBottom="100dp"
             android:fontFamily="sans-serif"
-            android:text="@{ViewModel.comments}"
+            android:text="@{viewModel.comments}"
             android:textSize="16sp" />
 
         <EditText
@@ -42,7 +42,7 @@
             android:layout_marginBottom="158dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@={ViewModel.comments}" />
+            android:text="@={viewModel.comments}" />
 
         <TextView
             android:id="@+id/textView7"
@@ -68,7 +68,7 @@
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="292dp"
             android:gravity="top|center_horizontal"
-            android:text="@{ViewModel.descriptionText}"
+            android:text="@{viewModel.descriptionText}"
             android:textSize="18sp" />
 
         <ImageView
@@ -85,7 +85,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             tools:srcCompat="@tools:sample/avatars"
-            app:image="@{ViewModel.photo}"
+            app:image="@{viewModel.photo}"
             />
 
         <TextView
@@ -98,7 +98,7 @@
             android:layout_marginBottom="48dp"
             android:fontFamily="cursive"
             android:gravity="top|center_horizontal"
-            android:text="@{ViewModel.nameHotel}"
+            android:text="@{viewModel.nameHotel}"
             android:textSize="45sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
