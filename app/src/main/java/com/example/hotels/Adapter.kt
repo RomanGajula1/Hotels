@@ -4,12 +4,15 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Update
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_details_hotel.view.*
 
 class Adapter(var hotelsList: List<Hotel>?) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
 
@@ -24,9 +27,7 @@ class Adapter(var hotelsList: List<Hotel>?) : RecyclerView.Adapter<Adapter.MyVie
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) { // MyViewHolder хранит тэги корнегого представления каждого элемента списка.
         val nameHotel: TextView = view.findViewById<View>(R.id.nameHotel) as TextView
         val imageView: ImageView = view.findViewById<View>(R.id.imageHotel) as ImageView
-        val imageDelete: ImageView = view.findViewById<View>(R.id.button_delete) as ImageView
-
-//        val hotel = hotelsList?.get(bindingAdapterPosition)?.id
+        private val imageDelete: ImageView = view.findViewById<View>(R.id.button_delete) as ImageView
 
         init {
             view.setOnClickListener {

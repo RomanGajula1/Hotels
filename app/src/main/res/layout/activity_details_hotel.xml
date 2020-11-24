@@ -8,6 +8,9 @@
         <variable
             name="ViewModel"
             type="com.example.hotels.DetailsViewModel" />
+        <variable
+            name="adapter"
+            type="com.example.hotels.Adapter" />
 
     </data>
 
@@ -23,8 +26,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="52dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginStart="49dp"
+            android:layout_marginBottom="100dp"
             android:fontFamily="sans-serif"
             android:text="@{ViewModel.comments}"
             android:textSize="16sp" />
@@ -36,7 +39,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="50dp"
-            android:layout_marginBottom="88dp"
+            android:layout_marginBottom="158dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="@={ViewModel.comments}" />
@@ -48,7 +51,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="52dp"
-            android:layout_marginBottom="144dp"
+            android:layout_marginBottom="204dp"
             android:fontFamily="sans-serif-medium"
             android:text="Comment"
             android:textSize="25sp" />
@@ -63,7 +66,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginStart="54dp"
             android:layout_marginEnd="50dp"
-            android:layout_marginBottom="212dp"
+            android:layout_marginBottom="292dp"
             android:gravity="top|center_horizontal"
             android:text="@{ViewModel.descriptionText}"
             android:textSize="18sp" />
@@ -74,9 +77,9 @@
             android:layout_height="469dp"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="7dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="404dp"
+            android:layout_marginBottom="490dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -90,17 +93,30 @@
             android:layout_width="307dp"
             android:layout_height="50dp"
             android:layout_marginLeft="55dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="55dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="48dp"
             android:fontFamily="cursive"
             android:gravity="top|center_horizontal"
             android:text="@{ViewModel.nameHotel}"
-            android:textSize="38sp"
+            android:textSize="45sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonUpdate"
+            android:layout_width="138dp"
+            android:layout_height="37dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="105dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginBottom="25dp"
+            android:background="#FBE4E4"
+            android:text="Update" />
 
     </RelativeLayout>
 </layout>
