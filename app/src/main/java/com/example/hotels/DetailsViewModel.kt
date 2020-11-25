@@ -24,7 +24,7 @@ class DetailsViewModel : ViewModel(), KoinComponent {
     fun clickUpdate(id: Int, context: Context, view: View){
         view.setOnClickListener {
             val intent = Intent(context, UpdateHotel::class.java)
-            intent.putExtra("id", id)
+            intent.putExtra("idToUpdate", id)
             context.startActivity(intent)
         }
     }

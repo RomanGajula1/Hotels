@@ -19,10 +19,11 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
             R.layout.activity_update_hotel
         )
 
-        var id = intent.getIntExtra("id", 0)
+        var id = intent.getIntExtra("idToUpdate", 0)
 
         updateViewModel.loadForUpdate(id)
         updateViewModel.clickUpdateHotel(id, this, binding.buttonUpdateHotel)
         binding.lifecycleOwner = this
+        binding.update = updateViewModel
     }
 }
