@@ -11,9 +11,9 @@ import org.koin.core.inject
 
 class UpdateViewModel : ViewModel(), KoinComponent {
     private val repository: Repository by inject()
-    var nameUpdate = MutableLiveData("")
-    var imageUpdate = MutableLiveData("")
-    var descriptionUpdate = MutableLiveData("")
+    var nameUpdate = MutableLiveData<String>()
+    var imageUpdate = MutableLiveData<String>()
+    var descriptionUpdate = MutableLiveData<String>()
 
     fun loadForUpdate(id: Int){
         nameUpdate.value = repository.getHotel()[id].name.toString()

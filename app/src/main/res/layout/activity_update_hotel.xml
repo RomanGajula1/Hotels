@@ -26,7 +26,7 @@
         android:layout_marginBottom="264dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@{update.nameUpdate}"
+        android:text="@={update.nameUpdate}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,7 @@
         android:layout_marginTop="200dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@{update.imageUpdate}"
+        android:text="@={update.imageUpdate}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +50,7 @@
         android:layout_marginTop="300dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@{update.descriptionUpdate}"
+        android:text="@={update.descriptionUpdate}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
