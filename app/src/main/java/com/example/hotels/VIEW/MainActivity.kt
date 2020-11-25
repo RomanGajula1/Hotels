@@ -30,6 +30,5 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddHotel::class.java)
             startActivity(intent)
         }
-
     }
 }

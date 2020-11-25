@@ -2,6 +2,7 @@ package com.example.hotels
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,6 +13,7 @@ import org.koin.core.inject
 import kotlin.toString as toString
 
 class UpdateViewModel : ViewModel(), KoinComponent {
+    val str = "Message"
     private val repository: Repository by inject()
     var nameUpdate = MutableLiveData("")
     var imageUpdate = MutableLiveData("")

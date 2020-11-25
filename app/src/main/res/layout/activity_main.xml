@@ -8,33 +8,43 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".VIEW.MainActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="400dp"
+            android:layout_height="590dp"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             app:layoutManager="LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addHotel" />
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_gravity="bottom"
+            tools:ignore="BottomAppBar,MissingConstraints"
+            tools:layout_editor_absoluteX="-26dp"
+            tools:layout_editor_absoluteY="546dp"
+            app:fabAlignmentMode="end"
+            app:fabCradleMargin="10dp"
+            app:fabCradleRoundedCornerRadius="15dp"
+            app:fabCradleVerticalOffset="5dp"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addHotel"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="38dp"
-            android:text="Add Hotel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_add_24"
+            app:layout_anchor="@id/bottomAppBar"
+            tools:ignore="MissingConstraints"
+            app:tint="@color/colorWhite"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

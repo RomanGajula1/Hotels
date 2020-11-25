@@ -2,6 +2,7 @@ package com.example.hotels.VIEW
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.example.hotels.R
 import com.example.hotels.UpdateViewModel

@@ -1,5 +1,6 @@
 package com.example.hotels
 
+import android.util.Log
 import com.example.hotels.ROOM.DAO
 import com.example.hotels.Koin.MyApp
 import org.koin.core.KoinComponent
@@ -9,6 +10,7 @@ class Repository : KoinComponent {
 
     val dao: DAO by inject()
     var list: List<Hotel>? = null
+    val str = "Message"
 
     fun insert(){
         dao.insert(Hotel(1, "Elite Hotel", "https://bestvietnam.ru/wp-content/uploads/2019/09/%D0%BE%D1%82%D0%B5%D0%BB%D1%8C.jpg", "sdfghjkldsciyuhvb"))
