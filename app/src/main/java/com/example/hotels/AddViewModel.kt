@@ -1,5 +1,6 @@
 package com.example.hotels
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,8 +16,6 @@ class AddViewModel : ViewModel(), KoinComponent {
     val repository: Repository by inject()
 
     fun addHotel(){
-        viewModelScope.launch(Dispatchers.IO){
-            repository.addHotel(Hotel(1, addName.value.toString(), addImage.value.toString(), addDescription.value.toString()))
-        }
+        repository.addHotel(Hotel(9, addName.value.toString(), addImage.value.toString(), addDescription.value.toString()))
     }
 }
