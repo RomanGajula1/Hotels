@@ -20,12 +20,4 @@ class DetailsViewModel : ViewModel(), KoinComponent {
         descriptionText = repository.getById(id).descriptions.toString()
         photo = repository.getById(id).image.toString()
     }
-
-    fun clickUpdate(id: Int, context: Context, view: View){
-        view.setOnClickListener {
-            val intent = Intent(context, UpdateHotel::class.java)
-            intent.putExtra("idToUpdate", id)
-            context.startActivity(intent)
-        }
-    }
 }

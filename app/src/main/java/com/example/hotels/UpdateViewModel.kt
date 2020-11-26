@@ -1,8 +1,9 @@
 package com.example.hotels
 
-import android.provider.ContactsContract.CommonDataKinds.Note
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.hotels.Koin.MyApp
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -23,9 +24,9 @@ class UpdateViewModel : ViewModel(), KoinComponent {
     fun clickUpdateHotel(id: Int){
         val hotel = repository.getById(id)
         hotel.id = id
-        hotel.name = nameUpdate.value.toString()
-        hotel.image = imageUpdate.value.toString()
-        hotel.descriptions = descriptionUpdate.value.toString()
+        hotel.name = nameUpdate.value
+        hotel.image = imageUpdate.value
+        hotel.descriptions = descriptionUpdate.value
         repository.updateHotel(hotel)
     }
 }

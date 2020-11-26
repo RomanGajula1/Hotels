@@ -1,9 +1,11 @@
 package com.example.hotels
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,6 +13,7 @@ import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hotels.VIEW.DetailsHotel
+import com.example.hotels.VIEW.MainActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.view.*
 
@@ -19,6 +22,7 @@ class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Ad
 
     var position: Int? = null
     val repository = Repository()
+    val context: Context = MainActivity()
 
     companion object {
         @JvmStatic

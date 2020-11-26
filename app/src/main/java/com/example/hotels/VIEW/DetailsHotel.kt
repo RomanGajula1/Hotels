@@ -1,5 +1,6 @@
 package com.example.hotels.VIEW
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -27,7 +28,12 @@ class DetailsHotel : AppCompatActivity() {
 
         binding.lifecycleOwner = this
         binding.viewModel = hotelInfoViewModel
-        hotelInfoViewModel.clickUpdate(id, this, binding.buttonUpdate)
+
+        binding.buttonUpdate.setOnClickListener {
+            val intent = Intent(this, UpdateHotel::class.java)
+            intent.putExtra("idToUpdate", id)
+            startActivity(intent)
+        }
     }
 
 

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.example.hotels.R
+import com.example.hotels.Repository
 import com.example.hotels.UpdateViewModel
 import com.example.hotels.databinding.ActivityUpdateHotelBinding
 import org.koin.core.KoinComponent
@@ -24,7 +25,7 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
         binding.lifecycleOwner = this
         binding.update = updateViewModel
 
-        var id = intent.getIntExtra("idToUpdate", 0)
+        val id = intent.getIntExtra("idToUpdate", 0)
 
         updateViewModel.loadForUpdate(id)
         binding.buttonUpdateHotel.setOnClickListener {
