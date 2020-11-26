@@ -16,10 +16,4 @@ class ListHotelViewModel : ViewModel(), KoinComponent {
     init {
         adapter.hotelsList = repository.getHotel()
     }
-
-    fun deleteHotel(hotel: Hotel){
-        viewModelScope.launch(Dispatchers.IO){
-            repository.deleteHotel(hotel)
-        }
-    }
 }

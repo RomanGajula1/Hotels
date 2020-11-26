@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
 
     var position: Int? = null
+    val repository = Repository()
 
     companion object {
         @JvmStatic
@@ -41,7 +42,7 @@ class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Ad
             imageDelete.setOnClickListener{
                 val hotel = Hotel()
                 hotel.id = hotelsList?.value?.get(position)?.id
-                Repository().deleteHotel(hotel)
+                repository.deleteHotel(hotel)
             }
         }
     }
