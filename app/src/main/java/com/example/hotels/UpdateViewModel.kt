@@ -28,10 +28,7 @@ class UpdateViewModel : ViewModel(), KoinComponent {
     fun clickUpdateHotel(id: Int, context: Context, view: View){
         view.setOnClickListener {
             val intent = Intent(context, MainActivity::class.java)
-            repository.updateHotel(Hotel(id, nameUpdate.value, imageUpdate.value, descriptionUpdate.value))
-            Log.d("Message: ", nameUpdate.value.toString())
-            Log.d("Message: ", imageUpdate.value.toString())
-            Log.d("Message: ", descriptionUpdate.value.toString())
+            repository.updateHotel(Hotel(id, nameUpdate.value.toString(), imageUpdate.value.toString(), descriptionUpdate.value.toString()))
             context.startActivity(intent)
         }
     }
