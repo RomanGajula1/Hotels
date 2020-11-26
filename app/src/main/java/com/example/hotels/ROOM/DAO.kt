@@ -1,5 +1,7 @@
 package com.example.hotels.ROOM
 
+import android.provider.ContactsContract.CommonDataKinds.Note
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.hotels.Hotel
 
@@ -7,7 +9,7 @@ import com.example.hotels.Hotel
 @Dao
 interface DAO{
     @Query("SELECT * FROM hotels")
-    fun getAll(): List<Hotel>
+    fun getAll(): LiveData<List<Hotel>?>?
 
     @Query("SELECT * FROM hotels WHERE id = :id")
     fun getById(id: Int): Hotel

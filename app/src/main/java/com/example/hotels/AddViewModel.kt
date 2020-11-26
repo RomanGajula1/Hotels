@@ -20,11 +20,7 @@ class AddViewModel : ViewModel(), KoinComponent {
     val addDescription = MutableLiveData("")
     val repository: Repository by inject()
 
-    fun clickAddHotel(context: Context, view: View){
-        view.setOnClickListener{
-            val intent = Intent(context, MainActivity::class.java)
-            repository.addHotel(Hotel(null, addName.value.toString(), addImage.value.toString(), addDescription.value.toString()))
-            context.startActivity(intent)
-        }
+    fun clickAddHotel(){
+        repository.addHotel(Hotel(null, addName.value.toString(), addImage.value.toString(), addDescription.value.toString()))
     }
 }

@@ -28,7 +28,7 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
 
         updateViewModel.loadForUpdate(id)
         binding.buttonUpdateHotel.setOnClickListener {
-            updateViewModel.clickUpdateHotel(id, this)
+            updateViewModel.clickUpdateHotel(id)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

@@ -16,9 +16,9 @@ class DetailsViewModel : ViewModel(), KoinComponent {
     var descriptionText: String? = null
     var photo: String? = null
     fun loadDetailsHotel(id: Int){
-        nameHotel = repository.getHotel()[id].name.toString()
-        descriptionText = repository.getHotel()[id].descriptions.toString()
-        photo = repository.getHotel()[id].image.toString()
+        nameHotel = repository.getById(id).name.toString()
+        descriptionText = repository.getById(id).descriptions.toString()
+        photo = repository.getById(id).image.toString()
     }
 
     fun clickUpdate(id: Int, context: Context, view: View){

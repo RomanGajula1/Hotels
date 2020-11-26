@@ -1,5 +1,6 @@
 package com.example.hotels.VIEW
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -20,6 +21,11 @@ class AddHotel : AppCompatActivity(), KoinComponent {
         binding.lifecycleOwner = this
         binding.addViewModel = addViewModel
 
-        addViewModel.clickAddHotel(this, binding.buttonAdd)
+        binding.buttonAdd.setOnClickListener {
+            addViewModel.clickAddHotel()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

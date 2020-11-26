@@ -1,16 +1,11 @@
 package com.example.hotels
 
-import android.content.Context
-import android.content.Intent
-import android.util.Log
-import android.view.View
-import androidx.lifecycle.LiveData
+import android.provider.ContactsContract.CommonDataKinds.Note
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.hotels.VIEW.MainActivity
 import org.koin.core.KoinComponent
 import org.koin.core.inject
-import kotlin.toString as toString
+
 
 class UpdateViewModel : ViewModel(), KoinComponent {
     val str = "Message"
@@ -20,14 +15,17 @@ class UpdateViewModel : ViewModel(), KoinComponent {
     var descriptionUpdate = MutableLiveData("")
 
     fun loadForUpdate(id: Int){
-        nameUpdate.value = repository.getHotel()[id].name.toString()
-        imageUpdate.value = repository.getHotel()[id].image.toString()
-        descriptionUpdate.value = repository.getHotel()[id].descriptions.toString()
+        nameUpdate.value = repository.getById(id).name.toString()
+        imageUpdate.value = repository.getById(id).image.toString()
+        descriptionUpdate.value = repository.getById(id).descriptions.toString()
     }
 
-    fun clickUpdateHotel(id: Int, context: Context){
+    fun clickUpdateHotel(id: Int){
         val hotel = repository.getById(id)
-        
-        repository.updateHotel()
+        hotel.id = id
+        hotel.name = nameUpdate.value.toString()
+        hotel.image = imageUpdate.value.toString()
+        hotel.descriptions = descriptionUpdate.value.toString()
+        repository.updateHotel(hotel)
     }
 }

@@ -8,12 +8,16 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hotels.VIEW.DetailsHotel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.view.*
 
-class Adapter(var hotelsList: List<Hotel>?) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
+@Suppress("DEPRECATION")
+class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
+
+    var position: Int? = null
 
     companion object {
         @JvmStatic
@@ -31,12 +35,12 @@ class Adapter(var hotelsList: List<Hotel>?) : RecyclerView.Adapter<Adapter.MyVie
         init {
             view.setOnClickListener {
                 val intent = Intent(view.context, DetailsHotel::class.java)
-                intent.putExtra("id", hotelsList?.get(bindingAdapterPosition)?.id)
+                intent.putExtra("id", hotelsList?.value?.get(position)?.id)
                 view.context.startActivity(intent)
             }
             imageDelete.setOnClickListener{
                 val hotel = Hotel()
-                hotel.id = hotelsList?.get(bindingAdapterPosition)?.id
+                hotel.id = hotelsList?.value?.get(position)?.id
                 Repository().deleteHotel(hotel)
             }
         }
@@ -49,16 +53,23 @@ class Adapter(var hotelsList: List<Hotel>?) : RecyclerView.Adapter<Adapter.MyVie
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) { // выполняет привязку объекта, OnBindViewHolder – загружает данные в указанной позиции в представления, ссылки на которые хранятся в заданном заполнителе представления
-        val itemText = hotelsList!![position]
-        holder.nameHotel.text = itemText.name
+        val itemText = hotelsList?.value?.get(position)
+        holder.nameHotel.text = itemText?.name
+
+        this.position = position
 
         Picasso.get()
-            .load(hotelsList!![position].image)
+            .load(hotelsList?.value?.get(position)?.image)
             .error(R.drawable.rotate)
             .into(holder.imageView)
     }
 
+    fun setData(hotel: LiveData<List<Hotel>?>?){
+        this.hotelsList = hotel
+        notifyDataSetChanged()
+    }
+
     override fun getItemCount(): Int {
-        return hotelsList?.size ?: 0
+        return hotelsList?.value?.size ?: 0
     }
 }

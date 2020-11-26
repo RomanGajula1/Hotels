@@ -1,6 +1,7 @@
 package com.example.hotels
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import com.example.hotels.ROOM.DAO
 import com.example.hotels.Koin.MyApp
 import org.koin.core.KoinComponent
@@ -9,7 +10,7 @@ import org.koin.core.inject
 class Repository : KoinComponent {
 
     val dao: DAO by inject()
-    var list: List<Hotel>? = null
+    var list: LiveData<List<Hotel>?>? = null
 
     fun insert(){
         dao.insert(Hotel(1, "Elite Hotel", "https://bestvietnam.ru/wp-content/uploads/2019/09/%D0%BE%D1%82%D0%B5%D0%BB%D1%8C.jpg", "sdfghjkldsciyuhvb"))
@@ -29,8 +30,8 @@ class Repository : KoinComponent {
         dao.insert(hotel)
     }
 
-    fun getById(id: Int){
-        dao.getById(id)
+    fun getById(id: Int) : Hotel{
+        return dao.getById(id)
     }
 
     fun updateHotel(hotel: Hotel){
@@ -41,7 +42,7 @@ class Repository : KoinComponent {
         dao.delete(hotel)
     }
 
-    fun getHotel() : List<Hotel> {
+    fun getHotel() : LiveData<List<Hotel>?>? {
         list = dao.getAll()
         return list!!
     }
