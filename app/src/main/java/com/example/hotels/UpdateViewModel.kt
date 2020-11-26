@@ -25,11 +25,9 @@ class UpdateViewModel : ViewModel(), KoinComponent {
         descriptionUpdate.value = repository.getHotel()[id].descriptions.toString()
     }
 
-    fun clickUpdateHotel(id: Int, context: Context, view: View){
-        view.setOnClickListener {
-            val intent = Intent(context, MainActivity::class.java)
-            repository.updateHotel(Hotel(id, nameUpdate.value.toString(), imageUpdate.value.toString(), descriptionUpdate.value.toString()))
-            context.startActivity(intent)
-        }
+    fun clickUpdateHotel(id: Int, context: Context){
+        val hotel = repository.getById(id)
+        
+        repository.updateHotel()
     }
 }

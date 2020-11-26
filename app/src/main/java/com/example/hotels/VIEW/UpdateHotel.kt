@@ -1,5 +1,6 @@
 package com.example.hotels.VIEW
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -26,6 +27,11 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
         var id = intent.getIntExtra("idToUpdate", 0)
 
         updateViewModel.loadForUpdate(id)
-        updateViewModel.clickUpdateHotel(id, this, binding.buttonUpdateHotel)
+        binding.buttonUpdateHotel.setOnClickListener {
+            updateViewModel.clickUpdateHotel(id, this)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
