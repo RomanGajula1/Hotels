@@ -1,13 +1,11 @@
-package com.example.hotels
+package com.example.hotels.VIEW
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.example.hotels.VIEW.MainActivity
-import com.example.hotels.VIEW.UpdateHotel
+import com.example.hotels.AddViewModel
+import com.example.hotels.R
 import com.example.hotels.databinding.ActivityAddHotelBinding
-import com.example.hotels.databinding.ActivityDetailsHotelBinding
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -19,10 +17,9 @@ class AddHotel : AppCompatActivity(), KoinComponent {
         super.onCreate(savedInstanceState)
         val binding : ActivityAddHotelBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_hotel)
 
-        binding.buttonAdd.setOnClickListener {
-            addViewModel.addHotel()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+        binding.lifecycleOwner = this
+        binding.addViewModel = addViewModel
+
+        addViewModel.clickAddHotel(this, binding.buttonAdd)
     }
 }

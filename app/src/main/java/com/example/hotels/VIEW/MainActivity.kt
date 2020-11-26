@@ -5,9 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hotels.AddHotel
 import com.example.hotels.R
-import com.example.hotels.Repository
 import com.example.hotels.ListHotelViewModel
 import com.example.hotels.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
