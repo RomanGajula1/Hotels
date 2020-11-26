@@ -6,7 +6,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
-@Parcelize
 @Entity(tableName = "hotels")
 class Hotel(
     @PrimaryKey(autoGenerate = true)
@@ -14,4 +13,4 @@ class Hotel(
     var name: String? = null,
     var image: String? = null,
     var descriptions: String? = null,
-) : Parcelable
+)
