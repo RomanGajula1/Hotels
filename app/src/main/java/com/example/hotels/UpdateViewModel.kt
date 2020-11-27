@@ -4,7 +4,10 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.hotels.Koin.MyApp
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -23,11 +26,13 @@ class UpdateViewModel : ViewModel(), KoinComponent {
     }
 
     fun clickUpdateHotel(id: Int){
-        val hotel = repository.getById(id)
-        hotel.id = id
-        hotel.name = nameUpdate.value
-        hotel.image = imageUpdate.value
-        hotel.descriptions = descriptionUpdate.value
-        repository.updateHotel(hotel)
+        viewModelScope.launch(Dispatchers.IO) {
+            val hotel = repository.getById(id)
+            hotel.id = id
+            hotel.name = nameUpdate.value
+            hotel.image = imageUpdate.value
+            hotel.descriptions = descriptionUpdate.value
+            repository.updateHotel(hotel)
+        }
     }
 }

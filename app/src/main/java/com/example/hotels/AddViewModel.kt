@@ -21,6 +21,8 @@ class AddViewModel : ViewModel(), KoinComponent {
     val repository: Repository by inject()
 
     fun clickAddHotel(){
-        repository.addHotel(Hotel(null, addName.value.toString(), addImage.value.toString(), addDescription.value.toString()))
+        viewModelScope.launch(Dispatchers.IO){
+            repository.addHotel(Hotel(null, addName.value.toString(), addImage.value.toString(), addDescription.value.toString()))
+        }
     }
 }

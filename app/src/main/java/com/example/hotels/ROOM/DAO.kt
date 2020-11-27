@@ -15,10 +15,10 @@ interface DAO{
     fun getById(id: Int): Hotel
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(vararg hotel: Hotel)
+    suspend fun insert(vararg hotel: Hotel)
 
     @Update
-    fun update(hotel: Hotel)
+    suspend fun update(hotel: Hotel)
 
     @Delete
     fun delete(hotel: Hotel)

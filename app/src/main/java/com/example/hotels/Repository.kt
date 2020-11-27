@@ -11,7 +11,7 @@ class Repository : KoinComponent {
     val dao: DAO by inject()
     var list: LiveData<List<Hotel>?>? = null
 
-    fun addHotel(hotel: Hotel){
+    suspend fun addHotel(hotel: Hotel){
         dao.insert(hotel)
     }
 
@@ -19,7 +19,7 @@ class Repository : KoinComponent {
         return dao.getById(id)
     }
 
-    fun updateHotel(hotel: Hotel){
+    suspend fun updateHotel(hotel: Hotel){
         dao.update(hotel)
     }
 
