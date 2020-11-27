@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
@@ -20,7 +21,6 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 @Suppress("DEPRECATION")
 class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
 
-    var position: Int? = null
     val repository = Repository()
     val context: Context = MainActivity()
 
@@ -40,13 +40,14 @@ class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Ad
         init {
             view.setOnClickListener {
                 val intent = Intent(view.context, DetailsHotel::class.java)
-                intent.putExtra("id", hotelsList?.value?.get(position)?.id)
+                intent.putExtra("id", hotelsList?.value?.get(bindingAdapterPosition)?.id)
                 view.context.startActivity(intent)
             }
             imageDelete.setOnClickListener{
                 val hotel = Hotel()
-                hotel.id = hotelsList?.value?.get(position)?.id
+                hotel.id = hotelsList?.value?.get(bindingAdapterPosition)?.id
                 repository.deleteHotel(hotel)
+                Toast.makeText(view.context, "Отель удалён!", Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -60,8 +61,6 @@ class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Ad
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) { // выполняет привязку объекта, OnBindViewHolder – загружает данные в указанной позиции в представления, ссылки на которые хранятся в заданном заполнителе представления
         val itemText = hotelsList?.value?.get(position)
         holder.nameHotel.text = itemText?.name
-
-        this.position = position
 
         Picasso.get()
             .load(hotelsList?.value?.get(position)?.image)

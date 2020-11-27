@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.hotels.R
 import com.example.hotels.Repository
@@ -32,6 +33,7 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
             updateViewModel.clickUpdateHotel(id)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            Toast.makeText(this, "Отель обновлён!", Toast.LENGTH_LONG).show()
         }
 
     }

@@ -3,6 +3,7 @@ package com.example.hotels.VIEW
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.hotels.AddViewModel
 import com.example.hotels.R
@@ -25,6 +26,7 @@ class AddHotel : AppCompatActivity(), KoinComponent {
             addViewModel.clickAddHotel()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            Toast.makeText(this, "Отель добавлен!", Toast.LENGTH_LONG).show()
         }
 
     }
