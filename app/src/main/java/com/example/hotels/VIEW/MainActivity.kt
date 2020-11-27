@@ -25,8 +25,6 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = hotelsListViewModel.adapter
-        hotelsListViewModel.repository.insert()
-
         binding.addHotel.setOnClickListener {
             val intent = Intent(this, AddHotel::class.java)
             startActivity(intent)
