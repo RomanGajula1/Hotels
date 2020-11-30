@@ -29,7 +29,7 @@
             android:layout_marginStart="55dp"
             android:layout_marginBottom="70dp"
             android:fontFamily="sans-serif"
-            android:text="@{viewModel.comments}"
+            android:text="@{viewModel.comment}"
             android:textSize="16sp" />
 
         <EditText
@@ -42,7 +42,7 @@
             android:layout_marginBottom="118dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@={viewModel.comments}" />
+            android:text="@={viewModel.comment}" />
 
         <TextView
             android:id="@+id/textView7"

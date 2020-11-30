@@ -19,6 +19,7 @@
 
         <EditText
             android:id="@+id/addName"
+            android:hint="Add name hotel"
             android:layout_width="300dp"
             android:layout_height="0dp"
             android:layout_marginTop="94dp"
@@ -32,6 +33,7 @@
 
         <EditText
             android:id="@+id/addImages"
+            android:hint="Add image hotel"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="174dp"
@@ -44,6 +46,7 @@
 
         <EditText
             android:id="@+id/addDescription"
+            android:hint="Add description hotel"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="254dp"
