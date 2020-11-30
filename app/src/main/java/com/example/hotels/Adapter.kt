@@ -19,7 +19,6 @@ import com.squareup.picasso.Picasso
 class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
 
     val repository = Repository()
-    val context: Context = MainActivity()
 
     companion object {
         @JvmStatic

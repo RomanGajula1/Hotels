@@ -85,8 +85,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             tools:srcCompat="@tools:sample/avatars"
-            app:image="@{viewModel.photo}"
-            />
+            app:image="@{viewModel.photo}"/>
 
         <TextView
             android:id="@+id/NameHotel"
