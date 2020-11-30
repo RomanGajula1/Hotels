@@ -8,12 +8,13 @@ import androidx.databinding.DataBindingUtil
 import com.example.hotels.R
 import com.example.hotels.UpdateViewModel
 import com.example.hotels.databinding.ActivityUpdateHotelBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class UpdateHotel : AppCompatActivity(), KoinComponent {
 
-    val updateViewModel: UpdateViewModel by inject()
+    val updateViewModel: UpdateViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

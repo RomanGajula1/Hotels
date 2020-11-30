@@ -10,11 +10,11 @@ import com.example.hotels.R
 import com.example.hotels.ListHotelViewModel
 import com.example.hotels.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    val hotelsListViewModel: ListHotelViewModel by inject()
+    val hotelsListViewModel: ListHotelViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
