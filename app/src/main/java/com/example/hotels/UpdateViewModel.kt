@@ -1,11 +1,8 @@
 package com.example.hotels
 
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.hotels.Koin.MyApp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
@@ -13,7 +10,6 @@ import org.koin.core.inject
 
 
 class UpdateViewModel : ViewModel(), KoinComponent {
-    val str = "Message"
     private val repository: Repository by inject()
     var nameUpdate = MutableLiveData("")
     var imageUpdate = MutableLiveData("")

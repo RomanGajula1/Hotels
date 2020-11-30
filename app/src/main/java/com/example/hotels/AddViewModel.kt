@@ -1,14 +1,8 @@
 package com.example.hotels
 
-import android.content.Context
-import android.content.Intent
-import android.util.Log
-import android.view.View
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.hotels.VIEW.MainActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent

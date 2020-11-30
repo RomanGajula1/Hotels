@@ -3,11 +3,9 @@ package com.example.hotels.VIEW
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.hotels.R
-import com.example.hotels.Repository
 import com.example.hotels.UpdateViewModel
 import com.example.hotels.databinding.ActivityUpdateHotelBinding
 import org.koin.core.KoinComponent

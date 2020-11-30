@@ -5,8 +5,6 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -16,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.hotels.VIEW.DetailsHotel
 import com.example.hotels.VIEW.MainActivity
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_main.view.*
 
 @Suppress("DEPRECATION")
 class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
@@ -70,7 +67,7 @@ class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Ad
 
     fun setData(hotel: LiveData<List<Hotel>?>?){
         this.hotelsList = hotel
-        notifyDataSetChanged()
+        notifyDataSetChanged() // Для уведомления о изменениях в БД
     }
 
     override fun getItemCount(): Int {

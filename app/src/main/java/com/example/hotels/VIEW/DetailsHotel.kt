@@ -12,7 +12,7 @@ import com.example.hotels.databinding.ActivityDetailsHotelBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailsHotel : AppCompatActivity() {
-    val hotelInfoViewModel : DetailsViewModel by viewModel()
+    val detailsViewModel : DetailsViewModel by viewModel()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,10 +24,10 @@ class DetailsHotel : AppCompatActivity() {
 
         var id = intent.getIntExtra("id", 0)
 
-        hotelInfoViewModel.loadDetailsHotel(id)
+        detailsViewModel.loadDetailsHotel(id)
 
-        binding.lifecycleOwner = this
-        binding.viewModel = hotelInfoViewModel
+        binding.lifecycleOwner = this // владелец жизненного цикла
+        binding.viewModel = detailsViewModel
 
         binding.buttonUpdate.setOnClickListener {
             val intent = Intent(this, UpdateHotel::class.java)

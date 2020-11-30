@@ -2,7 +2,6 @@ package com.example.hotels
 
 import androidx.lifecycle.LiveData
 import com.example.hotels.ROOM.DAO
-import com.example.hotels.Koin.MyApp
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 

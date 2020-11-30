@@ -2,14 +2,12 @@ package com.example.hotels.VIEW
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hotels.R
 import com.example.hotels.ListHotelViewModel
-import com.example.hotels.ROOM.DAO
 import com.example.hotels.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
