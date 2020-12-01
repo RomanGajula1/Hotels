@@ -10,7 +10,7 @@ import org.koin.core.inject
 
 
 class UpdateViewModel : ViewModel(), KoinComponent {
-    private val repository: Repository by inject()
+    private val repository: RepositoryHotel by inject()
     var name = MutableLiveData("")
     var image = MutableLiveData("")
     var description = MutableLiveData("")

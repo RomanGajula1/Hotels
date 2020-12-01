@@ -1,13 +1,10 @@
 package com.example.hotels.ROOM
 
-import android.provider.ContactsContract.CommonDataKinds.Note
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.hotels.Hotel
 
-
 @Dao
-interface DAO{
+interface DaoHotel {
     @Query("SELECT * FROM hotels")
     fun getAll(): List<Hotel>?
 

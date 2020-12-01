@@ -6,7 +6,7 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class DetailsViewModel : ViewModel(), KoinComponent {
-    private val repository: Repository by inject()
+    private val repository: RepositoryHotel by inject()
     var comment = MutableLiveData("")
     var name: String? = null
     var description: String? = null

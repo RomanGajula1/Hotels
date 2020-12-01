@@ -1,14 +1,12 @@
 package com.example.hotels
 
-import androidx.lifecycle.LiveData
-import com.example.hotels.ROOM.DAO
+import com.example.hotels.ROOM.DaoHotel
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class Repository : KoinComponent {
+class RepositoryHotel : KoinComponent {
 
-    val dao: DAO by inject()
-    var list: List<Hotel>? = null
+    val dao: DaoHotel by inject()
 
     suspend fun addHotel(hotel: Hotel){
         dao.insert(hotel)

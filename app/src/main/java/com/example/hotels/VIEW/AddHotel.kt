@@ -13,11 +13,12 @@ import org.koin.core.KoinComponent
 
 class AddHotel : AppCompatActivity(), KoinComponent {
 
-    val addViewModel: AddViewModel by viewModel()
+    private val addViewModel: AddViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding : ActivityAddHotelBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_hotel)
+        val binding: ActivityAddHotelBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_add_hotel)
 
         binding.lifecycleOwner = this
         binding.addViewModel = addViewModel

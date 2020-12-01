@@ -7,5 +7,5 @@ import com.example.hotels.Hotel
 
 @Database(entities = [Hotel::class], version = 1)
 abstract class DataBase : RoomDatabase() {
-    abstract val dao: DAO
+    abstract val dao: DaoHotel
 }
