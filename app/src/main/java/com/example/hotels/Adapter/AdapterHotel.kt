@@ -1,40 +1,44 @@
-package com.example.hotels
+package com.example.hotels.Adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hotels.Hotel
+import com.example.hotels.ListHotelViewModel
+import com.example.hotels.R
 import com.example.hotels.VIEW.DetailsHotel
 import com.squareup.picasso.Picasso
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
 @Suppress("DEPRECATION")
-class AdapterHotel(var hotelsList: List<Hotel>?) :
-    RecyclerView.Adapter<AdapterHotel.MyViewHolder>() {
+class AdapterHotel() :
+    RecyclerView.Adapter<AdapterHotel.MyViewHolder>(), KoinComponent {
 
-    val repository = Repository()
+    val hotelsListViewModel: ListHotelViewModel by inject()
 
     inner class MyViewHolder(view: View) :
-        RecyclerView.ViewHolder(view) { // MyViewHolder хранит тэги корнегого представления каждого элемента списка.
+        RecyclerView.ViewHolder(view) {
         val nameHotel: TextView = view.findViewById<View>(R.id.nameHotel) as TextView
         val imageView: ImageView = view.findViewById<View>(R.id.imageHotel) as ImageView
-        private val imageDelete: ImageView =
-            view.findViewById<View>(R.id.button_delete) as ImageView
+        private val buttonDelete: Button = view.findViewById<View>(R.id.buttonDelete) as Button
 
         init {
             view.setOnClickListener {
                 val intent = Intent(view.context, DetailsHotel::class.java)
-                intent.putExtra("id", hotelsList!![bindingAdapterPosition].id)
+                intent.putExtra("id", hotelsListViewModel.hotelList!![bindingAdapterPosition].id)
                 view.context.startActivity(intent)
             }
-            imageDelete.setOnClickListener {
+            buttonDelete.setOnClickListener {
                 val hotel = Hotel()
-                hotel.id = hotelsList!![bindingAdapterPosition].id
-                repository.deleteHotel(hotel)
+                hotel.id = hotelsListViewModel.hotelList!![bindingAdapterPosition].id
+                hotelsListViewModel.repository.deleteHotel(hotel)
                 Toast.makeText(view.context, "Отель удалён!", Toast.LENGTH_LONG).show()
             }
         }
@@ -50,21 +54,21 @@ class AdapterHotel(var hotelsList: List<Hotel>?) :
         holder: MyViewHolder,
         position: Int
     ) { // выполняет привязку объекта, OnBindViewHolder – загружает данные в указанной позиции в представления, ссылки на которые хранятся в заданном заполнителе представления
-        val itemText = hotelsList!![position]
+        val itemText = hotelsListViewModel.hotelList!![position]
         holder.nameHotel.text = itemText.name
 
         Picasso.get()
-            .load(hotelsList!![position].image)
+            .load(hotelsListViewModel.hotelList!![position].image)
             .error(R.drawable.rotate)
             .into(holder.imageView)
     }
 
     fun setData(hotel: List<Hotel>?) {
-        this.hotelsList = hotel
-        notifyDataSetChanged() // Для уведомления о изменениях в БД
+        this.hotelsListViewModel.hotelList = hotel
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
-        return hotelsList?.size ?: 0
+        return hotelsListViewModel.hotelList?.size ?: 0
     }
 }
