@@ -14,7 +14,7 @@ val appModule = module {
     viewModel { UpdateViewModel() }
     viewModel { AddViewModel() }
     single { RepositoryHotel() }
-    single { Room.databaseBuilder(get(), DataBase::class.java, "DataBase")
+    single { Room.databaseBuilder(get(), DataBase::class.java, "DataBaseRoom")
         .allowMainThreadQueries().build() }
     single { get<DataBase>().dao }
     single { DetailsHotel() }

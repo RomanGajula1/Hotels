@@ -65,7 +65,7 @@
             android:layout_marginEnd="74dp"
             android:layout_marginBottom="222dp"
             android:gravity="top|center_horizontal"
-            android:text="@{viewModel.hotel.descriptions}"
+            android:text="@{viewModel.hotel.description}"
             android:textSize="18sp" />
 
         <ImageView
@@ -110,6 +110,7 @@
             android:layout_marginStart="105dp"
             android:layout_marginTop="105dp"
             android:layout_marginEnd="130dp"
+            android:onClick="clickUpdate"
             android:layout_marginBottom="10dp"
             android:background="#FBE4E4"
             android:text="Update" />

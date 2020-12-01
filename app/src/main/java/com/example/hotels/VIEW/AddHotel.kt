@@ -3,6 +3,7 @@ package com.example.hotels.VIEW
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.hotels.AddViewModel
@@ -20,18 +21,21 @@ class AddHotel : AppCompatActivity(), KoinComponent {
         val binding: ActivityAddHotelBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_add_hotel)
 
-//        binding.lifecycleOwner = this
-//        binding.addViewModel = addViewModel
-
         binding.apply {
             lifecycleOwner = this@AddHotel
             addViewModel = this@AddHotel.addViewModel
-            buttonAdd.setOnClickListener {
-                this@AddHotel.addViewModel.clickAddHotel()
-                val intent = Intent(this@AddHotel, MainActivity::class.java)
-                startActivity(intent)
-                Toast.makeText(this@AddHotel, "Отель добавлен!", Toast.LENGTH_LONG).show()
-            }
+//            buttonAdd.setOnClickListener {
+//                this@AddHotel.addViewModel.clickAddHotel()
+//                val intent = Intent(this@AddHotel, MainActivity::class.java)
+//                startActivity(intent)
+//                Toast.makeText(this@AddHotel, "Отель добавлен!", Toast.LENGTH_LONG).show()
+//            }
         }
+    }
+    fun clickAddHotel(view: View){
+        addViewModel.clickAddHotel()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        Toast.makeText(this, "Отель добавлен!", Toast.LENGTH_LONG).show()
     }
 }

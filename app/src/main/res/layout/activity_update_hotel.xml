@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="update"
+            name="updateViewModel"
             type="com.example.hotels.UpdateViewModel" />
 
     </data>
@@ -26,7 +26,7 @@
         android:layout_marginBottom="264dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@={update.name}"
+        android:text="@={updateViewModel.name}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,7 @@
         android:layout_marginTop="200dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@={update.image}"
+        android:text="@={updateViewModel.image}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +50,7 @@
         android:layout_marginTop="300dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@={update.description}"
+        android:text="@={updateViewModel.description}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,6 +62,7 @@
         android:layout_marginBottom="150dp"
         android:layout_marginStart="10dp"
         android:text="Update"
+        android:onClick="clickUpdateHotel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>

@@ -29,11 +29,11 @@ class MainActivity : AppCompatActivity() {
             recyclerView.setHasFixedSize(true)
             recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
             recyclerView.adapter = this@MainActivity.hotelsListViewModel.adapter
-            addHotel.setOnClickListener {
-                val intent = Intent(this@MainActivity, AddHotel::class.java)
-                startActivity(intent)
-            }
         }
         hotelsListViewModel.adapter.setData(hotelsListViewModel.hotelList)
+    }
+    fun clickAddHotel(view: View){
+        val intent = Intent(this@MainActivity, AddHotel::class.java)
+        startActivity(intent)
     }
 }

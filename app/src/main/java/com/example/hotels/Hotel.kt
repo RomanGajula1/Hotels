@@ -9,5 +9,5 @@ class Hotel(
     var id: Int? = null,
     var name: String? = null,
     var image: String? = null,
-    var descriptions: String? = null,
+    var description: String? = null,
 )

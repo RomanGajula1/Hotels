@@ -9,10 +9,11 @@ class DetailsViewModel : ViewModel(), KoinComponent {
     private val repository: RepositoryHotel by inject()
     var comment = MutableLiveData("")
     val hotel: Hotel = Hotel()
+
     fun loadDetailsHotel(id: Int) {
         repository.getById(id).let {
             hotel.name = it.name
-            hotel.descriptions = it.descriptions
+            hotel.description = it.description
             hotel.image = it.image
         }
     }

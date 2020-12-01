@@ -3,6 +3,8 @@ package com.example.hotels.VIEW
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.hotels.R
@@ -15,6 +17,7 @@ import org.koin.core.inject
 class UpdateHotel : AppCompatActivity(), KoinComponent {
 
     val updateViewModel: UpdateViewModel by viewModel()
+    var id: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,19 +26,19 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
             R.layout.activity_update_hotel
         )
 
-        val id = intent.getIntExtra("idToUpdate", 0)
+        id = intent.getIntExtra("idToUpdate", 0)
 
         updateViewModel.loadForUpdate(id)
 
         binding.apply {
             lifecycleOwner = this@UpdateHotel
-            update = updateViewModel
-            buttonUpdateHotel.setOnClickListener {
-                updateViewModel.clickUpdateHotel(id)
-                val intent = Intent(this@UpdateHotel, MainActivity::class.java)
-                startActivity(intent)
-                Toast.makeText(this@UpdateHotel, "Отель обновлён!", Toast.LENGTH_LONG).show()
-            }
+            updateViewModel = this@UpdateHotel.updateViewModel
         }
+    }
+    fun clickUpdateHotel(view: View){
+        updateViewModel.clickUpdateHotel(id)
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        Toast.makeText(this, "Отель обновлён!", Toast.LENGTH_LONG).show()
     }
 }
