@@ -10,6 +10,8 @@ import androidx.databinding.DataBindingUtil
 import com.example.hotels.R
 import com.example.hotels.UpdateViewModel
 import com.example.hotels.databinding.ActivityUpdateHotelBinding
+import kotlinx.android.synthetic.main.activity_add_hotel.*
+import kotlinx.android.synthetic.main.activity_update_hotel.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -36,9 +38,23 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
         }
     }
     fun clickUpdateHotel(view: View){
-        updateViewModel.clickUpdateHotel(id)
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        Toast.makeText(this, "Отель обновлён!", Toast.LENGTH_LONG).show()
+        if (imageUpdate.text.toString() == "" || descriptionUpdate.text.toString() == "" ||
+            nameUpdate.text.toString() == "") {
+            Toast.makeText(
+                this,
+                "Пожалуйста заполните все поля!",
+                Toast.LENGTH_LONG
+            ).show()
+            when("") {
+                nameUpdate.text.toString() -> nameUpdate.error = "Введите название отеля!"
+                imageUpdate.text.toString() -> imageUpdate.error = "Введите путь к фото отеля!"
+                descriptionUpdate.text.toString() -> descriptionUpdate.error = "Введите описание отеля!"
+            }
+        } else {
+            updateViewModel.clickUpdateHotel(id)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            Toast.makeText(this, "Отель обновлён!", Toast.LENGTH_LONG).show()
+        }
     }
 }
