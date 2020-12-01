@@ -65,7 +65,7 @@
             android:layout_marginEnd="74dp"
             android:layout_marginBottom="222dp"
             android:gravity="top|center_horizontal"
-            android:text="@{viewModel.description}"
+            android:text="@{viewModel.hotel.descriptions}"
             android:textSize="18sp" />
 
         <ImageView
@@ -82,7 +82,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             tools:srcCompat="@tools:sample/avatars"
-            app:image="@{viewModel.photo}"/>
+            app:image="@{viewModel.hotel.image}"/>
 
         <TextView
             android:id="@+id/NameHotel"
@@ -94,7 +94,7 @@
             android:layout_marginBottom="48dp"
             android:fontFamily="cursive"
             android:gravity="top|center_horizontal"
-            android:text="@{viewModel.name}"
+            android:text="@{viewModel.hotel.name}"
             android:textSize="45sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"

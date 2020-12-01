@@ -35,12 +35,14 @@ class AdapterHotel() :
                 intent.putExtra("id", hotelsListViewModel.hotelList!![bindingAdapterPosition].id)
                 view.context.startActivity(intent)
             }
+
             buttonDelete.setOnClickListener {
                 val hotel = Hotel()
                 hotel.id = hotelsListViewModel.hotelList!![bindingAdapterPosition].id
                 hotelsListViewModel.repository.deleteHotel(hotel)
                 Toast.makeText(view.context, "Отель удалён!", Toast.LENGTH_LONG).show()
             }
+
         }
     }
 

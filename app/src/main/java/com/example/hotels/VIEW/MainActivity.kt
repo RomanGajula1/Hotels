@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hotels.Hotel
 import com.example.hotels.R
@@ -21,17 +22,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var binding: ActivityMainBinding =
+        val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        binding.recyclerView.setHasFixedSize(true)
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = hotelsListViewModel.adapter
-        binding.addHotel.setOnClickListener {
-            val intent = Intent(this, AddHotel::class.java)
-            startActivity(intent)
+        binding.apply {
+            recyclerView.setHasFixedSize(true)
+            recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+            recyclerView.adapter = this@MainActivity.hotelsListViewModel.adapter
+            addHotel.setOnClickListener {
+                val intent = Intent(this@MainActivity, AddHotel::class.java)
+                startActivity(intent)
+            }
         }
-
         hotelsListViewModel.adapter.setData(hotelsListViewModel.hotelList)
     }
 }

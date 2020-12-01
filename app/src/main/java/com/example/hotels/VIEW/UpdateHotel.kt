@@ -23,18 +23,19 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
             R.layout.activity_update_hotel
         )
 
-        binding.lifecycleOwner = this
-        binding.update = updateViewModel
-
         val id = intent.getIntExtra("idToUpdate", 0)
 
         updateViewModel.loadForUpdate(id)
-        binding.buttonUpdateHotel.setOnClickListener {
-            updateViewModel.clickUpdateHotel(id)
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            Toast.makeText(this, "Отель обновлён!", Toast.LENGTH_LONG).show()
-        }
 
+        binding.apply {
+            lifecycleOwner = this@UpdateHotel
+            update = updateViewModel
+            buttonUpdateHotel.setOnClickListener {
+                updateViewModel.clickUpdateHotel(id)
+                val intent = Intent(this@UpdateHotel, MainActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(this@UpdateHotel, "Отель обновлён!", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }

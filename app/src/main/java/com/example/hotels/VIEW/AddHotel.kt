@@ -20,15 +20,18 @@ class AddHotel : AppCompatActivity(), KoinComponent {
         val binding: ActivityAddHotelBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_add_hotel)
 
-        binding.lifecycleOwner = this
-        binding.addViewModel = addViewModel
+//        binding.lifecycleOwner = this
+//        binding.addViewModel = addViewModel
 
-        binding.buttonAdd.setOnClickListener {
-            addViewModel.clickAddHotel()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            Toast.makeText(this, "Отель добавлен!", Toast.LENGTH_LONG).show()
+        binding.apply {
+            lifecycleOwner = this@AddHotel
+            addViewModel = this@AddHotel.addViewModel
+            buttonAdd.setOnClickListener {
+                this@AddHotel.addViewModel.clickAddHotel()
+                val intent = Intent(this@AddHotel, MainActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(this@AddHotel, "Отель добавлен!", Toast.LENGTH_LONG).show()
+            }
         }
-
     }
 }

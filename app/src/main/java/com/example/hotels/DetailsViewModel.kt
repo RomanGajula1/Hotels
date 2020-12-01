@@ -8,12 +8,12 @@ import org.koin.core.inject
 class DetailsViewModel : ViewModel(), KoinComponent {
     private val repository: RepositoryHotel by inject()
     var comment = MutableLiveData("")
-    var name: String? = null
-    var description: String? = null
-    var photo: String? = null
+    val hotel: Hotel = Hotel()
     fun loadDetailsHotel(id: Int) {
-        name = repository.getById(id).name.toString()
-        description = repository.getById(id).descriptions.toString()
-        photo = repository.getById(id).image.toString()
+        repository.getById(id).let {
+            hotel.name = it.name
+            hotel.descriptions = it.descriptions
+            hotel.image = it.image
+        }
     }
 }

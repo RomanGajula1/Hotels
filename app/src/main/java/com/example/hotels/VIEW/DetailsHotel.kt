@@ -23,17 +23,18 @@ class DetailsHotel : AppCompatActivity() {
             R.layout.activity_details_hotel
         )
 
-        var id = intent.getIntExtra("id", 0)
+        val id = intent.getIntExtra("id", 0)
 
         detailsViewModel.loadDetailsHotel(id)
 
-        binding.lifecycleOwner = this // владелец жизненного цикла
-        binding.viewModel = detailsViewModel
-
-        binding.buttonUpdate.setOnClickListener {
-            val intent = Intent(this, UpdateHotel::class.java)
-            intent.putExtra("idToUpdate", id)
-            startActivity(intent)
+        binding.apply {
+            lifecycleOwner = this@DetailsHotel // владелец жизненного цикла
+            viewModel = this@DetailsHotel.detailsViewModel
+            buttonUpdate.setOnClickListener {
+                val intent = Intent(this@DetailsHotel, UpdateHotel::class.java)
+                intent.putExtra("idToUpdate", id)
+                startActivity(intent)
+            }
         }
     }
 
