@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.example.hotels.AddViewModel
 import com.example.hotels.R
 import com.example.hotels.databinding.ActivityAddHotelBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.KoinComponent
-import com.example.hotels.AddViewModel
 
 class AddHotel : AppCompatActivity(), KoinComponent {
 

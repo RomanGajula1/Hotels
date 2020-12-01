@@ -9,14 +9,21 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class AddViewModel : ViewModel(), KoinComponent {
-    val addName = MutableLiveData("")
-    val addImage = MutableLiveData("")
-    val addDescription = MutableLiveData("")
+    val name = MutableLiveData("")
+    val image = MutableLiveData("")
+    val description = MutableLiveData("")
     val repository: Repository by inject()
 
-    fun clickAddHotel(){
-        viewModelScope.launch(Dispatchers.IO){
-            repository.addHotel(Hotel(null, addName.value.toString(), addImage.value.toString(), addDescription.value.toString()))
+    fun clickAddHotel() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addHotel(
+                Hotel(
+                    null,
+                    name.value.toString(),
+                    image.value.toString(),
+                    description.value.toString()
+                )
+            )
         }
     }
 }

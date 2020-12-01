@@ -12,13 +12,14 @@ import com.example.hotels.databinding.ActivityDetailsHotelBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailsHotel : AppCompatActivity() {
-    val detailsViewModel : DetailsViewModel by viewModel()
+    val detailsViewModel: DetailsViewModel by viewModel()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding : ActivityDetailsHotelBinding = DataBindingUtil.setContentView(this,
+        val binding: ActivityDetailsHotelBinding = DataBindingUtil.setContentView(
+            this,
             R.layout.activity_details_hotel
         )
 

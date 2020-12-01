@@ -18,7 +18,8 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding : ActivityUpdateHotelBinding = DataBindingUtil.setContentView(this,
+        val binding: ActivityUpdateHotelBinding = DataBindingUtil.setContentView(
+            this,
             R.layout.activity_update_hotel
         )
 

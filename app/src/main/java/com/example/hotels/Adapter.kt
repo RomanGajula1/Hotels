@@ -16,7 +16,8 @@ import com.example.hotels.VIEW.MainActivity
 import com.squareup.picasso.Picasso
 
 @Suppress("DEPRECATION")
-class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
+class Adapter(var hotelsList: LiveData<List<Hotel>?>?) :
+    RecyclerView.Adapter<Adapter.MyViewHolder>() {
 
     val repository = Repository()
 
@@ -28,10 +29,12 @@ class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Ad
         }
     }
 
-    inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) { // MyViewHolder хранит тэги корнегого представления каждого элемента списка.
+    inner class MyViewHolder(view: View) :
+        RecyclerView.ViewHolder(view) { // MyViewHolder хранит тэги корнегого представления каждого элемента списка.
         val nameHotel: TextView = view.findViewById<View>(R.id.nameHotel) as TextView
         val imageView: ImageView = view.findViewById<View>(R.id.imageHotel) as ImageView
-        private val imageDelete: ImageView = view.findViewById<View>(R.id.button_delete) as ImageView
+        private val imageDelete: ImageView =
+            view.findViewById<View>(R.id.button_delete) as ImageView
 
         init {
             view.setOnClickListener {
@@ -39,7 +42,7 @@ class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Ad
                 intent.putExtra("id", hotelsList?.value?.get(bindingAdapterPosition)?.id)
                 view.context.startActivity(intent)
             }
-            imageDelete.setOnClickListener{
+            imageDelete.setOnClickListener {
                 val hotel = Hotel()
                 hotel.id = hotelsList?.value?.get(bindingAdapterPosition)?.id
                 repository.deleteHotel(hotel)
@@ -54,7 +57,10 @@ class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Ad
         return MyViewHolder(itemsView)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) { // выполняет привязку объекта, OnBindViewHolder – загружает данные в указанной позиции в представления, ссылки на которые хранятся в заданном заполнителе представления
+    override fun onBindViewHolder(
+        holder: MyViewHolder,
+        position: Int
+    ) { // выполняет привязку объекта, OnBindViewHolder – загружает данные в указанной позиции в представления, ссылки на которые хранятся в заданном заполнителе представления
         val itemText = hotelsList?.value?.get(position)
         holder.nameHotel.text = itemText?.name
 
@@ -64,7 +70,7 @@ class Adapter(var hotelsList: LiveData<List<Hotel>?>?) : RecyclerView.Adapter<Ad
             .into(holder.imageView)
     }
 
-    fun setData(hotel: LiveData<List<Hotel>?>?){
+    fun setData(hotel: LiveData<List<Hotel>?>?) {
         this.hotelsList = hotel
         notifyDataSetChanged() // Для уведомления о изменениях в БД
     }
