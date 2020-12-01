@@ -16,7 +16,7 @@ import org.koin.core.inject
 
 class UpdateHotel : AppCompatActivity(), KoinComponent {
 
-    val updateViewModel: UpdateViewModel by viewModel()
+    private val updateViewModel: UpdateViewModel by viewModel()
     var id: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -9,8 +9,7 @@ import org.koin.core.context.startKoin
 
 
 class MyApp : Application() {
-    companion object {var instasce: MyApp? = null}
-    val dataBase: DataBase by inject()
+    companion object {var instance: MyApp? = null}
 
     override fun onCreate() {
         super.onCreate()
@@ -18,6 +17,6 @@ class MyApp : Application() {
             androidContext(this@MyApp)
             modules(listOf(appModule))
         }
-        instasce = this
+        instance = this
     }
 }

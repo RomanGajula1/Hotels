@@ -24,12 +24,6 @@ class AddHotel : AppCompatActivity(), KoinComponent {
         binding.apply {
             lifecycleOwner = this@AddHotel
             addViewModel = this@AddHotel.addViewModel
-//            buttonAdd.setOnClickListener {
-//                this@AddHotel.addViewModel.clickAddHotel()
-//                val intent = Intent(this@AddHotel, MainActivity::class.java)
-//                startActivity(intent)
-//                Toast.makeText(this@AddHotel, "Отель добавлен!", Toast.LENGTH_LONG).show()
-//            }
         }
     }
     fun clickAddHotel(view: View){

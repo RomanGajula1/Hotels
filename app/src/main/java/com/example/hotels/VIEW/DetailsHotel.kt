@@ -14,7 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailsHotel : AppCompatActivity() {
 
-    val detailsViewModel: DetailsViewModel by viewModel()
+    private val detailsViewModel: DetailsViewModel by viewModel()
     var id: Int = 0
 
     @RequiresApi(Build.VERSION_CODES.O)

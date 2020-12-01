@@ -55,7 +55,7 @@ class AdapterHotel() :
     override fun onBindViewHolder(
         holder: MyViewHolder,
         position: Int
-    ) { // выполняет привязку объекта, OnBindViewHolder – загружает данные в указанной позиции в представления, ссылки на которые хранятся в заданном заполнителе представления
+    ) {
         val itemText = hotelsListViewModel.hotelList!![position]
         holder.nameHotel.text = itemText.name
 

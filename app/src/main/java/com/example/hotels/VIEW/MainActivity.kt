@@ -18,7 +18,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    val hotelsListViewModel: ListHotelViewModel by viewModel()
+    private val hotelsListViewModel: ListHotelViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

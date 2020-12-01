@@ -6,7 +6,7 @@ import org.koin.core.inject
 
 class RepositoryHotel : KoinComponent {
 
-    val dao: DaoHotel by inject()
+    private val dao: DaoHotel by inject()
 
     suspend fun addHotel(hotel: Hotel){
         dao.insert(hotel)
@@ -24,7 +24,5 @@ class RepositoryHotel : KoinComponent {
         dao.delete(hotel)
     }
 
-    fun getHotel() : List<Hotel>? {
-        return dao.getAll()
-    }
+    fun getHotel() = dao.getAll()
 }
