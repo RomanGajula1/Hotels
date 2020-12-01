@@ -29,8 +29,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        hotelsListViewModel.adapter.hotelsList?.observe(this, Observer {
-            hotelsListViewModel.adapter.setData(hotelsListViewModel.adapter.hotelsList)
-        })
+        hotelsListViewModel.adapter.setData(hotelsListViewModel.adapter.hotelsList)
+
     }
 }

@@ -9,7 +9,7 @@ import com.example.hotels.Hotel
 @Dao
 interface DAO{
     @Query("SELECT * FROM hotels")
-    fun getAll(): LiveData<List<Hotel>?>?
+    fun getAll(): List<Hotel>?
 
     @Query("SELECT * FROM hotels WHERE id = :id")
     fun getById(id: Int): Hotel

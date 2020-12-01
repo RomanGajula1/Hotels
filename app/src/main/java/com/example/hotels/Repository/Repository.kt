@@ -8,7 +8,7 @@ import org.koin.core.inject
 class Repository : KoinComponent {
 
     val dao: DAO by inject()
-    var list: LiveData<List<Hotel>?>? = null
+    var list: List<Hotel>? = null
 
     suspend fun addHotel(hotel: Hotel){
         dao.insert(hotel)
@@ -26,8 +26,7 @@ class Repository : KoinComponent {
         dao.delete(hotel)
     }
 
-    fun getHotel() : LiveData<List<Hotel>?>? {
-        list = dao.getAll()
-        return list!!
+    fun getHotel() : List<Hotel>? {
+        return dao.getAll()
     }
 }

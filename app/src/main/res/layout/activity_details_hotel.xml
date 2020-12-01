@@ -8,9 +8,6 @@
         <variable
             name="viewModel"
             type="com.example.hotels.DetailsViewModel" />
-        <variable
-            name="adapter"
-            type="com.example.hotels.Adapter" />
 
     </data>
 

@@ -8,9 +8,6 @@
         <variable
             name="model"
             type="com.example.hotels.Hotel" />
-        <variable
-            name="adapter"
-            type="com.example.hotels.Adapter" />
 
     </data>
 

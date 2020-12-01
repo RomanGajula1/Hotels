@@ -1,6 +1,5 @@
 package com.example.hotels
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -8,26 +7,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hotels.VIEW.DetailsHotel
-import com.example.hotels.VIEW.MainActivity
 import com.squareup.picasso.Picasso
 
 @Suppress("DEPRECATION")
-class Adapter(var hotelsList: LiveData<List<Hotel>?>?) :
-    RecyclerView.Adapter<Adapter.MyViewHolder>() {
+class AdapterHotel(var hotelsList: List<Hotel>?) :
+    RecyclerView.Adapter<AdapterHotel.MyViewHolder>() {
 
     val repository = Repository()
-
-    companion object {
-        @JvmStatic
-        @BindingAdapter("app:image")
-        fun loadImage(view: ImageView, url: String) {
-            Picasso.get().load(url).into(view)
-        }
-    }
 
     inner class MyViewHolder(view: View) :
         RecyclerView.ViewHolder(view) { // MyViewHolder хранит тэги корнегого представления каждого элемента списка.
@@ -39,12 +28,12 @@ class Adapter(var hotelsList: LiveData<List<Hotel>?>?) :
         init {
             view.setOnClickListener {
                 val intent = Intent(view.context, DetailsHotel::class.java)
-                intent.putExtra("id", hotelsList?.value?.get(bindingAdapterPosition)?.id)
+                intent.putExtra("id", hotelsList!![bindingAdapterPosition].id)
                 view.context.startActivity(intent)
             }
             imageDelete.setOnClickListener {
                 val hotel = Hotel()
-                hotel.id = hotelsList?.value?.get(bindingAdapterPosition)?.id
+                hotel.id = hotelsList!![bindingAdapterPosition].id
                 repository.deleteHotel(hotel)
                 Toast.makeText(view.context, "Отель удалён!", Toast.LENGTH_LONG).show()
             }
@@ -61,21 +50,21 @@ class Adapter(var hotelsList: LiveData<List<Hotel>?>?) :
         holder: MyViewHolder,
         position: Int
     ) { // выполняет привязку объекта, OnBindViewHolder – загружает данные в указанной позиции в представления, ссылки на которые хранятся в заданном заполнителе представления
-        val itemText = hotelsList?.value?.get(position)
-        holder.nameHotel.text = itemText?.name
+        val itemText = hotelsList!![position]
+        holder.nameHotel.text = itemText.name
 
         Picasso.get()
-            .load(hotelsList?.value?.get(position)?.image)
+            .load(hotelsList!![position].image)
             .error(R.drawable.rotate)
             .into(holder.imageView)
     }
 
-    fun setData(hotel: LiveData<List<Hotel>?>?) {
+    fun setData(hotel: List<Hotel>?) {
         this.hotelsList = hotel
         notifyDataSetChanged() // Для уведомления о изменениях в БД
     }
 
     override fun getItemCount(): Int {
-        return hotelsList?.value?.size ?: 0
+        return hotelsList?.size ?: 0
     }
 }

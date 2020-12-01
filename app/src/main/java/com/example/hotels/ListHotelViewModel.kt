@@ -6,7 +6,7 @@ import org.koin.core.inject
 
 class ListHotelViewModel : ViewModel(), KoinComponent {
     val repository: Repository by inject()
-    var adapter: Adapter = Adapter(null)
+    var adapter: AdapterHotel = AdapterHotel(null)
     init {
         adapter.hotelsList = repository.getHotel()
     }
