@@ -9,8 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hotels.Hotel
-import com.example.hotels.ListHotelViewModel
+import com.example.hotels.model.Hotel
+import com.example.hotels.viewModel.ListHotelViewModel
 import com.example.hotels.R
 import com.example.hotels.VIEW.DetailsHotel
 import com.squareup.picasso.Picasso

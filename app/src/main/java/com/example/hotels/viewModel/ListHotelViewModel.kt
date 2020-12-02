@@ -1,7 +1,8 @@
-package com.example.hotels
+package com.example.hotels.viewModel
 
 import androidx.lifecycle.ViewModel
 import com.example.hotels.Adapter.AdapterHotel
+import com.example.hotels.RepositoryHotel
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 

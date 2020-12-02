@@ -1,6 +1,7 @@
 package com.example.hotels
 
 import com.example.hotels.ROOM.DaoHotel
+import com.example.hotels.model.Hotel
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -12,7 +13,7 @@ class RepositoryHotel : KoinComponent {
         dao.insert(hotel)
     }
 
-    fun getById(id: Int) : Hotel{
+    fun getById(id: Int) : Hotel {
         return dao.getById(id)
     }
 

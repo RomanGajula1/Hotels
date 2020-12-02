@@ -6,12 +6,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.example.hotels.AddViewModel
+import com.example.hotels.viewModel.AddViewModel
 import com.example.hotels.R
 import com.example.hotels.databinding.ActivityAddHotelBinding
 import kotlinx.android.synthetic.main.activity_add_hotel.*
-import kotlinx.android.synthetic.main.activity_details_hotel.*
-import kotlinx.android.synthetic.main.task_hotel.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.KoinComponent
 

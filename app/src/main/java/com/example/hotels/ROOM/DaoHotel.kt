@@ -1,7 +1,7 @@
 package com.example.hotels.ROOM
 
 import androidx.room.*
-import com.example.hotels.Hotel
+import com.example.hotels.model.Hotel
 
 @Dao
 interface DaoHotel {

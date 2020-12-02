@@ -6,11 +6,11 @@
     <data>
 
         <variable
-            name="model"
-            type="com.example.hotels.Hotel" />
+            name="modelHotel"
+            type="com.example.hotels.model.Hotel" />
         <variable
             name="mainActivity"
-            type="com.example.hotels.ListHotelViewModel" />
+            type="com.example.hotels.viewModel.ListHotelViewModel" />
 
     </data>
 
@@ -34,7 +34,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="42dp"
             android:fontFamily="@font/montserrat_bold"
-            android:text="@{model.name}"
+            android:text="@{modelHotel.name}"
             android:textColor="#434242"
             android:textSize="26sp" />
 

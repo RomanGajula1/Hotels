@@ -3,18 +3,15 @@ package com.example.hotels.VIEW
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.hotels.R
-import com.example.hotels.UpdateViewModel
+import com.example.hotels.viewModel.UpdateViewModel
 import com.example.hotels.databinding.ActivityUpdateHotelBinding
-import kotlinx.android.synthetic.main.activity_add_hotel.*
 import kotlinx.android.synthetic.main.activity_update_hotel.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.KoinComponent
-import org.koin.core.inject
 
 class UpdateHotel : AppCompatActivity(), KoinComponent {
 

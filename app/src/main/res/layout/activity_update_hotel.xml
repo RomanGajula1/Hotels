@@ -7,7 +7,7 @@
 
         <variable
             name="updateViewModel"
-            type="com.example.hotels.UpdateViewModel" />
+            type="com.example.hotels.viewModel.UpdateViewModel" />
 
     </data>
 

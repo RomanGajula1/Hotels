@@ -8,7 +8,7 @@ import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import com.example.hotels.R
-import com.example.hotels.DetailsViewModel
+import com.example.hotels.viewModel.DetailsViewModel
 import com.example.hotels.databinding.ActivityDetailsHotelBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
