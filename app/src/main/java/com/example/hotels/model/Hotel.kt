@@ -1,5 +1,7 @@
 package com.example.hotels.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -10,4 +12,5 @@ class Hotel(
     var name: String? = null,
     var image: String? = null,
     var description: String? = null,
+    var category: Int? = null
 )
