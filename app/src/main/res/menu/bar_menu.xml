@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".VIEW.MainActivity">
+
+    <item
+        android:id="@+id/hotel"
+        android:orderInCategory="100"
+        android:title="@string/hotel"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/hotelWithCategories"
+        android:orderInCategory="100"
+        android:title="@string/hotelWithCategories"
+        app:showAsAction="never"/>
 
 </menu>
