@@ -9,5 +9,5 @@ class HotelAndCategory {
     @Embedded
     lateinit var hotel: Hotel
     @Relation(parentColumn = "category", entityColumn = "category")
-    lateinit var hotelCategories: HotelCategories
+    lateinit var hotelCategories: List<HotelCategories>
 }

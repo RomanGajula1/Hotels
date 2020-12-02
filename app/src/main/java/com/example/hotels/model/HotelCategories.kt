@@ -7,5 +7,5 @@ import androidx.room.PrimaryKey
 class HotelCategories(
     @PrimaryKey
     var id: Int? = null,
-    val category: Int? = null
+    var category: Int? = null
 )
