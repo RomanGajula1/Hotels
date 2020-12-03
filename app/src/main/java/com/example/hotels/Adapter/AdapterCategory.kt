@@ -41,8 +41,8 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.MyViewHolder>(), Ko
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val itemText = categoryViewModel.listHotelWithCategory!![position]
-        holder.nameHotelAndWithCategory.text = itemText.hotelCategories.first().name
+        val itemText = categoryViewModel.listCategory!![position]
+        holder.nameHotelAndWithCategory.text = itemText.category.toString() + " - звёздочный."
     }
 
     fun setDataCategories(hotelCategories: List<HotelAndCategory>) {
