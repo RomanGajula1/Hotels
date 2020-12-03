@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hotels.R
 import com.example.hotels.viewModel.ListHotelViewModel
 import com.example.hotels.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding =
-                DataBindingUtil.setContentView(this, R.layout.activity_main)
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         binding.apply {
             recyclerView.setHasFixedSize(true)
@@ -32,26 +31,30 @@ class MainActivity : AppCompatActivity() {
         }
         hotelsListViewModel.adapter.setData(hotelsListViewModel.hotelList)
     }
-    fun clickAddHotel(view: View){
+
+    fun clickAddHotel(view: View) {
         val intent = Intent(this@MainActivity, AddHotel::class.java)
         startActivity(intent)
     }
+
     @Override
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.bar_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
     @Override
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         val id = item.itemId
         var intent = Intent()
 
-        fun clickHotel(){
+        fun clickHotel() {
             intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-        fun clickHotelWithCategories(){
+
+        fun clickHotelWithCategories() {
             intent = Intent(this, HotelWithCategories::class.java)
             startActivity(intent)
         }

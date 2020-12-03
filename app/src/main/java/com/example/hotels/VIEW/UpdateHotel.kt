@@ -34,18 +34,21 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
             updateViewModel = this@UpdateHotel.updateViewModel
         }
     }
-    fun clickUpdateHotel(view: View){
+
+    fun clickUpdateHotel(view: View) {
         if (imageUpdate.text.toString() == "" || descriptionUpdate.text.toString() == "" ||
-            nameUpdate.text.toString() == "") {
+            nameUpdate.text.toString() == ""
+        ) {
             Toast.makeText(
                 this,
                 "Пожалуйста заполните все поля!",
                 Toast.LENGTH_LONG
             ).show()
-            when("") {
+            when ("") {
                 nameUpdate.text.toString() -> nameUpdate.error = "Введите название отеля!"
                 imageUpdate.text.toString() -> imageUpdate.error = "Введите путь к фото отеля!"
-                descriptionUpdate.text.toString() -> descriptionUpdate.error = "Введите описание отеля!"
+                descriptionUpdate.text.toString() -> descriptionUpdate.error =
+                    "Введите описание отеля!"
             }
         } else {
             updateViewModel.clickUpdateHotel(id)

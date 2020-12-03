@@ -20,7 +20,8 @@ class AddCategory : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityAddCategoryBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_category)
+        val binding: ActivityAddCategoryBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_add_category)
 
         binding.apply {
             lifecycleOwner = this@AddCategory
@@ -35,7 +36,7 @@ class AddCategory : AppCompatActivity() {
                 "Пожалуйста заполните все поля!",
                 Toast.LENGTH_LONG
             ).show()
-            when("") {
+            when ("") {
                 addName.text.toString() -> addName.error = "Введите название отеля!"
                 addImages.text.toString() -> addImages.error = "Введите путь к фото отеля!"
                 addDescription.text.toString() -> addDescription.error = "Введите описание отеля!"

@@ -2,7 +2,6 @@ package com.example.hotels.ROOM
 
 import androidx.room.*
 import com.example.hotels.HotelAndCategory
-import com.example.hotels.model.Hotel
 import com.example.hotels.model.HotelCategories
 
 @Dao
@@ -19,5 +18,5 @@ interface DaoHotelWithCategories {
 
     @Transaction
     @Query("SELECT * from hotels WHERE category = :category")
-    fun getHotelWithCategories(category: Int): List<HotelAndCategory?>?
+    fun getHotelWithCategories(category: Int): List<HotelAndCategory>?
 }

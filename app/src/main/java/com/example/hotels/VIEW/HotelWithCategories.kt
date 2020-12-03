@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hotels.HotelAndCategory
 import com.example.hotels.R
 import com.example.hotels.databinding.ActivityHotelWithCategoriesBinding
 import com.example.hotels.viewModel.CategoryViewModel
@@ -27,14 +28,14 @@ class HotelWithCategories : AppCompatActivity() {
             recyclerView.layoutManager = LinearLayoutManager(this@HotelWithCategories)
             recyclerView.adapter = this@HotelWithCategories.categoryViewModel.adapterCategories
         }
-        categoryViewModel.adapterCategories.setDataCategories(categoryViewModel.listCategory!!)
+
+        categoryViewModel.adapterCategories.setDataCategories(categoryViewModel.listHotelWithCategory as List<HotelAndCategory>)
     }
 
-    fun clickAddCategory(view: View){
+    fun clickAddCategory(view: View) {
         val intent = Intent(this, AddCategory::class.java)
         startActivity(intent)
     }
-
 
 
     @Override
@@ -42,17 +43,19 @@ class HotelWithCategories : AppCompatActivity() {
         menuInflater.inflate(R.menu.bar_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
     @Override
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         val id = item.itemId
         var intent = Intent()
 
-        fun clickHotel(){
+        fun clickHotel() {
             intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-        fun clickHotelWithCategories(){
+
+        fun clickHotelWithCategories() {
             intent = Intent(this, HotelWithCategories::class.java)
             startActivity(intent)
         }

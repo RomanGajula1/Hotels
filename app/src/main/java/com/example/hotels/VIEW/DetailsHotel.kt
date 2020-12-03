@@ -35,7 +35,8 @@ class DetailsHotel : AppCompatActivity() {
             viewModel = this@DetailsHotel.detailsViewModel
         }
     }
-    fun clickUpdate(view: View){
+
+    fun clickUpdate(view: View) {
         val intent = Intent(this@DetailsHotel, UpdateHotel::class.java)
         intent.putExtra("idToUpdate", id)
         startActivity(intent)

@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hotels.HotelAndCategory
 import com.example.hotels.R
 import com.example.hotels.model.HotelCategories
 import com.example.hotels.viewModel.CategoryViewModel
@@ -18,8 +19,8 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.MyViewHolder>(), Ko
     val categoryViewModel: CategoryViewModel by inject()
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val idCategory: TextView = view.findViewById<View>(R.id.idCategory) as TextView
-        val categoryHotel: TextView = view.findViewById<View>(R.id.categoryHotel) as TextView
+        val nameHotelAndWithCategory: TextView =
+            view.findViewById<View>(R.id.nameHotelAndWithCategory) as TextView
         private val deleteCategory: Button = view.findViewById<View>(R.id.deleteCategory) as Button
 
         init {
@@ -40,13 +41,12 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.MyViewHolder>(), Ko
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val itemText = categoryViewModel.listCategory!![position]
-        holder.idCategory.text = itemText.id.toString()
-        holder.categoryHotel.text = itemText.category.toString()
+        val itemText = categoryViewModel.listHotelWithCategory!![position]
+        holder.nameHotelAndWithCategory.text = itemText.hotelCategories.first().name
     }
 
-    fun setDataCategories(hotelCategories: List<HotelCategories>) {
-        this.categoryViewModel.listCategory = hotelCategories
+    fun setDataCategories(hotelCategories: List<HotelAndCategory>) {
+        this.categoryViewModel.listHotelWithCategory = hotelCategories
         notifyDataSetChanged()
     }
 
