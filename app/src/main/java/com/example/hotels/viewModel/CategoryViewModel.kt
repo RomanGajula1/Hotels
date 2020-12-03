@@ -8,7 +8,7 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class CategoryViewModel : ViewModel(), KoinComponent {
-    val repositoryCategory: RepositoryCategory by inject()
+    private val repositoryCategory: RepositoryCategory by inject()
     var id = MutableLiveData("")
     var category = MutableLiveData("")
 

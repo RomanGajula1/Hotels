@@ -1,17 +1,18 @@
 package com.example.hotels.ROOM
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Transaction
+import androidx.room.*
 import com.example.hotels.HotelAndCategory
+import com.example.hotels.model.Hotel
 import com.example.hotels.model.HotelCategories
 
 @Dao
 interface DaoHotelWithCategories {
 
-    @Insert
-    fun insertCategory(hotelCategories: HotelCategories)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertCategory(vararg hotelCategories: HotelCategories)
+
+    @Query("SELECT * FROM hotelCategories")
+    fun getAll(): List<HotelCategories>?
 
     @Transaction
     @Query("SELECT * from hotels WHERE category = :category")

@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hotels.VIEW.AddHotel
 import com.example.hotels.VIEW.MainActivity
 import com.example.hotels.databinding.ActivityHotelWithCategoriesBinding
 import com.example.hotels.viewModel.CategoryViewModel
@@ -16,7 +18,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HotelWithCategories : AppCompatActivity() {
 
-    private val hotelsListViewModel: ListHotelViewModel by viewModel()
     private val categoryViewModel: CategoryViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,10 +28,16 @@ class HotelWithCategories : AppCompatActivity() {
         binding.apply {
             recyclerView.setHasFixedSize(true)
             recyclerView.layoutManager = LinearLayoutManager(this@HotelWithCategories)
-            recyclerView.adapter = this@HotelWithCategories.hotelsListViewModel.adapter
         }
-        hotelsListViewModel.adapter.setData(hotelsListViewModel.hotelList)
     }
+
+    fun clickAddCategory(view: View){
+        val intent = Intent(this, AddCategory::class.java)
+        startActivity(intent)
+    }
+
+
+
     @Override
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.bar_menu, menu)
