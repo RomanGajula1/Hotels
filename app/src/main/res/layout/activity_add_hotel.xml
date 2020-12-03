@@ -57,6 +57,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <EditText
+            android:id="@+id/addCategory"
+            android:hint="Add category hotel"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="344dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@={addViewModel.category}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/buttonAdd"
             android:layout_width="wrap_content"
@@ -66,8 +79,7 @@
             android:onClick="clickAddHotel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addName" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

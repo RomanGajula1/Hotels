@@ -8,6 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
 import org.koin.core.inject
+import kotlin.text.toInt
 
 
 class UpdateViewModel : ViewModel(), KoinComponent {
@@ -15,12 +16,14 @@ class UpdateViewModel : ViewModel(), KoinComponent {
     var name = MutableLiveData("")
     var image = MutableLiveData("")
     var description = MutableLiveData("")
+    var category = MutableLiveData("")
 
     fun loadForUpdate(id: Int) {
         repository.getById(id).let {
             name.value = it.name
             image.value = it.image
             description.value = it.description
+            category.value = it.category.toString()
         }
     }
 
@@ -31,6 +34,7 @@ class UpdateViewModel : ViewModel(), KoinComponent {
             hotel.name = name.value
             hotel.image = image.value
             hotel.description = description.value
+            hotel.category = category.value?.toInt()
             repository.updateHotel(hotel)
         }
     }
