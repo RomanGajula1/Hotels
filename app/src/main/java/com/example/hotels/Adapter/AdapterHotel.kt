@@ -42,7 +42,6 @@ class AdapterHotel() :
                 hotelsListViewModel.repository.deleteHotel(hotel)
                 Toast.makeText(view.context, "Отель удалён!", Toast.LENGTH_LONG).show()
             }
-
         }
     }
 

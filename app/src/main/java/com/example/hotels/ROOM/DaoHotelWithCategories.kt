@@ -11,6 +11,9 @@ interface DaoHotelWithCategories {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertCategory(vararg hotelCategories: HotelCategories)
 
+    @Delete
+    fun deleteCategory(vararg hotelCategories: HotelCategories)
+
     @Query("SELECT * FROM hotelCategories")
     fun getAll(): List<HotelCategories>?
 

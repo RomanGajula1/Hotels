@@ -11,4 +11,10 @@ class RepositoryCategory : KoinComponent {
     fun insert(hotelCategories: HotelCategories){
         daoHotelWithCategories.insertCategory(hotelCategories)
     }
+
+    fun deleteCategory(hotelCategories: HotelCategories){
+        daoHotelWithCategories.deleteCategory(hotelCategories)
+    }
+
+    fun getCategory() = daoHotelWithCategories.getAll()
 }

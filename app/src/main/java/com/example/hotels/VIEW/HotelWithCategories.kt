@@ -25,7 +25,9 @@ class HotelWithCategories : AppCompatActivity() {
         binding.apply {
             recyclerView.setHasFixedSize(true)
             recyclerView.layoutManager = LinearLayoutManager(this@HotelWithCategories)
+            recyclerView.adapter = this@HotelWithCategories.categoryViewModel.adapterCategories
         }
+        categoryViewModel.adapterCategories.setDataCategories(categoryViewModel.listCategory!!)
     }
 
     fun clickAddCategory(view: View){
