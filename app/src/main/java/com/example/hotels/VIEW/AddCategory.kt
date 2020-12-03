@@ -6,31 +6,30 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.example.hotels.viewModel.AddViewModel
 import com.example.hotels.R
-import com.example.hotels.databinding.ActivityAddHotelBinding
+import com.example.hotels.databinding.ActivityAddCategoryBinding
+import com.example.hotels.viewModel.AddViewModel
+import com.example.hotels.viewModel.CategoryViewModel
+import kotlinx.android.synthetic.main.activity_add_category.*
 import kotlinx.android.synthetic.main.activity_add_hotel.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.KoinComponent
 
-class AddHotel : AppCompatActivity(), KoinComponent {
+class AddCategory : AppCompatActivity() {
 
-    private val addViewModel: AddViewModel by viewModel()
+    private val categoryViewModel: CategoryViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityAddHotelBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_add_hotel)
+        val binding: ActivityAddCategoryBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_category)
 
         binding.apply {
-            lifecycleOwner = this@AddHotel
-            addViewModel = this@AddHotel.addViewModel
+            lifecycleOwner = this@AddCategory
+            categoryViewModel = this@AddCategory.categoryViewModel
         }
     }
 
-    fun clickAddHotel(view: View) {
-        if (addImages.text.toString() == "" || addName.text.toString() == "" ||
-            addDescription.text.toString() == "") {
+    fun clickAddCategories(view: View) {
+        if (addIdCategory.text.toString() == "" || addCategoryToDB.text.toString() == "") {
             Toast.makeText(
                 this,
                 "Пожалуйста заполните все поля!",
@@ -42,10 +41,11 @@ class AddHotel : AppCompatActivity(), KoinComponent {
                 addDescription.text.toString() -> addDescription.error = "Введите описание отеля!"
             }
         } else {
-            addViewModel.clickAddHotel()
-            val intent = Intent(this, MainActivity::class.java)
+            categoryViewModel.insertCategory()
+            val intent = Intent(this, HotelWithCategories::class.java)
             startActivity(intent)
-            Toast.makeText(this, "Отель добавлен!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Категория добавленна!", Toast.LENGTH_LONG).show()
         }
     }
+
 }

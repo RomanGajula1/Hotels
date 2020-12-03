@@ -3,16 +3,12 @@ package com.example.hotels.VIEW
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hotels.HotelWithCategories
 import com.example.hotels.R
 import com.example.hotels.viewModel.ListHotelViewModel
 import com.example.hotels.databinding.ActivityMainBinding

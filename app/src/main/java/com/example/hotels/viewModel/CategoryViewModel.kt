@@ -12,9 +12,7 @@ class CategoryViewModel : ViewModel(), KoinComponent {
     var id = MutableLiveData("")
     var category = MutableLiveData("")
 
-    fun insertCategory(hotelCategories: HotelCategories){
-        hotelCategories.id = Integer.parseInt(id.toString())
-        hotelCategories.category = Integer.parseInt(category.toString())
-        repositoryCategory.insert(hotelCategories)
+    fun insertCategory(){
+        repositoryCategory.insert(HotelCategories(id.value?.toInt(), category.value?.toInt()))
     }
 }
