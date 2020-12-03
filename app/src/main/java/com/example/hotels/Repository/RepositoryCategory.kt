@@ -7,7 +7,7 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class RepositoryCategory : KoinComponent {
-    val daoHotelWithCategories: DaoHotelWithCategories by inject()
+    private val daoHotelWithCategories: DaoHotelWithCategories by inject()
 
     fun insert(hotelCategories: HotelCategories) {
         daoHotelWithCategories.insertCategory(hotelCategories)
@@ -17,8 +17,8 @@ class RepositoryCategory : KoinComponent {
         daoHotelWithCategories.deleteCategory(hotelCategories)
     }
 
-    fun getHotelWithCategories(category: Int) =
-        daoHotelWithCategories.getHotelWithCategories(category)
+//    fun getHotelWithCategories(category: Int) =
+//        daoHotelWithCategories.getHotelWithCategories(category)
 
     fun getCategory() = daoHotelWithCategories.getAll()
 }

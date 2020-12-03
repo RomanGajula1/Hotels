@@ -1,7 +1,5 @@
 package com.example.hotels.model
 
-import androidx.room.ColumnInfo
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

@@ -3,6 +3,7 @@ package com.example.hotels.VIEW
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hotels.HotelAndCategory
 import com.example.hotels.R
 import com.example.hotels.databinding.ActivityHotelWithCategoriesBinding
+import com.example.hotels.model.Hotel
 import com.example.hotels.viewModel.CategoryViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -28,8 +30,7 @@ class HotelWithCategories : AppCompatActivity() {
             recyclerView.layoutManager = LinearLayoutManager(this@HotelWithCategories)
             recyclerView.adapter = this@HotelWithCategories.categoryViewModel.adapterCategories
         }
-
-        categoryViewModel.adapterCategories.setDataCategories(categoryViewModel.listHotelWithCategory as List<HotelAndCategory>)
+        categoryViewModel.adapterCategories.setDataCategories(categoryViewModel.listCategory!!)
     }
 
     fun clickAddCategory(view: View) {

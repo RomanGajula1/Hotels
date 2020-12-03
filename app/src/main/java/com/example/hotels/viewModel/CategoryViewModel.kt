@@ -14,7 +14,7 @@ class CategoryViewModel : ViewModel(), KoinComponent {
     var category = MutableLiveData("")
     val adapterCategories: AdapterCategory = AdapterCategory()
     var listCategory = repositoryCategory.getCategory()
-    var listHotelWithCategory = repositoryCategory.getHotelWithCategories(5)
+//    var listHotelWithCategory = repositoryCategory.getHotelWithCategories(5)
 
     fun insertCategory() {
         repositoryCategory.insert(HotelCategories(id.value?.toInt(), category.value?.toInt()))

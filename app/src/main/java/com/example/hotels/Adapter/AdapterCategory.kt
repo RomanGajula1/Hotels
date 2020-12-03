@@ -45,8 +45,8 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.MyViewHolder>(), Ko
         holder.nameHotelAndWithCategory.text = itemText.category.toString() + " - звёздочный."
     }
 
-    fun setDataCategories(hotelCategories: List<HotelAndCategory>) {
-        this.categoryViewModel.listHotelWithCategory = hotelCategories
+    fun setDataCategories(hotelCategories: List<HotelCategories>) {
+        this.categoryViewModel.listCategory = hotelCategories
         notifyDataSetChanged()
     }
 

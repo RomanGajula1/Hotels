@@ -27,6 +27,7 @@ class AdapterHotel() :
         RecyclerView.ViewHolder(view) {
         val nameHotel: TextView = view.findViewById<View>(R.id.nameHotel) as TextView
         val imageView: ImageView = view.findViewById<View>(R.id.imageHotel) as ImageView
+        val category: TextView = view.findViewById<View>(R.id.categoryHotel) as TextView
         private val buttonDelete: Button = view.findViewById<View>(R.id.buttonDelete) as Button
 
         init {
@@ -57,6 +58,7 @@ class AdapterHotel() :
     ) {
         val itemText = hotelsListViewModel.hotelList!![position]
         holder.nameHotel.text = itemText.name
+
 
         Picasso.get()
             .load(hotelsListViewModel.hotelList!![position].image)
