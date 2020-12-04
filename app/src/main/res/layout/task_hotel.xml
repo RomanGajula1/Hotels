@@ -34,7 +34,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="50dp"
             android:fontFamily="@font/montserrat_bold"
-            android:text="5 zvezda"
+            android:text=""
             android:textColor="#434242"
             android:textSize="16sp" />
 
