@@ -10,7 +10,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hotels.HotelAndCategory
 import com.example.hotels.R
+import com.example.hotels.ROOM.DaoHotelWithCategories
 import com.example.hotels.viewModel.ListHotelViewModel
 import com.example.hotels.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -18,6 +20,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainActivity : AppCompatActivity() {
 
     private val hotelsListViewModel: ListHotelViewModel by viewModel()
+    private lateinit var daoHotelWithCategories: DaoHotelWithCategories
 
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +34,7 @@ class MainActivity : AppCompatActivity() {
             recyclerView.adapter = this@MainActivity.hotelsListViewModel.adapter
         }
         hotelsListViewModel.adapter.setData(hotelsListViewModel.hotelList)
+        Log.d("Message", hotelsListViewModel.list.toString())
     }
 
     fun clickAddHotel(view: View) {

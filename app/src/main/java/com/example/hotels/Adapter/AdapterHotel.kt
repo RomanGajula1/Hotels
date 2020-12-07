@@ -14,6 +14,7 @@ import com.example.hotels.viewModel.ListHotelViewModel
 import com.example.hotels.R
 import com.example.hotels.VIEW.DetailsHotel
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.task_hotel.view.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -58,6 +59,7 @@ class AdapterHotel() :
     ) {
         val itemText = hotelsListViewModel.hotelList!![position]
         holder.nameHotel.text = itemText.name
+        holder.itemView.categoryHotel.text = itemText.category.toString()
 
 
         Picasso.get()
