@@ -17,8 +17,8 @@ class RepositoryCategory : KoinComponent {
         daoHotelWithCategories.deleteCategory(hotelCategories)
     }
 
-    fun getHotelWithCategories() =
-        daoHotelWithCategories.getHotelWithCategories()
+    fun getHotelWithCategories(categoryId: Int) =
+        daoHotelWithCategories.getHotelWithCategories(categoryId)
 
     fun getCategory() = daoHotelWithCategories.getAll()
 }

@@ -12,5 +12,5 @@ class ListHotelViewModel : ViewModel(), KoinComponent {
     val repositoryCat: RepositoryCategory by inject()
     val adapter: AdapterHotel = AdapterHotel()
     var hotelList = repository.getHotel()
-    val list = repositoryCat.getHotelWithCategories()
+//    val list = repositoryCat.getHotelWithCategories()
 }

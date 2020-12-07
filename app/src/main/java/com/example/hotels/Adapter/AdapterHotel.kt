@@ -1,5 +1,6 @@
 package com.example.hotels.Adapter
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -53,13 +54,15 @@ class AdapterHotel() :
         return MyViewHolder(itemsView)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(
         holder: MyViewHolder,
         position: Int
     ) {
         val itemText = hotelsListViewModel.hotelList!![position]
+        val category = hotelsListViewModel.repositoryCat.getHotelWithCategories(itemText.category!!)
         holder.nameHotel.text = itemText.name
-        holder.itemView.categoryHotel.text = itemText.category.toString()
+        holder.itemView.categoryHotel.text = category?.first()?.categories?.category.toString() + " звёзд"
 
 
         Picasso.get()

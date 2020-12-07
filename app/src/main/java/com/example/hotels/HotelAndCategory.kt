@@ -10,5 +10,5 @@ class HotelAndCategory(
     var categories: HotelCategories,
 
     @Relation(parentColumn = "id", entityColumn = "category")
-    var hotelCategories: List<HotelCategories>
+    var hotelCategories: List<Hotel>
 )

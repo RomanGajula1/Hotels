@@ -34,7 +34,9 @@ class MainActivity : AppCompatActivity() {
             recyclerView.adapter = this@MainActivity.hotelsListViewModel.adapter
         }
         hotelsListViewModel.adapter.setData(hotelsListViewModel.hotelList)
-        Log.d("Message", hotelsListViewModel.list.toString())
+        Log.d("Message",
+            hotelsListViewModel.repositoryCat.getHotelWithCategories(1)!!.first().categories.category.toString()
+        )
     }
 
     fun clickAddHotel(view: View) {
