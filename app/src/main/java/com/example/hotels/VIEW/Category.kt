@@ -1,39 +1,37 @@
-package com.example.hotels
+package com.example.hotels.VIEW
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hotels.VIEW.HotelWithCategories
-import com.example.hotels.VIEW.MainActivity
-import com.example.hotels.databinding.ActivityCityBinding
-import com.example.hotels.viewModel.CityViewModel
-import org.koin.android.ext.android.inject
+import com.example.hotels.R
+import com.example.hotels.databinding.ActivityHotelWithCategoriesBinding
+import com.example.hotels.viewModel.CategoryViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class City : AppCompatActivity() {
+class Category : AppCompatActivity() {
 
-    val cityViewModel: CityViewModel by inject()
+    private val categoryViewModel: CategoryViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityCityBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_city)
+        val binding: ActivityHotelWithCategoriesBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_hotel_with_categories)
 
         binding.apply {
-            recyclerViewCity.setHasFixedSize(true)
-            recyclerViewCity.layoutManager = LinearLayoutManager(this@City)
-            recyclerViewCity.adapter = this@City.cityViewModel.adapterCity
+            recyclerView.setHasFixedSize(true)
+            recyclerView.layoutManager = LinearLayoutManager(this@Category)
+            recyclerView.adapter = this@Category.categoryViewModel.adapterCategories
         }
-        cityViewModel.adapterCity.setDataCity(cityViewModel.listCity)
+        categoryViewModel.adapterCategories.setDataCategories(categoryViewModel.listCategory!!)
     }
 
-    fun clickAddCity(view: View) {
-        val intent = Intent(this, AddCity::class.java)
+    fun clickAddCategory(view: View) {
+        val intent = Intent(this, AddCategory::class.java)
         startActivity(intent)
     }
 
@@ -56,7 +54,7 @@ class City : AppCompatActivity() {
         }
 
         fun clickHotelWithCategories() {
-            intent = Intent(this, HotelWithCategories::class.java)
+            intent = Intent(this, Category::class.java)
             startActivity(intent)
         }
 

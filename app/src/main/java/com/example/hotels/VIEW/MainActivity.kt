@@ -9,15 +9,13 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hotels.City
 import com.example.hotels.R
-import com.example.hotels.ROOM.DaoHotelWithCategories
 import com.example.hotels.viewModel.ListHotelViewModel
 import com.example.hotels.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.KoinComponent
 
-class MainActivity : AppCompatActivity(), KoinComponent{
+class MainActivity : AppCompatActivity(), KoinComponent {
 
     private val hotelsListViewModel: ListHotelViewModel by viewModel()
 
@@ -58,7 +56,7 @@ class MainActivity : AppCompatActivity(), KoinComponent{
         }
 
         fun clickHotelWithCategories() {
-            intent = Intent(this, HotelWithCategories::class.java)
+            intent = Intent(this, Category::class.java)
             startActivity(intent)
         }
 

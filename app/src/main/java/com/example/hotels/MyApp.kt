@@ -2,21 +2,22 @@ package com.example.hotels
 
 import android.app.Application
 import com.example.hotels.Koin.appModule
+import com.example.hotels.Koin.modulesCategory
 import com.example.hotels.Koin.modulesCity
-import com.example.hotels.ROOM.DataBase
-import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
 
 class MyApp : Application() {
-    companion object {var instance: MyApp? = null}
+    companion object {
+        var instance: MyApp? = null
+    }
 
     override fun onCreate() {
         super.onCreate()
         startKoin {
             androidContext(this@MyApp)
-            modules(listOf(appModule, modulesCity))
+            modules(listOf(appModule, modulesCity, modulesCategory))
         }
         instance = this
     }

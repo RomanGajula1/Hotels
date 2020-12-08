@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.hotels.R
 import com.example.hotels.databinding.ActivityAddCategoryBinding
-import com.example.hotels.viewModel.AddViewModel
 import com.example.hotels.viewModel.CategoryViewModel
 import kotlinx.android.synthetic.main.activity_add_category.*
 import kotlinx.android.synthetic.main.activity_add_hotel.*
@@ -43,7 +42,7 @@ class AddCategory : AppCompatActivity() {
             }
         } else {
             categoryViewModel.insertCategory()
-            val intent = Intent(this, HotelWithCategories::class.java)
+            val intent = Intent(this, Category::class.java)
             startActivity(intent)
             Toast.makeText(this, "Категория добавленна!", Toast.LENGTH_LONG).show()
         }

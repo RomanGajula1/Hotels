@@ -17,6 +17,7 @@ class UpdateViewModel : ViewModel(), KoinComponent {
     var image = MutableLiveData("")
     var description = MutableLiveData("")
     var category = MutableLiveData("")
+    val city = MutableLiveData("")
 
     fun loadForUpdate(id: Int) {
         repository.getById(id).let {
@@ -24,6 +25,7 @@ class UpdateViewModel : ViewModel(), KoinComponent {
             image.value = it.image
             description.value = it.description
             category.value = it.category.toString()
+            city.value = it.city.toString()
         }
     }
 
@@ -35,6 +37,7 @@ class UpdateViewModel : ViewModel(), KoinComponent {
             hotel.image = image.value
             hotel.description = description.value
             hotel.category = category.value?.toInt()
+            hotel.city = city.value?.toInt()
             repository.updateHotel(hotel)
         }
     }

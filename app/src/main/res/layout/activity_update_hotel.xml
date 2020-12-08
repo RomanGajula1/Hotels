@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -12,72 +12,84 @@
     </data>
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".VIEW.UpdateHotel">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".VIEW.UpdateHotel">
 
-    <EditText
-        android:id="@+id/nameUpdate"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginBottom="264dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@={updateViewModel.name}"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/nameUpdate"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginBottom="264dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@={updateViewModel.name}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/imageUpdate"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="200dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@={updateViewModel.image}"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/imageUpdate"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="170dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@={updateViewModel.image}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/descriptionUpdate"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="280dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@={updateViewModel.description}"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/descriptionUpdate"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="250dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@={updateViewModel.description}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/categoryUpdate"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="360dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@={updateViewModel.category}"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/categoryUpdate"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="330dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@={updateViewModel.category}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonUpdateHotel"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="100dp"
-        android:layout_marginStart="10dp"
-        android:text="Update"
-        android:onClick="clickUpdateHotel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        <EditText
+            android:id="@+id/cityUpdate"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="410dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@={updateViewModel.city}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/buttonUpdateHotel"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="60dp"
+            android:onClick="clickUpdateHotel"
+            android:text="Update"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

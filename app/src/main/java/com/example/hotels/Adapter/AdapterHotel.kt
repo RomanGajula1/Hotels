@@ -60,14 +60,17 @@ class AdapterHotel() :
         position: Int
     ) {
         val itemText = hotelsListViewModel.hotelList!![position]
-        val category = hotelsListViewModel.repositoryCat.getHotelWithCategories(itemText.category!!)
+        val category =
+            hotelsListViewModel.repositoryCategory.getHotelWithCategories(itemText.category!!)
+        val city = hotelsListViewModel.repositoryCity.getHotelWithCity(itemText.city!!)
         holder.nameHotel.text = itemText.name
 
-        if (itemText.category != 0){
+        if (itemText.category != 0) {
             holder.itemView.categoryHotel.text =
-                category!!.first().categories.category.toString() + " stars"
+                category!!.first().categories.category.toString() + " stars, "
+            holder.itemView.city.text = city!!.first().city.city.toString()
         } else {
-            holder.itemView.categoryHotel.text = ""
+            holder.itemView.categoryHotel.text = city!!.first().city.city.toString()
         }
 
 

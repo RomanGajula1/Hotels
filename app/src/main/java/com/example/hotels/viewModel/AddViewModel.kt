@@ -15,6 +15,7 @@ class AddViewModel : ViewModel(), KoinComponent {
     val image = MutableLiveData("")
     val description = MutableLiveData("")
     val category = MutableLiveData("")
+    val city = MutableLiveData("")
     private val repository: RepositoryHotel by inject()
 
     fun clickAddHotel() {
@@ -25,7 +26,8 @@ class AddViewModel : ViewModel(), KoinComponent {
                     name.value.toString(),
                     image.value.toString(),
                     description.value.toString(),
-                    category.value?.toInt()
+                    category.value?.toInt(),
+                    city.value?.toInt()
                 )
             )
         }

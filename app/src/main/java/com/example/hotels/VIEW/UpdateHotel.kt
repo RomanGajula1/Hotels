@@ -10,6 +10,7 @@ import com.example.hotels.R
 import com.example.hotels.viewModel.UpdateViewModel
 import com.example.hotels.databinding.ActivityUpdateHotelBinding
 import kotlinx.android.synthetic.main.activity_update_hotel.*
+import kotlinx.android.synthetic.main.task_hotel.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.KoinComponent
 
@@ -36,7 +37,7 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
     }
 
     fun clickUpdateHotel(view: View) {
-        if (imageUpdate.text.toString() == "" || descriptionUpdate.text.toString() == "" ||
+        if (cityUpdate.text.toString() == "" || imageUpdate.text.toString() == "" || descriptionUpdate.text.toString() == "" ||
             nameUpdate.text.toString() == ""
         ) {
             Toast.makeText(
@@ -47,6 +48,7 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
             when ("") {
                 nameUpdate.text.toString() -> nameUpdate.error = "Введите название отеля!"
                 imageUpdate.text.toString() -> imageUpdate.error = "Введите путь к фото отеля!"
+                cityUpdate.text.toString() -> city.error = "Введите путь к фото отеля!"
                 descriptionUpdate.text.toString() -> descriptionUpdate.error =
                     "Введите описание отеля!"
             }

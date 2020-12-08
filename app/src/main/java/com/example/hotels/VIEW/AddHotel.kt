@@ -29,7 +29,7 @@ class AddHotel : AppCompatActivity(), KoinComponent {
     }
 
     fun clickAddHotel(view: View) {
-        if (addImages.text.toString() == "" || addName.text.toString() == "" ||
+        if (addCity.text.toString() == "" || addImages.text.toString() == "" || addName.text.toString() == "" ||
             addDescription.text.toString() == ""
         ) {
             Toast.makeText(
@@ -41,6 +41,7 @@ class AddHotel : AppCompatActivity(), KoinComponent {
                 addName.text.toString() -> addName.error = "Введите название отеля!"
                 addImages.text.toString() -> addImages.error = "Введите путь к фото отеля!"
                 addDescription.text.toString() -> addDescription.error = "Введите описание отеля!"
+                addCity.text.toString() -> addDescription.error = "Введите описание отеля!"
             }
         } else {
             addViewModel.clickAddHotel()

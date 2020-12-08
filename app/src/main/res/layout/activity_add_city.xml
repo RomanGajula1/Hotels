@@ -18,11 +18,11 @@
 
         <EditText
             android:id="@+id/addCity"
-            android:hint="Add city"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="154dp"
             android:ems="10"
+            android:hint="Add city"
             android:inputType="textPersonName"
             android:text="@={cityViewModel.city}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,9 +33,9 @@
             android:id="@+id/buttonAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="239dp"
-            android:text="Create"
+            android:layout_marginBottom="319dp"
             android:onClick="AddCity"
+            android:text="Create"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

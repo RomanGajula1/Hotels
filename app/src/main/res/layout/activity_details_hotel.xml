@@ -77,12 +77,12 @@
             android:layout_marginTop="80dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="350dp"
+            app:image="@{viewModel.hotel.image}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            tools:srcCompat="@tools:sample/avatars"
-            app:image="@{viewModel.hotel.image}"/>
+            tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/NameHotel"
@@ -110,9 +110,9 @@
             android:layout_marginStart="105dp"
             android:layout_marginTop="105dp"
             android:layout_marginEnd="130dp"
-            android:onClick="clickUpdate"
             android:layout_marginBottom="10dp"
             android:background="#FBE4E4"
+            android:onClick="clickUpdate"
             android:text="Update" />
 
     </RelativeLayout>

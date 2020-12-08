@@ -7,15 +7,13 @@
 
         <variable
             name="cityViewModel"
-            type="com.example.hotels.model.HotelCity"
-            />
+            type="com.example.hotels.model.HotelCity" />
 
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
 
 
         <TextView

@@ -8,13 +8,13 @@ import com.example.hotels.model.HotelCity
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class CityViewModel: ViewModel(), KoinComponent {
+class CityViewModel : ViewModel(), KoinComponent {
     val repositoryCity: RepositoryCity by inject()
     var city = MutableLiveData("")
     var listCity = repositoryCity.getAllCity()
     val adapterCity = AdapterCity()
 
-    fun insertCity(){
+    fun insertCity() {
         repositoryCity.insertCity(HotelCity(null, city.value))
     }
 }

@@ -28,24 +28,25 @@
             android:id="@+id/bottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
             android:layout_gravity="bottom"
-            tools:ignore="BottomAppBar,MissingConstraints"
-            tools:layout_editor_absoluteX="-26dp"
-            tools:layout_editor_absoluteY="546dp"
+            android:backgroundTint="@color/colorPrimary"
             app:fabAlignmentMode="end"
             app:fabCradleMargin="10dp"
             app:fabCradleRoundedCornerRadius="15dp"
-            app:fabCradleVerticalOffset="5dp"/>
+            app:fabCradleVerticalOffset="5dp"
+            tools:ignore="BottomAppBar,MissingConstraints"
+            tools:layout_editor_absoluteX="-26dp"
+            tools:layout_editor_absoluteY="546dp" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addHotel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="clickAddHotel"
             android:src="@drawable/ic_baseline_add_24"
             app:layout_anchor="@id/bottomAppBar"
-            android:onClick="clickAddHotel"
-            tools:ignore="MissingConstraints"
-            app:tint="@color/colorWhite"/>
+            app:tint="@color/colorWhite"
+            tools:ignore="MissingConstraints" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

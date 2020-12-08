@@ -8,7 +8,7 @@
 
         <variable
             name="addViewModel"
-            type="com.example.hotels.viewModel.AddViewModel"/>
+            type="com.example.hotels.viewModel.AddViewModel" />
 
     </data>
 
@@ -19,12 +19,12 @@
 
         <EditText
             android:id="@+id/addName"
-            android:hint="Add name hotel"
             android:layout_width="300dp"
             android:layout_height="0dp"
-            android:layout_marginTop="94dp"
+            android:layout_marginTop="64dp"
             android:layout_marginBottom="240dp"
             android:ems="10"
+            android:hint="Add name hotel"
             android:inputType="textPersonName"
             android:text="@={addViewModel.name}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,11 +33,11 @@
 
         <EditText
             android:id="@+id/addImages"
-            android:hint="Add image hotel"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_marginTop="174dp"
+            android:layout_marginTop="144dp"
             android:ems="10"
+            android:hint="Add image hotel"
             android:inputType="textPersonName"
             android:text="@={addViewModel.image}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,11 +46,11 @@
 
         <EditText
             android:id="@+id/addDescription"
-            android:hint="Add description hotel"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_marginTop="254dp"
+            android:layout_marginTop="224dp"
             android:ems="10"
+            android:hint="Add description hotel"
             android:inputType="textPersonName"
             android:text="@={addViewModel.description}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,13 +59,26 @@
 
         <EditText
             android:id="@+id/addCategory"
-            android:hint="Add category hotel"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_marginTop="344dp"
+            android:layout_marginTop="304dp"
             android:ems="10"
+            android:hint="Add category hotel"
             android:inputType="textPersonName"
             android:text="@={addViewModel.category}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/addCity"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="380dp"
+            android:ems="10"
+            android:hint="Add city hotel"
+            android:inputType="textPersonName"
+            android:text="@={addViewModel.city}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -74,9 +87,9 @@
             android:id="@+id/buttonAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="9dp"
-            android:text="Create"
+            android:layout_marginBottom="89dp"
             android:onClick="clickAddHotel"
+            android:text="Create"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
