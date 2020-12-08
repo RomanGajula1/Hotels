@@ -1,4 +1,4 @@
-package com.example.hotels
+package com.example.hotels.model.Relation
 
 import androidx.room.Embedded
 import androidx.room.Relation

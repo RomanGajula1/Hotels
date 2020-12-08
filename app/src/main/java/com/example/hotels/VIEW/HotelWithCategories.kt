@@ -3,16 +3,14 @@ package com.example.hotels.VIEW
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hotels.HotelAndCategory
+import com.example.hotels.City
 import com.example.hotels.R
 import com.example.hotels.databinding.ActivityHotelWithCategoriesBinding
-import com.example.hotels.model.Hotel
 import com.example.hotels.viewModel.CategoryViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -61,9 +59,15 @@ class HotelWithCategories : AppCompatActivity() {
             startActivity(intent)
         }
 
+        fun clickCity() {
+            intent = Intent(this, City::class.java)
+            startActivity(intent)
+        }
+
         when (id) {
             R.id.hotel -> clickHotel()
             R.id.hotelWithCategories -> clickHotelWithCategories()
+            R.id.hotelCity -> clickCity()
         }
 
         return super.onOptionsItemSelected(item)

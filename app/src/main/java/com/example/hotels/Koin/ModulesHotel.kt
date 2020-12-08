@@ -18,7 +18,7 @@ val appModule = module {
     single { RepositoryHotel() }
     single { RepositoryCategory() }
     single {
-        Room.databaseBuilder(get(), DataBase::class.java, "DB")
+        Room.databaseBuilder(get(), DataBase::class.java, "RoomDB")
             .allowMainThreadQueries().build()
     }
     single { get<DataBase>().dao }

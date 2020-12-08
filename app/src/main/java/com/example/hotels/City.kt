@@ -1,44 +1,42 @@
-package com.example.hotels.VIEW
+package com.example.hotels
 
-import android.annotation.SuppressLint
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hotels.City
-import com.example.hotels.R
-import com.example.hotels.ROOM.DaoHotelWithCategories
-import com.example.hotels.viewModel.ListHotelViewModel
-import com.example.hotels.databinding.ActivityMainBinding
-import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.KoinComponent
+import com.example.hotels.VIEW.HotelWithCategories
+import com.example.hotels.VIEW.MainActivity
+import com.example.hotels.databinding.ActivityCityBinding
+import com.example.hotels.viewModel.CityViewModel
+import org.koin.android.ext.android.inject
 
-class MainActivity : AppCompatActivity(), KoinComponent{
+class City : AppCompatActivity() {
 
-    private val hotelsListViewModel: ListHotelViewModel by viewModel()
+    val cityViewModel: CityViewModel by inject()
 
-    @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityMainBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val binding: ActivityCityBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_city)
 
         binding.apply {
-            recyclerView.setHasFixedSize(true)
-            recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
-            recyclerView.adapter = this@MainActivity.hotelsListViewModel.adapter
+            recyclerViewCity.setHasFixedSize(true)
+            recyclerViewCity.layoutManager = LinearLayoutManager(this@City)
+            recyclerViewCity.adapter = this@City.cityViewModel.adapterCity
         }
-        hotelsListViewModel.adapter.setData(hotelsListViewModel.hotelList)
+        cityViewModel.adapterCity.setDataCity(cityViewModel.listCity)
     }
 
-    fun clickAddHotel(view: View) {
-        val intent = Intent(this@MainActivity, AddHotel::class.java)
+    fun clickAddCity(view: View) {
+        val intent = Intent(this, AddCity::class.java)
         startActivity(intent)
     }
+
 
     @Override
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

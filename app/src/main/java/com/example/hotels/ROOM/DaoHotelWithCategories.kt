@@ -1,7 +1,7 @@
 package com.example.hotels.ROOM
 
 import androidx.room.*
-import com.example.hotels.HotelAndCategory
+import com.example.hotels.model.Relation.HotelAndCategory
 import com.example.hotels.model.HotelCategories
 
 @Dao

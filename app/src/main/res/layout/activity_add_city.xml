@@ -6,25 +6,25 @@
     <data>
 
         <variable
-            name="categoryViewModel"
-            type="com.example.hotels.viewModel.CategoryViewModel" />
+            name="cityViewModel"
+            type="com.example.hotels.viewModel.CityViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".VIEW.AddCategory">
+        tools:context=".VIEW.AddCity">
 
         <EditText
-            android:id="@+id/addCategoryToDB"
+            android:id="@+id/addCity"
+            android:hint="Add city"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="154dp"
             android:ems="10"
-            android:hint="Add category"
             android:inputType="textPersonName"
-            android:text="@={categoryViewModel.category}"
+            android:text="@={cityViewModel.city}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,9 +33,9 @@
             android:id="@+id/buttonAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="319dp"
-            android:onClick="clickAddCategories"
+            android:layout_marginBottom="239dp"
             android:text="Create"
+            android:onClick="AddCity"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

@@ -63,12 +63,14 @@ class AdapterHotel() :
         val category = hotelsListViewModel.repositoryCat.getHotelWithCategories(itemText.category!!)
         holder.nameHotel.text = itemText.name
 
-        if (category!!.first().categories.category?.toInt() == 0) {
-            holder.itemView.categoryHotel.text = ""
-        } else{
+        if (itemText.category != 0){
             holder.itemView.categoryHotel.text =
-                category.first().categories.category.toString() + " stars"
+                category!!.first().categories.category.toString() + " stars"
+        } else {
+            holder.itemView.categoryHotel.text = ""
         }
+
+
 
         Picasso.get()
             .load(hotelsListViewModel.hotelList!![position].image)

@@ -30,7 +30,7 @@ class AddCategory : AppCompatActivity() {
     }
 
     fun clickAddCategories(view: View) {
-        if (addIdCategory.text.toString() == "" || addCategoryToDB.text.toString() == "") {
+        if (addCategoryToDB.text.toString() == "") {
             Toast.makeText(
                 this,
                 "Пожалуйста заполните все поля!",

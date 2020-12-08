@@ -2,6 +2,7 @@ package com.example.hotels
 
 import android.app.Application
 import com.example.hotels.Koin.appModule
+import com.example.hotels.Koin.modulesCity
 import com.example.hotels.ROOM.DataBase
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
@@ -15,7 +16,7 @@ class MyApp : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@MyApp)
-            modules(listOf(appModule))
+            modules(listOf(appModule, modulesCity))
         }
         instance = this
     }

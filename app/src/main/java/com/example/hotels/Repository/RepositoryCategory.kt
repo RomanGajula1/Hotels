@@ -1,6 +1,5 @@
 package com.example.hotels.Repository
 
-import com.example.hotels.HotelAndCategory
 import com.example.hotels.ROOM.DaoHotelWithCategories
 import com.example.hotels.model.HotelCategories
 import org.koin.core.KoinComponent

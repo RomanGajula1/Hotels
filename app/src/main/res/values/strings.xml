@@ -4,4 +4,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hotel">Hotel</string>
     <string name="hotelWithCategories">Hotel With Categories</string>
+    <string name="hotelCity">Hotel City</string>
 </resources>

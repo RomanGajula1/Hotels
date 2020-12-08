@@ -15,5 +15,10 @@
         android:orderInCategory="100"
         android:title="@string/hotelWithCategories"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/hotelCity"
+        android:orderInCategory="100"
+        android:title="@string/hotelCity"
+        app:showAsAction="never"/>
 
 </menu>

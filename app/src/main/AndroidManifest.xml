@@ -12,7 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VIEW.AddCategory"></activity>
+        <activity android:name=".AddCity">
+            <intent-filter>
+                <action android:name="com.example.hotels.AddCity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".City">
+            <intent-filter>
+                <action android:name="com.example.hotels.City" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".VIEW.AddCategory" />
         <activity android:name=".VIEW.HotelWithCategories">
             <intent-filter>
                 <action android:name="com.example.hotels.HotelWithCategories" />

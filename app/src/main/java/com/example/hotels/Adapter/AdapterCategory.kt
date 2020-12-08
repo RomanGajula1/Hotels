@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hotels.HotelAndCategory
 import com.example.hotels.R
 import com.example.hotels.model.HotelCategories
 import com.example.hotels.viewModel.CategoryViewModel
