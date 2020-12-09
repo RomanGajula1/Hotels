@@ -5,8 +5,6 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -27,11 +25,6 @@ class AdapterHotel() :
 
     inner class MyViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
-        val nameHotel: TextView = view.findViewById<View>(R.id.nameHotel) as TextView
-        val imageView: ImageView = view.findViewById<View>(R.id.imageHotel) as ImageView
-        val category: TextView = view.findViewById<View>(R.id.categoryHotel) as TextView
-        private val buttonDelete: Button = view.findViewById<View>(R.id.buttonDelete) as Button
-
         init {
             view.setOnClickListener {
                 val intent = Intent(view.context, DetailsHotel::class.java)
@@ -39,7 +32,7 @@ class AdapterHotel() :
                 view.context.startActivity(intent)
             }
 
-            buttonDelete.setOnClickListener {
+            view.buttonDelete.setOnClickListener {
                 val hotel = Hotel()
                 hotel.id = hotelsListViewModel.hotelList!![bindingAdapterPosition].id
                 hotelsListViewModel.repository.deleteHotel(hotel)
@@ -63,7 +56,7 @@ class AdapterHotel() :
         val category =
             hotelsListViewModel.repositoryCategory.getHotelWithCategories(itemText.category!!)
         val city = hotelsListViewModel.repositoryCity.getHotelWithCity(itemText.city!!)
-        holder.nameHotel.text = itemText.name
+        holder.itemView.nameHotel.text = itemText.name
 
         if (itemText.category != 0) {
             holder.itemView.categoryHotel.text =
@@ -78,7 +71,7 @@ class AdapterHotel() :
         Picasso.get()
             .load(hotelsListViewModel.hotelList!![position].image)
             .error(R.drawable.rotate)
-            .into(holder.imageView)
+            .into(holder.itemView.imageHotel)
     }
 
     fun setData(hotel: List<Hotel>?) {

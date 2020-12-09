@@ -1,8 +1,6 @@
 package com.example.hotels.ROOM
 
 import androidx.room.*
-import com.example.hotels.VIEW.City
-import com.example.hotels.model.HotelCategories
 import com.example.hotels.model.HotelCity
 import com.example.hotels.model.Relation.HotelWithCity
 

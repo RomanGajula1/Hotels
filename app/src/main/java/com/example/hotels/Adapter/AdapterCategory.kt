@@ -4,8 +4,6 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hotels.R
@@ -21,12 +19,8 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.MyViewHolder>(), Ko
     val categoryViewModel: CategoryViewModel by inject()
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val nameHotelAndWithCategory: TextView =
-            view.findViewById<View>(R.id.nameHotelAndWithCategory) as TextView
-        private val deleteCategory: Button = view.findViewById<View>(R.id.deleteCategory) as Button
-
         init {
-            deleteCategory.setOnClickListener {
+            view.deleteCategory.setOnClickListener {
                 val hotelCategories = HotelCategories()
                 hotelCategories.id = categoryViewModel.listCategory!![bindingAdapterPosition].id
                 categoryViewModel.repositoryCategory.deleteCategory(hotelCategories)
@@ -36,7 +30,10 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.MyViewHolder>(), Ko
                 val hotelCategories = HotelCategories()
                 hotelCategories.id = categoryViewModel.listCategory!![bindingAdapterPosition].id
                 val intent = Intent(view.context, UpdateCategory::class.java)
-                intent.putExtra("idCategory", categoryViewModel.listCategory!![bindingAdapterPosition].id)
+                intent.putExtra(
+                    "idCategory",
+                    categoryViewModel.listCategory!![bindingAdapterPosition].id
+                )
                 view.context.startActivity(intent)
             }
         }
@@ -51,7 +48,8 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.MyViewHolder>(), Ko
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val itemText = categoryViewModel.listCategory!![position]
-        holder.nameHotelAndWithCategory.text = itemText.category.toString() + " - звёздочный."
+        holder.itemView.nameHotelAndWithCategory.text =
+            itemText.category.toString() + " - звёздочный."
     }
 
     fun setDataCategories(hotelCategories: List<HotelCategories>) {
