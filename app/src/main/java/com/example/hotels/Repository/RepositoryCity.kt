@@ -9,7 +9,7 @@ import org.koin.core.inject
 class RepositoryCity : KoinComponent {
     private val daoHotelCity: DaoHotelCity by inject()
 
-    fun insertCity(hotelCity: HotelCity) {
+    suspend fun insertCity(hotelCity: HotelCity) {
         daoHotelCity.insertCity(hotelCity)
     }
 

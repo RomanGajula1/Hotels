@@ -7,13 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hotels.R
-import com.example.hotels.UpdateCategory
-import com.example.hotels.UpdateCity
-import com.example.hotels.model.HotelCategories
+import com.example.hotels.VIEW.UpdateCity
 import com.example.hotels.model.HotelCity
 import com.example.hotels.viewModel.CityViewModel
-import kotlinx.android.synthetic.main.activity_update_city.view.*
-import kotlinx.android.synthetic.main.task_category.view.*
 import kotlinx.android.synthetic.main.task_city.view.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -28,6 +24,7 @@ class AdapterCity : RecyclerView.Adapter<AdapterCity.MyViewHolder>(), KoinCompon
                 val hotelCity = HotelCity()
                 hotelCity.idCity = cityViewModel.listCity[bindingAdapterPosition].idCity
                 cityViewModel.repositoryCity.deleteCity(hotelCity)
+
                 Toast.makeText(view.context, "Город удалён!", Toast.LENGTH_LONG).show()
             }
             view.buttonUpdateCity.setOnClickListener {

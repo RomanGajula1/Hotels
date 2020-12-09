@@ -5,6 +5,8 @@ import com.example.hotels.*
 import com.example.hotels.ROOM.DataBase
 import com.example.hotels.VIEW.DetailsHotel
 import com.example.hotels.viewModel.*
+import com.example.hotels.viewModel.AddViewModel
+import com.example.hotels.viewModel.UpdateViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

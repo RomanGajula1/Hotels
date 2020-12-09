@@ -2,9 +2,12 @@ package com.example.hotels.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.hotels.Adapter.AdapterCity
 import com.example.hotels.Repository.RepositoryCity
 import com.example.hotels.model.HotelCity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -15,6 +18,8 @@ class CityViewModel : ViewModel(), KoinComponent {
     val adapterCity = AdapterCity()
 
     fun insertCity() {
-        repositoryCity.insertCity(HotelCity(null, city.value))
+        viewModelScope.launch(Dispatchers.IO) {
+            repositoryCity.insertCity(HotelCity(null, city.value))
+        }
     }
 }

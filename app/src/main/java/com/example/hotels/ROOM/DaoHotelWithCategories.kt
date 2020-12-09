@@ -10,7 +10,7 @@ import com.example.hotels.model.HotelCategories
 interface DaoHotelWithCategories {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertCategory(vararg categories: HotelCategories)
+    suspend fun insertCategory(vararg categories: HotelCategories)
 
     @Delete
     fun deleteCategory(vararg categories: HotelCategories)

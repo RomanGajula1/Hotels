@@ -3,7 +3,6 @@ package com.example.hotels.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.hotels.Repository.RepositoryCategory
 import com.example.hotels.Repository.RepositoryCity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

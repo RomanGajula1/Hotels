@@ -12,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateCity"></activity>
-        <activity android:name=".UpdateCategory">
+        <activity android:name=".VIEW.UpdateCity"></activity>
+        <activity android:name=".VIEW.UpdateCategory">
             <intent-filter>
                 <action android:name="com.example.hotels.UpdateCategory" />
 

@@ -10,7 +10,7 @@ import org.koin.core.inject
 class RepositoryCategory : KoinComponent {
     private val daoHotelWithCategories: DaoHotelWithCategories by inject()
 
-    fun insertCategory(hotelCategories: HotelCategories) {
+    suspend fun insertCategory(hotelCategories: HotelCategories) {
         daoHotelWithCategories.insertCategory(hotelCategories)
     }
 

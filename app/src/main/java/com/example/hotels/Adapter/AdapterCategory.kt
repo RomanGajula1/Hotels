@@ -9,8 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hotels.R
-import com.example.hotels.UpdateCategory
-import com.example.hotels.VIEW.DetailsHotel
+import com.example.hotels.VIEW.UpdateCategory
 import com.example.hotels.model.HotelCategories
 import com.example.hotels.viewModel.CategoryViewModel
 import kotlinx.android.synthetic.main.task_category.view.*

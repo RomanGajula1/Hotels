@@ -1,4 +1,4 @@
-package com.example.hotels
+package com.example.hotels.VIEW
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,13 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.example.hotels.VIEW.Category
-import com.example.hotels.VIEW.City
-import com.example.hotels.databinding.ActivityUpdateCategoryBinding
+import com.example.hotels.R
 import com.example.hotels.databinding.ActivityUpdateCityBinding
-import com.example.hotels.viewModel.UpdateCategoryViewModel
 import com.example.hotels.viewModel.UpdateCityViewModel
-import kotlinx.android.synthetic.main.activity_update_category.*
 import kotlinx.android.synthetic.main.activity_update_city.*
 import org.koin.android.ext.android.inject
 
