@@ -42,7 +42,7 @@ class UpdateCategory : AppCompatActivity() {
         if (editUpdateCategory.text.toString() == "") {
             Toast.makeText(
                 this,
-                "Пожалуйста поле!",
+                "Пожалуйста заполните поле!",
                 Toast.LENGTH_LONG
             ).show()
         } else {

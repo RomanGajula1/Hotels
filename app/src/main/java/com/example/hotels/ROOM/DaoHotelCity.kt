@@ -2,6 +2,7 @@ package com.example.hotels.ROOM
 
 import androidx.room.*
 import com.example.hotels.VIEW.City
+import com.example.hotels.model.HotelCategories
 import com.example.hotels.model.HotelCity
 import com.example.hotels.model.Relation.HotelWithCity
 
@@ -14,7 +15,10 @@ interface DaoHotelCity {
     fun deleteCity(vararg hotelCity: HotelCity)
 
     @Update
-    fun update(city: HotelCity)
+    suspend fun updateCity(city: HotelCity)
+
+    @Query("SELECT * FROM hotelCity WHERE idCity = :id")
+    fun getById(id: Int): HotelCity
 
     @Query("SELECT * FROM hotelCity")
     fun getAllCity(): List<HotelCity>

@@ -17,8 +17,12 @@ class RepositoryCity : KoinComponent {
         daoHotelCity.deleteCity(hotelCity)
     }
 
-    fun updateHotel(city: HotelCity) {
-        daoHotelCity.update(city)
+    suspend fun updateCity(city: HotelCity) {
+        daoHotelCity.updateCity(city)
+    }
+
+    fun getById(id: Int): HotelCity{
+       return daoHotelCity.getById(id)
     }
 
     fun getHotelWithCity(cityId: Int) = daoHotelCity.getHotelWithCity(cityId)
