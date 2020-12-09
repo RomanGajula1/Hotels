@@ -18,25 +18,36 @@
 
         <TextView
             android:id="@+id/nameHotelAndWithCategory"
-            android:layout_width="210dp"
+            android:layout_width="190dp"
             android:layout_height="40dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="22dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="@{categoryViewModel.category}"
             android:textColor="#434242"
-            android:textSize="26sp" />
+            android:textSize="23sp" />
+
+        <Button
+            android:id="@+id/updateCategory"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="0dp"
+            android:layout_weight="1"
+            android:text="update"
+            android:textSize="8sp" />
 
         <Button
             android:id="@+id/deleteCategory"
             android:layout_width="60dp"
             android:layout_height="40dp"
-            android:layout_marginStart="75dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:text="Delete"
-            android:textSize="10sp" />
+            android:textSize="8sp" />
 
     </LinearLayout>
 </layout>

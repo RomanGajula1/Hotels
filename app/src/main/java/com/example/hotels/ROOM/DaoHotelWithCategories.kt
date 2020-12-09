@@ -1,6 +1,8 @@
 package com.example.hotels.ROOM
 
 import androidx.room.*
+import com.example.hotels.VIEW.City
+import com.example.hotels.model.Hotel
 import com.example.hotels.model.Relation.HotelAndCategory
 import com.example.hotels.model.HotelCategories
 
@@ -8,10 +10,16 @@ import com.example.hotels.model.HotelCategories
 interface DaoHotelWithCategories {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertCategory(vararg hotelCategories: HotelCategories)
+    fun insertCategory(vararg categories: HotelCategories)
 
     @Delete
-    fun deleteCategory(vararg hotelCategories: HotelCategories)
+    fun deleteCategory(vararg categories: HotelCategories)
+
+    @Update
+    suspend fun updateCategory(categories: HotelCategories)
+
+    @Query("SELECT * FROM hotelCategories WHERE id = :id")
+    fun getById(id: Int): HotelCategories
 
     @Query("SELECT * FROM hotelCategories")
     fun getAll(): List<HotelCategories>?

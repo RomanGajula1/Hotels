@@ -6,9 +6,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hotels.R
-import com.example.hotels.model.HotelCategories
 import com.example.hotels.model.HotelCity
-import com.example.hotels.viewModel.CityViewModel
+import com.example.hotels.viewModel.CityViewModel   
 import kotlinx.android.synthetic.main.task_city.view.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject

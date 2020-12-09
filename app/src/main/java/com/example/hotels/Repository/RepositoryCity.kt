@@ -1,6 +1,7 @@
 package com.example.hotels.Repository
 
 import com.example.hotels.ROOM.DaoHotelCity
+import com.example.hotels.model.Hotel
 import com.example.hotels.model.HotelCity
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -14,6 +15,10 @@ class RepositoryCity : KoinComponent {
 
     fun deleteCity(hotelCity: HotelCity) {
         daoHotelCity.deleteCity(hotelCity)
+    }
+
+    fun updateHotel(city: HotelCity) {
+        daoHotelCity.update(city)
     }
 
     fun getHotelWithCity(cityId: Int) = daoHotelCity.getHotelWithCity(cityId)

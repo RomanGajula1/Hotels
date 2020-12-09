@@ -16,6 +16,6 @@ class CategoryViewModel : ViewModel(), KoinComponent {
     var listCategory = repositoryCategory.getCategory()
 
     fun insertCategory() {
-        repositoryCategory.insert(HotelCategories(null, category.value?.toInt()))
+        repositoryCategory.insertCategory(HotelCategories(null, category.value?.toInt()))
     }
 }
