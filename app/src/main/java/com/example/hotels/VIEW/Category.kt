@@ -53,7 +53,7 @@ class Category : AppCompatActivity() {
             startActivity(intent)
         }
 
-        fun clickHotelWithCategories() {
+        fun clickCategories() {
             intent = Intent(this, Category::class.java)
             startActivity(intent)
         }
@@ -65,7 +65,7 @@ class Category : AppCompatActivity() {
 
         when (id) {
             R.id.hotel -> clickHotel()
-            R.id.hotelWithCategories -> clickHotelWithCategories()
+            R.id.hotelWithCategories -> clickCategories()
             R.id.hotelCity -> clickCity()
         }
 

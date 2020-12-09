@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity(), KoinComponent {
             startActivity(intent)
         }
 
-        fun clickHotelWithCategories() {
+        fun clickCategories() {
             intent = Intent(this, Category::class.java)
             startActivity(intent)
         }
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity(), KoinComponent {
 
         when (id) {
             R.id.hotel -> clickHotel()
-            R.id.hotelWithCategories -> clickHotelWithCategories()
+            R.id.hotelWithCategories -> clickCategories()
             R.id.hotelCity -> clickCity()
         }
 
