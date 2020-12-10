@@ -23,7 +23,7 @@ class AdapterCity : RecyclerView.Adapter<AdapterCity.MyViewHolder>(), KoinCompon
             view.deleteCity.setOnClickListener {
                 val hotelCity = City()
                 hotelCity.idCity = cityViewModel.listCity[bindingAdapterPosition].idCity
-                cityViewModel.repositoryCity.deleteCity(hotelCity)
+                cityViewModel.deleteCity(hotelCity)
 
                 Toast.makeText(view.context, "Город удалён!", Toast.LENGTH_LONG).show()
             }

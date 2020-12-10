@@ -12,7 +12,7 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class CategoryViewModel : ViewModel(), KoinComponent {
-    val repositoryCategory: RepositoryCategory by inject()
+    private val repositoryCategory: RepositoryCategory by inject()
     var id = MutableLiveData("")
     var category = MutableLiveData("")
     val adapterCategories: AdapterCategory = AdapterCategory()
@@ -22,5 +22,9 @@ class CategoryViewModel : ViewModel(), KoinComponent {
         viewModelScope.launch(Dispatchers.IO) {
             repositoryCategory.insertCategory(Categories(null, category.value?.toInt()))
         }
+    }
+
+    fun deleteCategory(categories: Categories){
+        repositoryCategory.deleteCategory(categories)
     }
 }

@@ -23,7 +23,7 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.MyViewHolder>(), Ko
             view.deleteCategory.setOnClickListener {
                 val hotelCategories = Categories()
                 hotelCategories.id = categoryViewModel.listCategory!![bindingAdapterPosition].id
-                categoryViewModel.repositoryCategory.deleteCategory(hotelCategories)
+                categoryViewModel.deleteCategory(hotelCategories)
                 Toast.makeText(view.context, "Категория удалена!", Toast.LENGTH_LONG).show()
             }
             view.updateCategory.setOnClickListener {

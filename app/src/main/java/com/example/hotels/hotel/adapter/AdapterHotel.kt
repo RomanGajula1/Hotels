@@ -23,7 +23,7 @@ class AdapterHotel() :
 
     inner class MyViewHolder(val binding: TaskHotelBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(){
+        fun bind() {
             val hotel = hotelsListViewModel.hotelList?.get(bindingAdapterPosition)
             binding.modelHotel = hotel
             val view = binding.root
@@ -32,10 +32,8 @@ class AdapterHotel() :
                 intent.putExtra("id", hotel?.id)
                 view.context.startActivity(intent)
             }
-
             view.buttonDelete.setOnClickListener {
-                hotelsListViewModel.repository.deleteHotel(hotel!!)
-                notifyDataSetChanged()
+                hotelsListViewModel.deleteHotel(hotel!!)
                 Toast.makeText(view.context, "Отель удалён!", Toast.LENGTH_LONG).show()
             }
         }
@@ -54,8 +52,8 @@ class AdapterHotel() :
         holder.bind()
         val itemText = hotelsListViewModel.hotelList!![position]
         val category =
-            hotelsListViewModel.repositoryCategory.getHotelWithCategories(itemText.category!!)
-        val city = hotelsListViewModel.repositoryCity.getHotelWithCity(itemText.city!!)
+            hotelsListViewModel.getHotelWithCategories(itemText.category!!)
+        val city = hotelsListViewModel.getHotelWithCity(itemText.city!!)
 
         if (itemText.category != 0) {
             holder.itemView.categoryHotel.text =
@@ -67,10 +65,10 @@ class AdapterHotel() :
 
 
 
-        Picasso.get()
-            .load(hotelsListViewModel.hotelList!![position].image)
-            .error(R.drawable.rotate)
-            .into(holder.itemView.imageHotel)
+//        Picasso.get()
+//            .load(hotelsListViewModel.hotelList!![position].image)
+//            .error(R.drawable.rotate)
+//            .into(holder.itemView.imageHotel)
     }
 
     override fun getItemCount(): Int {

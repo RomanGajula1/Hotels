@@ -12,7 +12,7 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class CityViewModel : ViewModel(), KoinComponent {
-    val repositoryCity: RepositoryCity by inject()
+    private val repositoryCity: RepositoryCity by inject()
     var city = MutableLiveData("")
     var listCity = repositoryCity.getAllCity()
     val adapterCity = AdapterCity()
@@ -21,5 +21,9 @@ class CityViewModel : ViewModel(), KoinComponent {
         viewModelScope.launch(Dispatchers.IO) {
             repositoryCity.insertCity(City(null, city.value))
         }
+    }
+
+    fun deleteCity(city: City){
+        repositoryCity.deleteCity(city)
     }
 }

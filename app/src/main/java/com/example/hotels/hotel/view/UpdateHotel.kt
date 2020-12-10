@@ -37,7 +37,7 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
     }
 
     fun clickUpdateHotel(view: View) {
-        if (cityUpdate.text.toString() == "" || imageUpdate.text.toString() == "" || descriptionUpdate.text.toString() == "" ||
+        if (cityUpdate.text.toString() == "" || descriptionUpdate.text.toString() == "" ||
             nameUpdate.text.toString() == ""
         ) {
             Toast.makeText(
@@ -47,7 +47,6 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
             ).show()
             when ("") {
                 nameUpdate.text.toString() -> nameUpdate.error = "Введите название отеля!"
-                imageUpdate.text.toString() -> imageUpdate.error = "Введите путь к фото отеля!"
                 cityUpdate.text.toString() -> city.error = "Введите путь к фото отеля!"
                 descriptionUpdate.text.toString() -> descriptionUpdate.error =
                     "Введите описание отеля!"
