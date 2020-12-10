@@ -7,25 +7,29 @@
 
         <variable
             name="updateCityViewModel"
-            type="com.example.hotels.viewModel.UpdateCityViewModel" />
+            type="com.example.hotels.city.viewModel.UpdateCityViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".VIEW.UpdateCity">
+        tools:context=".city.view.UpdateCity">
 
         <EditText
             android:id="@+id/EditUpdateCity"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="154dp"
+            android:layout_width="155dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="156dp"
+            android:layout_marginEnd="119dp"
             android:ems="10"
             android:hint="Update city"
             android:inputType="textPersonName"
             android:text="@={updateCityViewModel.city}"
+            android:textColor="#636262"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,6 +43,23 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="21dp"
+            android:text="Enter city:"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toStartOf="@+id/EditUpdateCity"
+            app:layout_constraintHorizontal_bias="0.833"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/EditUpdateCity"
+            tools:ignore="MissingConstraints" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

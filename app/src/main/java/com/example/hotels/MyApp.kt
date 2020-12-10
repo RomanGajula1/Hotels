@@ -1,10 +1,10 @@
 package com.example.hotels
 
 import android.app.Application
-import com.example.hotels.Koin.appModule
-import com.example.hotels.Koin.commonModule
-import com.example.hotels.Koin.modulesCategory
-import com.example.hotels.Koin.modulesCity
+import com.example.hotels.hotel.koin.appModule
+import com.example.hotels.common.koin.commonModule
+import com.example.hotels.category.koin.modulesCategory
+import com.example.hotels.city.koin.modulesCity
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

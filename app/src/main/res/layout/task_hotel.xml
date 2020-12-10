@@ -7,11 +7,11 @@
 
         <variable
             name="modelHotel"
-            type="com.example.hotels.model.Hotel" />
+            type="com.example.hotels.hotel.model.Hotel" />
 
         <variable
             name="mainActivity"
-            type="com.example.hotels.viewModel.ListHotelViewModel" />
+            type="com.example.hotels.hotel.viewModel.ListHotelViewModel" />
 
     </data>
 

@@ -7,7 +7,7 @@
 
         <variable
             name="cityViewModel"
-            type="com.example.hotels.model.City" />
+            type="com.example.hotels.city.model.City" />
 
     </data>
 

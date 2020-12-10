@@ -7,25 +7,27 @@
 
         <variable
             name="updateCategoryViewModel"
-            type="com.example.hotels.viewModel.UpdateCategoryViewModel" />
+            type="com.example.hotels.category.viewModel.UpdateCategoryViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".VIEW.UpdateCategory">
+        tools:context=".category.view.UpdateCategory">
 
         <EditText
             android:id="@+id/editUpdateCategory"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="154dp"
+            android:layout_width="166dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="160dp"
             android:ems="10"
             android:hint="Update category"
             android:inputType="textPersonName"
             android:text="@={updateCategoryViewModel.category}"
+            android:textColor="#636262"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.563"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,12 +35,28 @@
             android:id="@+id/buttonUpdateCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="319dp"
-            android:text="Update"
+            android:layout_marginBottom="320dp"
             android:onClick="clickUpdateCategory"
+            android:text="Update"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.546"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="119dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:text="Enter category:"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/editUpdateCategory"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editUpdateCategory"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

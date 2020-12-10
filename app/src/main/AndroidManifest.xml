@@ -12,58 +12,58 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VIEW.UpdateCity"></activity>
-        <activity android:name=".VIEW.UpdateCategory">
+        <activity android:name=".city.view.UpdateCity"></activity>
+        <activity android:name=".category.view.UpdateCategory">
             <intent-filter>
                 <action android:name="com.example.hotels.UpdateCategory" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".VIEW.AddCity">
+        <activity android:name=".city.view.AddCity">
             <intent-filter>
                 <action android:name="com.example.hotels.AddCity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".VIEW.Citys">
+        <activity android:name=".city.view.Citys">
             <intent-filter>
                 <action android:name="com.example.hotels.City" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".VIEW.AddCategory" />
-        <activity android:name=".VIEW.Categoryes">
+        <activity android:name=".category.view.AddCategory" />
+        <activity android:name=".category.view.Categoryes">
             <intent-filter>
                 <action android:name="com.example.hotels.HotelWithCategories" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".VIEW.AddHotel">
+        <activity android:name=".hotel.view.AddHotel">
             <intent-filter>
                 <action android:name="com.example.hotels.AddHotel" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".VIEW.UpdateHotel">
+        <activity android:name=".hotel.view.UpdateHotel">
             <intent-filter>
                 <action android:name="com.example.hotels.UpdateHotel" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".VIEW.DetailsHotel">
+        <activity android:name=".hotel.view.DetailsHotel">
             <intent-filter>
                 <action android:name="com.example.hotels.DetailsHotel" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".VIEW.MainActivity">
+        <activity android:name=".hotel.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

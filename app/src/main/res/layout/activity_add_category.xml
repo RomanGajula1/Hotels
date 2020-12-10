@@ -7,14 +7,32 @@
 
         <variable
             name="categoryViewModel"
-            type="com.example.hotels.viewModel.CategoryViewModel" />
+            type="com.example.hotels.category.viewModel.CategoryViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".VIEW.AddCategory">
+        tools:context=".category.view.AddCategory">
+
+        <TextView
+            android:id="@+id/categoryAddTitle"
+            android:layout_width="232dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="109dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:text="Add Category"
+            android:textColor="#515151"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonAdd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/addCategoryToDB"

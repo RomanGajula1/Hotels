@@ -7,7 +7,7 @@
 
         <variable
             name="categoryViewModel"
-            type="com.example.hotels.model.Categories" />
+            type="com.example.hotels.category.model.Categories" />
 
     </data>
 
