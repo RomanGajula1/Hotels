@@ -8,6 +8,8 @@ object AdapterPhoto {
     @JvmStatic
     @BindingAdapter("app:image")
     fun loadImage(view: ImageView, url: String) {
-        Picasso.get().load(url).into(view)
+        if (url != ""){
+            Picasso.get().load(url).into(view)
+        }
     }
 }

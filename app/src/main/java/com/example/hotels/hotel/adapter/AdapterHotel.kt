@@ -11,6 +11,8 @@ import com.example.hotels.R
 import com.example.hotels.hotel.view.DetailsHotel
 import com.example.hotels.databinding.TaskHotelBinding
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_add_hotel.view.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.task_hotel.view.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -34,6 +36,7 @@ class AdapterHotel() :
             }
             view.buttonDelete.setOnClickListener {
                 hotelsListViewModel.deleteHotel(hotel!!)
+                hotelsListViewModel.adapter.notifyDataSetChanged()
                 Toast.makeText(view.context, "Отель удалён!", Toast.LENGTH_LONG).show()
             }
         }
@@ -63,12 +66,12 @@ class AdapterHotel() :
             holder.itemView.categoryHotel.text = city!!.first().city.city.toString()
         }
 
-
-
-//        Picasso.get()
-//            .load(hotelsListViewModel.hotelList!![position].image)
-//            .error(R.drawable.rotate)
-//            .into(holder.itemView.imageHotel)
+        if (itemText.image != ""){
+            Picasso.get()
+                .load(itemText.image)
+                .error(R.drawable.rotate)
+                .into(holder.itemView.imageHotel)
+        }
     }
 
     override fun getItemCount(): Int {
