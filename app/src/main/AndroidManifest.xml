@@ -27,7 +27,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".VIEW.City">
+        <activity android:name=".VIEW.Citys">
             <intent-filter>
                 <action android:name="com.example.hotels.City" />
 
@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".VIEW.AddCategory" />
-        <activity android:name=".VIEW.Category">
+        <activity android:name=".VIEW.Categoryes">
             <intent-filter>
                 <action android:name="com.example.hotels.HotelWithCategories" />
 

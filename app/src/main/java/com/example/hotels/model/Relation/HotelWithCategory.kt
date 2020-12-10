@@ -3,12 +3,12 @@ package com.example.hotels.model.Relation
 import androidx.room.Embedded
 import androidx.room.Relation
 import com.example.hotels.model.Hotel
-import com.example.hotels.model.HotelCategories
+import com.example.hotels.model.Categories
 
-class HotelAndCategory(
+class HotelWithCategory(
     @Embedded
-    var categories: HotelCategories,
+    var categories: Categories,
 
     @Relation(parentColumn = "id", entityColumn = "category")
-    var hotelCategories: List<Hotel>
+    var listHotel: List<Hotel>
 )

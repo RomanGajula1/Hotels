@@ -11,5 +11,5 @@ val modulesCategory = module {
     viewModel { CategoryViewModel() }
     viewModel { UpdateCategoryViewModel() }
     single { RepositoryCategory() }
-    single { get<DataBase>().daoHotelWithCategories }
+    single { get<DataBase>().daoCategories }
 }

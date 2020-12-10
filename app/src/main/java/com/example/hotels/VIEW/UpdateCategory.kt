@@ -43,7 +43,7 @@ class UpdateCategory : AppCompatActivity() {
             ).show()
         } else {
             updateCategoryViewModel.clickUpdateCategory(id)
-            val intent = Intent(this, Category::class.java)
+            val intent = Intent(this, Categoryes::class.java)
             startActivity(intent)
             Toast.makeText(this, "Категория обнавлена!", Toast.LENGTH_LONG).show()
         }

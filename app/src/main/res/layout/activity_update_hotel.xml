@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="updateViewModel"
-            type="com.example.hotels.viewModel.UpdateViewModel" />
+            name="updateHotelViewModel"
+            type="com.example.hotels.viewModel.UpdateHotelViewModel" />
 
     </data>
 
@@ -26,7 +26,7 @@
             android:layout_marginBottom="264dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@={updateViewModel.name}"
+            android:text="@={updateHotelViewModel.name}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,7 @@
             android:layout_marginTop="170dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@={updateViewModel.image}"
+            android:text="@={updateHotelViewModel.image}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +50,7 @@
             android:layout_marginTop="250dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@={updateViewModel.description}"
+            android:text="@={updateHotelViewModel.description}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,7 +62,7 @@
             android:layout_marginTop="330dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@={updateViewModel.category}"
+            android:text="@={updateHotelViewModel.category}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,7 +74,7 @@
             android:layout_marginTop="410dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@={updateViewModel.city}"
+            android:text="@={updateHotelViewModel.city}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

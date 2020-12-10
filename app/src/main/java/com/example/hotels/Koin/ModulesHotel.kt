@@ -5,21 +5,17 @@ import com.example.hotels.*
 import com.example.hotels.ROOM.DataBase
 import com.example.hotels.VIEW.DetailsHotel
 import com.example.hotels.viewModel.*
-import com.example.hotels.viewModel.AddViewModel
-import com.example.hotels.viewModel.UpdateViewModel
+import com.example.hotels.viewModel.AddHotelViewModel
+import com.example.hotels.viewModel.UpdateHotelViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
     viewModel { ListHotelViewModel() }
     viewModel { DetailsViewModel() }
-    viewModel { UpdateViewModel() }
-    viewModel { AddViewModel() }
+    viewModel { UpdateHotelViewModel() }
+    viewModel { AddHotelViewModel() }
     single { RepositoryHotel() }
-    single {
-        Room.databaseBuilder(get(), DataBase::class.java, "DB")
-            .allowMainThreadQueries().build()
-    }
     single { get<DataBase>().dao }
     single { DetailsHotel() }
 }

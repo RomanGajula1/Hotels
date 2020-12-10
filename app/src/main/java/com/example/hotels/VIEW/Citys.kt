@@ -9,29 +9,29 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hotels.R
-import com.example.hotels.databinding.ActivityHotelWithCategoriesBinding
-import com.example.hotels.viewModel.CategoryViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.example.hotels.databinding.ActivityCityBinding
+import com.example.hotels.viewModel.CityViewModel
+import org.koin.android.ext.android.inject
 
-class Category : AppCompatActivity() {
+class Citys : AppCompatActivity() {
 
-    private val categoryViewModel: CategoryViewModel by viewModel()
+    val cityViewModel: CityViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityHotelWithCategoriesBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_hotel_with_categories)
+        val binding: ActivityCityBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_city)
 
         binding.apply {
-            recyclerView.setHasFixedSize(true)
-            recyclerView.layoutManager = LinearLayoutManager(this@Category)
-            recyclerView.adapter = this@Category.categoryViewModel.adapterCategories
+            recyclerViewCity.setHasFixedSize(true)
+            recyclerViewCity.layoutManager = LinearLayoutManager(this@Citys)
+            recyclerViewCity.adapter = this@Citys.cityViewModel.adapterCity
         }
-        categoryViewModel.adapterCategories.setDataCategories(categoryViewModel.listCategory!!)
+        cityViewModel.adapterCity.setDataCity(cityViewModel.listCity)
     }
 
-    fun clickAddCategory(view: View) {
-        val intent = Intent(this, AddCategory::class.java)
+    fun clickAddCity(view: View) {
+        val intent = Intent(this, AddCity::class.java)
         startActivity(intent)
     }
 
@@ -54,12 +54,12 @@ class Category : AppCompatActivity() {
         }
 
         fun clickCategories() {
-            intent = Intent(this, Category::class.java)
+            intent = Intent(this, Categoryes::class.java)
             startActivity(intent)
         }
 
         fun clickCity() {
-            intent = Intent(this, City::class.java)
+            intent = Intent(this, Citys::class.java)
             startActivity(intent)
         }
 

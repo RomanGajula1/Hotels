@@ -42,7 +42,7 @@ class UpdateCity : AppCompatActivity() {
             ).show()
         } else {
             updateCityViewModel.clickUpdateCity(id)
-            val intent = Intent(this, City::class.java)
+            val intent = Intent(this, Citys::class.java)
             startActivity(intent)
             Toast.makeText(this, " Город обнавлён!", Toast.LENGTH_LONG).show()
         }

@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "hotelCategories")
-class HotelCategories(
+class Categories(
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null,
     var category: Int? = null

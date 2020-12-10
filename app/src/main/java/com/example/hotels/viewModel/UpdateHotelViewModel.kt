@@ -11,7 +11,7 @@ import org.koin.core.inject
 import kotlin.text.toInt
 
 
-class UpdateViewModel : ViewModel(), KoinComponent {
+class UpdateHotelViewModel : ViewModel(), KoinComponent {
     private val repository: RepositoryHotel by inject()
     var name = MutableLiveData("")
     var image = MutableLiveData("")

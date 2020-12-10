@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class AddViewModel : ViewModel(), KoinComponent {
+class AddHotelViewModel : ViewModel(), KoinComponent {
     val name = MutableLiveData("")
     val image = MutableLiveData("")
     val description = MutableLiveData("")

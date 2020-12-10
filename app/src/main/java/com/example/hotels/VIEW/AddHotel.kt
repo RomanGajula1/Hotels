@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.example.hotels.viewModel.AddViewModel
+import com.example.hotels.viewModel.AddHotelViewModel
 import com.example.hotels.R
 import com.example.hotels.databinding.ActivityAddHotelBinding
 import kotlinx.android.synthetic.main.activity_add_hotel.*
@@ -15,7 +15,7 @@ import org.koin.core.KoinComponent
 
 class AddHotel : AppCompatActivity(), KoinComponent {
 
-    private val addViewModel: AddViewModel by viewModel()
+    private val addHotelViewModel: AddHotelViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class AddHotel : AppCompatActivity(), KoinComponent {
 
         binding.apply {
             lifecycleOwner = this@AddHotel
-            addViewModel = this@AddHotel.addViewModel
+            addViewModel = this@AddHotel.addHotelViewModel
         }
     }
 
@@ -44,7 +44,7 @@ class AddHotel : AppCompatActivity(), KoinComponent {
                 addCity.text.toString() -> addDescription.error = "Введите описание отеля!"
             }
         } else {
-            addViewModel.clickAddHotel()
+            addHotelViewModel.clickAddHotel()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             Toast.makeText(this, "Отель добавлен!", Toast.LENGTH_LONG).show()

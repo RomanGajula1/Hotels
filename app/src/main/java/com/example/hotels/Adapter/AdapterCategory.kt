@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hotels.R
 import com.example.hotels.VIEW.UpdateCategory
-import com.example.hotels.model.HotelCategories
+import com.example.hotels.model.Categories
 import com.example.hotels.viewModel.CategoryViewModel
 import kotlinx.android.synthetic.main.task_category.view.*
 import org.koin.core.KoinComponent
@@ -21,13 +21,13 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.MyViewHolder>(), Ko
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         init {
             view.deleteCategory.setOnClickListener {
-                val hotelCategories = HotelCategories()
+                val hotelCategories = Categories()
                 hotelCategories.id = categoryViewModel.listCategory!![bindingAdapterPosition].id
                 categoryViewModel.repositoryCategory.deleteCategory(hotelCategories)
                 Toast.makeText(view.context, "Категория удалена!", Toast.LENGTH_LONG).show()
             }
             view.updateCategory.setOnClickListener {
-                val hotelCategories = HotelCategories()
+                val hotelCategories = Categories()
                 hotelCategories.id = categoryViewModel.listCategory!![bindingAdapterPosition].id
                 val intent = Intent(view.context, UpdateCategory::class.java)
                 intent.putExtra(
@@ -52,8 +52,8 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.MyViewHolder>(), Ko
             itemText.category.toString() + " - звёздочный."
     }
 
-    fun setDataCategories(hotelCategories: List<HotelCategories>) {
-        this.categoryViewModel.listCategory = hotelCategories
+    fun setDataCategories(categories: List<Categories>) {
+        this.categoryViewModel.listCategory = categories
         notifyDataSetChanged()
     }
 

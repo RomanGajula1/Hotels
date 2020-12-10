@@ -42,7 +42,7 @@ class AddCategory : AppCompatActivity() {
             }
         } else {
             categoryViewModel.insertCategory()
-            val intent = Intent(this, Category::class.java)
+            val intent = Intent(this, Categoryes::class.java)
             startActivity(intent)
             Toast.makeText(this, "Категория добавленна!", Toast.LENGTH_LONG).show()
         }

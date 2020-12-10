@@ -11,5 +11,5 @@ val modulesCity = module {
     viewModel { CityViewModel() }
     viewModel { UpdateCityViewModel() }
     single { RepositoryCity() }
-    single { get<DataBase>().daoHotelCity }
+    single { get<DataBase>().daoCitys }
 }

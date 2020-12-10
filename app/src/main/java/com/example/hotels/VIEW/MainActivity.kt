@@ -55,12 +55,12 @@ class MainActivity : AppCompatActivity(), KoinComponent {
         }
 
         fun clickCategories() {
-            intent = Intent(this, Category::class.java)
+            intent = Intent(this, Categoryes::class.java)
             startActivity(intent)
         }
 
         fun clickCity() {
-            intent = Intent(this, City::class.java)
+            intent = Intent(this, Citys::class.java)
             startActivity(intent)
         }
 

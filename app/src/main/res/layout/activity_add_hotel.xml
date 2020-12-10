@@ -8,7 +8,7 @@
 
         <variable
             name="addViewModel"
-            type="com.example.hotels.viewModel.AddViewModel" />
+            type="com.example.hotels.viewModel.AddHotelViewModel" />
 
     </data>
 

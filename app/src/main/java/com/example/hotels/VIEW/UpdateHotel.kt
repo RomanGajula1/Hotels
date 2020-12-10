@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.hotels.R
-import com.example.hotels.viewModel.UpdateViewModel
+import com.example.hotels.viewModel.UpdateHotelViewModel
 import com.example.hotels.databinding.ActivityUpdateHotelBinding
 import kotlinx.android.synthetic.main.activity_update_hotel.*
 import kotlinx.android.synthetic.main.task_hotel.*
@@ -16,7 +16,7 @@ import org.koin.core.KoinComponent
 
 class UpdateHotel : AppCompatActivity(), KoinComponent {
 
-    private val updateViewModel: UpdateViewModel by viewModel()
+    private val updateHotelViewModel: UpdateHotelViewModel by viewModel()
     var id: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,11 +28,11 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
 
         id = intent.getIntExtra("idToUpdate", 0)
 
-        updateViewModel.loadForUpdate(id)
+        updateHotelViewModel.loadForUpdate(id)
 
         binding.apply {
             lifecycleOwner = this@UpdateHotel
-            updateViewModel = this@UpdateHotel.updateViewModel
+            updateHotelViewModel = this@UpdateHotel.updateHotelViewModel
         }
     }
 
@@ -53,7 +53,7 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
                     "Введите описание отеля!"
             }
         } else {
-            updateViewModel.clickUpdateHotel(id)
+            updateHotelViewModel.clickUpdateHotel(id)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             Toast.makeText(this, "Отель обновлён!", Toast.LENGTH_LONG).show()

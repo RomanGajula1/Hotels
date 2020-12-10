@@ -36,7 +36,7 @@ class AddCity : AppCompatActivity() {
             ).show()
         } else {
             cityViewModel.insertCity()
-            val intent = Intent(this, City::class.java)
+            val intent = Intent(this, Citys::class.java)
             startActivity(intent)
             Toast.makeText(this, "Город добавлен!", Toast.LENGTH_LONG).show()
         }

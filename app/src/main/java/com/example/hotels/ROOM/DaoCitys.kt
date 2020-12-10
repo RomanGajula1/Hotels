@@ -5,7 +5,7 @@ import com.example.hotels.model.City
 import com.example.hotels.model.Relation.HotelWithCity
 
 @Dao
-interface DaoHotelCity {
+interface DaoCitys {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCity(vararg city: City)
 
