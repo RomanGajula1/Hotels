@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity(), KoinComponent {
             recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
             recyclerView.adapter = this@MainActivity.hotelsListViewModel.adapter
         }
-        hotelsListViewModel.adapter.setData(hotelsListViewModel.hotelList)
     }
 
     fun clickAddHotel(view: View) {

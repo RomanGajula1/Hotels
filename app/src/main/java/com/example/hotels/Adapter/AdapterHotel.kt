@@ -12,6 +12,7 @@ import com.example.hotels.model.Hotel
 import com.example.hotels.viewModel.ListHotelViewModel
 import com.example.hotels.R
 import com.example.hotels.VIEW.DetailsHotel
+import com.example.hotels.databinding.TaskHotelBinding
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.task_hotel.view.*
 import org.koin.core.KoinComponent
@@ -23,27 +24,28 @@ class AdapterHotel() :
 
     val hotelsListViewModel: ListHotelViewModel by inject()
 
-    inner class MyViewHolder(view: View) :
-        RecyclerView.ViewHolder(view) {
+    inner class MyViewHolder(binding: TaskHotelBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         init {
+            val hotel = hotelsListViewModel.hotelList?.get(bindingAdapterPosition)
+            binding.modelHotel = hotel
+            val view = binding.root
             view.setOnClickListener {
                 val intent = Intent(view.context, DetailsHotel::class.java)
-                intent.putExtra("id", hotelsListViewModel.hotelList!![bindingAdapterPosition].id)
+                intent.putExtra("id", hotel?.id)
                 view.context.startActivity(intent)
             }
 
             view.buttonDelete.setOnClickListener {
-                val hotel = Hotel()
-                hotel.id = hotelsListViewModel.hotelList!![bindingAdapterPosition].id
-                hotelsListViewModel.repository.deleteHotel(hotel)
+                hotelsListViewModel.repository.deleteHotel(hotel!!)
+                notifyDataSetChanged()
                 Toast.makeText(view.context, "Отель удалён!", Toast.LENGTH_LONG).show()
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemsView: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.task_hotel, parent, false)
+        val itemsView = TaskHotelBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(itemsView)
     }
 
@@ -52,31 +54,25 @@ class AdapterHotel() :
         holder: MyViewHolder,
         position: Int
     ) {
-        val itemText = hotelsListViewModel.hotelList!![position]
-        val category =
-            hotelsListViewModel.repositoryCategory.getHotelWithCategories(itemText.category!!)
-        val city = hotelsListViewModel.repositoryCity.getHotelWithCity(itemText.city!!)
-        holder.itemView.nameHotel.text = itemText.name
-
-        if (itemText.category != 0) {
-            holder.itemView.categoryHotel.text =
-                category!!.first().categories.category.toString() + " stars, "
-            holder.itemView.city.text = city!!.first().city.city.toString()
-        } else {
-            holder.itemView.categoryHotel.text = city!!.first().city.city.toString()
-        }
-
+//        val itemText = hotelsListViewModel.hotelList!![position]
+//        val category =
+//            hotelsListViewModel.repositoryCategory.getHotelWithCategories(itemText.category!!)
+//        val city = hotelsListViewModel.repositoryCity.getHotelWithCity(itemText.city!!)
+//
+//        if (itemText.category != 0) {
+//            holder.itemView.categoryHotel.text =
+//                category!!.first().categories.category.toString() + " stars, "
+//            holder.itemView.city.text = city!!.first().city.city.toString()
+//        } else {
+//            holder.itemView.categoryHotel.text = city!!.first().city.city.toString()
+//        }
 
 
-        Picasso.get()
-            .load(hotelsListViewModel.hotelList!![position].image)
-            .error(R.drawable.rotate)
-            .into(holder.itemView.imageHotel)
-    }
 
-    fun setData(hotel: List<Hotel>?) {
-        this.hotelsListViewModel.hotelList = hotel
-        notifyDataSetChanged()
+//        Picasso.get()
+//            .load(hotelsListViewModel.hotelList!![position].image)
+//            .error(R.drawable.rotate)
+//            .into(holder.itemView.imageHotel)
     }
 
     override fun getItemCount(): Int {

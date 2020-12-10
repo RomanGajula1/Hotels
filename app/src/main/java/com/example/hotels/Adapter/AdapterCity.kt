@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hotels.R
 import com.example.hotels.VIEW.UpdateCity
-import com.example.hotels.model.HotelCity
+import com.example.hotels.model.City
 import com.example.hotels.viewModel.CityViewModel
 import kotlinx.android.synthetic.main.task_city.view.*
 import org.koin.core.KoinComponent
@@ -21,14 +21,14 @@ class AdapterCity : RecyclerView.Adapter<AdapterCity.MyViewHolder>(), KoinCompon
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         init {
             view.deleteCity.setOnClickListener {
-                val hotelCity = HotelCity()
+                val hotelCity = City()
                 hotelCity.idCity = cityViewModel.listCity[bindingAdapterPosition].idCity
                 cityViewModel.repositoryCity.deleteCity(hotelCity)
 
                 Toast.makeText(view.context, "Город удалён!", Toast.LENGTH_LONG).show()
             }
             view.buttonUpdateCity.setOnClickListener {
-                val hotelCity = HotelCity()
+                val hotelCity = City()
                 hotelCity.idCity = cityViewModel.listCity[bindingAdapterPosition].idCity
                 val intent = Intent(view.context, UpdateCity::class.java)
                 intent.putExtra("idCity", cityViewModel.listCity[bindingAdapterPosition].idCity)
@@ -48,8 +48,8 @@ class AdapterCity : RecyclerView.Adapter<AdapterCity.MyViewHolder>(), KoinCompon
         holder.itemView.nameCity.text = items.city
     }
 
-    fun setDataCity(hotelCity: List<HotelCity>) {
-        this.cityViewModel.listCity = hotelCity
+    fun setDataCity(city: List<City>) {
+        this.cityViewModel.listCity = city
         notifyDataSetChanged()
     }
 

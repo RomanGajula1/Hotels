@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hotels.Adapter.AdapterCity
 import com.example.hotels.Repository.RepositoryCity
-import com.example.hotels.model.HotelCity
+import com.example.hotels.model.City
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
@@ -19,7 +19,7 @@ class CityViewModel : ViewModel(), KoinComponent {
 
     fun insertCity() {
         viewModelScope.launch(Dispatchers.IO) {
-            repositoryCity.insertCity(HotelCity(null, city.value))
+            repositoryCity.insertCity(City(null, city.value))
         }
     }
 }
