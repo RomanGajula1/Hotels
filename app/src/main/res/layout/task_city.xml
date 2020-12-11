@@ -23,7 +23,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="22dp"
             android:fontFamily="@font/montserrat_bold"
-            android:text="@{cityViewModel.city}"
+            android:text="@{cityViewModel.name}"
             android:textColor="#434242"
             android:textSize="25sp" />
 

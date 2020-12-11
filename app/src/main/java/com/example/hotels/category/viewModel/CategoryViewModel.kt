@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hotels.category.adapter.AdapterCategory
 import com.example.hotels.category.repository.RepositoryCategory
-import com.example.hotels.category.model.Categories
+import com.example.hotels.category.model.Category
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
@@ -20,11 +20,11 @@ class CategoryViewModel : ViewModel(), KoinComponent {
 
     fun insertCategory() {
         viewModelScope.launch(Dispatchers.IO) {
-            repositoryCategory.insertCategory(Categories(null, category.value?.toInt()))
+            repositoryCategory.insertCategory(Category(null, category.value))
         }
     }
 
-    fun deleteCategory(categories: Categories){
-        repositoryCategory.deleteCategory(categories)
+    fun deleteCategory(category: Category){
+        repositoryCategory.deleteCategory(category)
     }
 }

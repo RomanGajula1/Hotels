@@ -36,8 +36,8 @@ class UpdateHotelViewModel : ViewModel(), KoinComponent {
             hotel.name = name.value
             hotel.image = image.value
             hotel.description = description.value
-            hotel.category = category.value?.toInt()
-            hotel.city = city.value?.toInt()
+            hotel.category = category.value
+            hotel.city = city.value
             repository.updateHotel(hotel)
         }
     }

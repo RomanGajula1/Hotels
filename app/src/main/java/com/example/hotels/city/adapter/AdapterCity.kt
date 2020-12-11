@@ -22,16 +22,16 @@ class AdapterCity : RecyclerView.Adapter<AdapterCity.MyViewHolder>(), KoinCompon
         init {
             view.deleteCity.setOnClickListener {
                 val hotelCity = City()
-                hotelCity.idCity = cityViewModel.listCity[bindingAdapterPosition].idCity
+                hotelCity.id = cityViewModel.listCity[bindingAdapterPosition].id
                 cityViewModel.deleteCity(hotelCity)
 
                 Toast.makeText(view.context, "Город удалён!", Toast.LENGTH_LONG).show()
             }
             view.buttonUpdateCity.setOnClickListener {
                 val hotelCity = City()
-                hotelCity.idCity = cityViewModel.listCity[bindingAdapterPosition].idCity
+                hotelCity.id = cityViewModel.listCity[bindingAdapterPosition].id
                 val intent = Intent(view.context, UpdateCity::class.java)
-                intent.putExtra("idCity", cityViewModel.listCity[bindingAdapterPosition].idCity)
+                intent.putExtra("idCity", cityViewModel.listCity[bindingAdapterPosition].id)
                 view.context.startActivity(intent)
             }
         }
@@ -45,7 +45,7 @@ class AdapterCity : RecyclerView.Adapter<AdapterCity.MyViewHolder>(), KoinCompon
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val items = cityViewModel.listCity[position]
-        holder.itemView.nameCity.text = items.city
+        holder.itemView.nameCity.text = items.name
     }
 
     fun setDataCity(city: List<City>) {

@@ -15,14 +15,14 @@ class UpdateCityViewModel : ViewModel(), KoinComponent {
 
     fun loadForUpdateCity(id: Int) {
         repositoryCity.getById(id).let {
-            city.value = it.city.toString()
+            city.value = it.name.toString()
         }
     }
 
     fun clickUpdateCity(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val hotelCity = repositoryCity.getById(id)
-            hotelCity.city = city.value
+            hotelCity.name = city.value
             repositoryCity.updateCity(hotelCity)
         }
     }

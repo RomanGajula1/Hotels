@@ -1,27 +1,27 @@
 package com.example.hotels.category.repository
 
 import com.example.hotels.category.room.DaoCategories
-import com.example.hotels.category.model.Categories
+import com.example.hotels.category.model.Category
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class RepositoryCategory : KoinComponent {
     private val daoCategories: DaoCategories by inject()
 
-    suspend fun insertCategory(categories: Categories) {
-        daoCategories.insertCategory(categories)
+    suspend fun insertCategory(category: Category) {
+        daoCategories.insertCategory(category)
     }
 
-    suspend fun updateCategory(categories: Categories) {
-        daoCategories.updateCategory(categories)
+    suspend fun updateCategory(category: Category) {
+        daoCategories.updateCategory(category)
     }
 
-    fun getById(id: Int): Categories {
+    fun getById(id: Int): Category {
         return daoCategories.getById(id)
     }
 
-    fun deleteCategory(categories: Categories) {
-        daoCategories.deleteCategory(categories)
+    fun deleteCategory(category: Category) {
+        daoCategories.deleteCategory(category)
     }
 
     fun getHotelWithCategories(categoryId: Int) =

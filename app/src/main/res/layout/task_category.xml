@@ -7,7 +7,7 @@
 
         <variable
             name="categoryViewModel"
-            type="com.example.hotels.category.model.Categories" />
+            type="com.example.hotels.category.model.Category" />
 
     </data>
 
@@ -23,7 +23,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="22dp"
             android:fontFamily="@font/montserrat_bold"
-            android:text="@{categoryViewModel.category}"
+            android:text="@{categoryViewModel.name}"
             android:textColor="#434242"
             android:textSize="23sp" />
 

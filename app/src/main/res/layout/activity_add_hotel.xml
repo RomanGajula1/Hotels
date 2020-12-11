@@ -20,93 +20,106 @@
         <TextView
             android:id="@+id/textView3"
             android:layout_width="232dp"
-            android:layout_height="58dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginBottom="43dp"
             android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
-            android:text="Add Category"
+            android:text="Add Hotel"
             android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/addName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="29dp" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/addName"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="120dp"
-            android:layout_marginBottom="240dp"
+            android:layout_marginStart="54dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="29dp"
             android:ems="10"
             android:hint="Add name hotel"
             android:inputType="textPersonName"
             android:text="@={addViewModel.name}"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/addImages"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <EditText
             android:id="@+id/addImages"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="194dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="54dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="31dp"
             android:ems="10"
             android:hint="Add image hotel"
             android:inputType="textPersonName"
             android:text="@={addViewModel.image}"
+            app:layout_constraintBottom_toTopOf="@+id/addDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/addName" />
 
         <EditText
             android:id="@+id/addDescription"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="274dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="54dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="30dp"
             android:ems="10"
             android:hint="Add description hotel"
             android:inputType="textPersonName"
             android:text="@={addViewModel.description}"
+            app:layout_constraintBottom_toTopOf="@+id/spinnerCategory"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/addImages" />
 
-        <EditText
-            android:id="@+id/addCategory"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="354dp"
-            android:ems="10"
-            android:hint="Add category hotel"
-            android:inputType="textPersonName"
-            android:text="@={addViewModel.category}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/addCity"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="430dp"
-            android:ems="10"
-            android:hint="Add city hotel"
-            android:inputType="textPersonName"
-            android:text="@={addViewModel.city}"
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="54dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="29dp"
+            app:layout_constraintBottom_toTopOf="@+id/spinnerCity"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/addDescription"
+            tools:ignore="MissingConstraints" />
+
+        <Spinner
+            android:id="@+id/spinnerCity"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="54dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="35dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonAdd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerCategory"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/buttonAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="39dp"
+            android:layout_marginBottom="41dp"
             android:onClick="clickAddHotel"
             android:text="Create"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerCity" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

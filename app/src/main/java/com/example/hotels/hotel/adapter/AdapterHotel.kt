@@ -11,8 +11,6 @@ import com.example.hotels.R
 import com.example.hotels.hotel.view.DetailsHotel
 import com.example.hotels.databinding.TaskHotelBinding
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_add_hotel.view.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.task_hotel.view.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -54,19 +52,21 @@ class AdapterHotel() :
     ) {
         holder.bind()
         val itemText = hotelsListViewModel.hotelList!![position]
-        val category =
-            hotelsListViewModel.getHotelWithCategories(itemText.category!!)
-        val city = hotelsListViewModel.getHotelWithCity(itemText.city!!)
+//        val category =
+//            hotelsListViewModel.getHotelWithCategories(itemText.category!!)
+//        val city = hotelsListViewModel.getHotelWithCity(itemText.city!!)
+//
+//        if (itemText.category != 0) {
+//            holder.itemView.categoryHotel.text =
+//                category!!.first().category.name.toString() + " stars, "
+//            holder.itemView.city.text = city!!.first().city.name.toString()
+//        } else {
+//            holder.itemView.categoryHotel.text = city!!.first().city.name.toString()
+//        }
 
-        if (itemText.category != 0) {
-            holder.itemView.categoryHotel.text =
-                category!!.first().categories.category.toString() + " stars, "
-            holder.itemView.city.text = city!!.first().city.city.toString()
-        } else {
-            holder.itemView.categoryHotel.text = city!!.first().city.city.toString()
-        }
 
-        if (itemText.image != ""){
+
+        if (itemText.image != "") {
             Picasso.get()
                 .load(itemText.image)
                 .error(R.drawable.rotate)

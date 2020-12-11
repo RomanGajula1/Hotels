@@ -9,6 +9,6 @@ class HotelWithCity(
     @Embedded
     val city: City,
 
-    @Relation(parentColumn = "idCity", entityColumn = "city", entity = Hotel::class)
+    @Relation(parentColumn = "id", entityColumn = "city", entity = Hotel::class)
     val hoteliCity: List<Hotel>
 )

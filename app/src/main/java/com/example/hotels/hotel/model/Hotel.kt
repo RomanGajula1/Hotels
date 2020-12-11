@@ -10,6 +10,6 @@ class Hotel(
     var name: String? = null,
     var image: String? = null,
     var description: String? = null,
-    var category: Int? = null,
-    var city: Int? = null
+    var category: String? = null,
+    var city: String? = null
 )

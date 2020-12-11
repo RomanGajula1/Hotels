@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "hotelCity")
 class City(
     @PrimaryKey(autoGenerate = true)
-    var idCity: Int? = null,
-    var city: String? = null
+    var id: Int? = null,
+    var name: String? = null
 )

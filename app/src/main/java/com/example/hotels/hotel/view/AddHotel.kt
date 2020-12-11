@@ -9,6 +9,8 @@ import androidx.databinding.DataBindingUtil
 import com.example.hotels.hotel.viewModel.AddHotelViewModel
 import com.example.hotels.R
 import com.example.hotels.databinding.ActivityAddHotelBinding
+import com.example.hotels.hotel.adapter.AdapterSpinnerCategory
+import com.example.hotels.hotel.adapter.AdapterSpinnerCity
 import kotlinx.android.synthetic.main.activity_add_hotel.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.KoinComponent
@@ -26,10 +28,14 @@ class AddHotel : AppCompatActivity(), KoinComponent {
             lifecycleOwner = this@AddHotel
             addViewModel = this@AddHotel.addHotelViewModel
         }
+        val adapterSpinnerCategory = AdapterSpinnerCategory(this)
+        val adapterSpinnerCitys = AdapterSpinnerCity(this)
+        spinnerCategory.adapter = adapterSpinnerCategory
+        spinnerCity.adapter = adapterSpinnerCitys
     }
 
     fun clickAddHotel(view: View) {
-        if (addCity.text.toString() == "" || addName.text.toString() == "" ||
+        if (addName.text.toString() == "" ||
             addDescription.text.toString() == ""
         ) {
             Toast.makeText(
@@ -40,7 +46,6 @@ class AddHotel : AppCompatActivity(), KoinComponent {
             when ("") {
                 addName.text.toString() -> addName.error = "Введите название отеля!"
                 addDescription.text.toString() -> addDescription.error = "Введите описание отеля!"
-                addCity.text.toString() -> addDescription.error = "Введите описание отеля!"
             }
         } else {
             addHotelViewModel.clickAddHotel()

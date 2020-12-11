@@ -3,6 +3,8 @@ package com.example.hotels.hotel.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.hotels.category.repository.RepositoryCategory
+import com.example.hotels.city.repository.RepositoryCity
 import com.example.hotels.hotel.repository.RepositoryHotel
 import com.example.hotels.hotel.model.Hotel
 import kotlinx.coroutines.Dispatchers
@@ -17,6 +19,10 @@ class AddHotelViewModel : ViewModel(), KoinComponent {
     val category = MutableLiveData("")
     val city = MutableLiveData("")
     private val repository: RepositoryHotel by inject()
+    private val repositoryCategory: RepositoryCategory by inject()
+    private val repositoryCity: RepositoryCity by inject()
+    val listCity = repositoryCity.getAllCity()
+    var listCategory = repositoryCategory.getCategory()
 
     fun clickAddHotel() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -26,8 +32,8 @@ class AddHotelViewModel : ViewModel(), KoinComponent {
                     name.value.toString(),
                     image.value.toString(),
                     description.value.toString(),
-                    category.value?.toInt(),
-                    city.value?.toInt()
+                    category.value,
+                    city.value
                 )
             )
         }

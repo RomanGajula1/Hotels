@@ -6,25 +6,25 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class RepositoryCity : KoinComponent {
-    private val daoCitys: DaoCitys by inject()
+    private val dabCitys: DaoCitys by inject()
 
     suspend fun insertCity(city: City) {
-        daoCitys.insertCity(city)
+        dabCitys.insertCity(city)
     }
 
     fun deleteCity(city: City) {
-        daoCitys.deleteCity(city)
+        dabCitys.deleteCity(city)
     }
 
     suspend fun updateCity(city: City) {
-        daoCitys.updateCity(city)
+        dabCitys.updateCity(city)
     }
 
     fun getById(id: Int): City {
-       return daoCitys.getById(id)
+       return dabCitys.getById(id)
     }
 
-    fun getHotelWithCity(cityId: Int) = daoCitys.getHotelWithCity(cityId)
+    fun getHotelWithCity(cityId: Int) = dabCitys.getHotelWithCity(cityId)
 
-    fun getAllCity() = daoCitys.getAllCity()
+    fun getAllCity() = dabCitys.getAllCity()
 }

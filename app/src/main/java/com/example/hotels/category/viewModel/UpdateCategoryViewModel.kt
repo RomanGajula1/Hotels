@@ -15,14 +15,14 @@ class UpdateCategoryViewModel : ViewModel(), KoinComponent {
 
     fun loadForUpdateCategory(id: Int) {
         repositoryCategory.getById(id).let {
-            category.value = it.category.toString()
+            category.value = it.name.toString()
         }
     }
 
     fun clickUpdateCategory(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val hotelCategory = repositoryCategory.getById(id)
-            hotelCategory.category = category.value?.toInt()
+            hotelCategory.name = category.value
             repositoryCategory.updateCategory(hotelCategory)
         }
     }

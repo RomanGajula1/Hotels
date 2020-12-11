@@ -15,13 +15,13 @@ interface DaoCitys {
     @Update
     suspend fun updateCity(city: City)
 
-    @Query("SELECT * FROM hotelCity WHERE idCity = :id")
+    @Query("SELECT * FROM hotelCity WHERE id = :id")
     fun getById(id: Int): City
 
     @Query("SELECT * FROM hotelCity")
     fun getAllCity(): List<City>
 
     @Transaction
-    @Query("SELECT * from hotelCity WHERE idCity = :cityId")
+    @Query("SELECT * from hotelCity WHERE id = :cityId")
     fun getHotelWithCity(cityId: Int): List<HotelWithCity>?
 }
