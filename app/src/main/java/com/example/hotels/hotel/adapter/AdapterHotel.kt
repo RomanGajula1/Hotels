@@ -52,19 +52,15 @@ class AdapterHotel() :
     ) {
         holder.bind()
         val itemText = hotelsListViewModel.hotelList!![position]
-//        val category =
-//            hotelsListViewModel.getHotelWithCategories(itemText.category!!)
-//        val city = hotelsListViewModel.getHotelWithCity(itemText.city!!)
-//
-//        if (itemText.category != 0) {
-//            holder.itemView.categoryHotel.text =
-//                category!!.first().category.name.toString() + " stars, "
-//            holder.itemView.city.text = city!!.first().city.name.toString()
-//        } else {
-//            holder.itemView.categoryHotel.text = city!!.first().city.name.toString()
-//        }
+        val category =
+            hotelsListViewModel.getHotelWithCategories(itemText.category!!)
+        val city = hotelsListViewModel.getHotelWithCity(itemText.city!!)
 
 
+        holder.itemView.categoryHotel.text = city!!.first().city.name.toString() + ",  " +
+            category!!.first().category.name.toString()
+
+//        + city!!.first().city.name.toString()
 
         if (itemText.image != "") {
             Picasso.get()

@@ -3,7 +3,9 @@ package com.example.hotels.hotel.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.AdapterView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.hotels.hotel.viewModel.AddHotelViewModel
@@ -18,6 +20,8 @@ import org.koin.core.KoinComponent
 class AddHotel : AppCompatActivity(), KoinComponent {
 
     private val addHotelViewModel: AddHotelViewModel by viewModel()
+    var nameCategory = String()
+    var nameCity = String()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +36,24 @@ class AddHotel : AppCompatActivity(), KoinComponent {
         val adapterSpinnerCitys = AdapterSpinnerCity(this)
         spinnerCategory.adapter = adapterSpinnerCategory
         spinnerCity.adapter = adapterSpinnerCitys
+
+        spinnerCategory.onItemSelectedListener = object :  AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                nameCategory = addHotelViewModel.listCategory!![position].name.toString()
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+
+        spinnerCity.onItemSelectedListener = object :  AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                nameCity = addHotelViewModel.listCity[position].name.toString()
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
     }
 
     fun clickAddHotel(view: View) {
@@ -45,13 +67,15 @@ class AddHotel : AppCompatActivity(), KoinComponent {
             ).show()
             when ("") {
                 addName.text.toString() -> addName.error = "Введите название отеля!"
-                addDescription.text.toString() -> addDescription.error = "Введите описание отеля!"
+                addDescription.text.toString() -> addDescription.error =
+                    "Введите описание отеля!"
             }
         } else {
-            addHotelViewModel.clickAddHotel()
+            addHotelViewModel.clickAddHotel(nameCategory, nameCity)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             Toast.makeText(this, "Отель добавлен!", Toast.LENGTH_LONG).show()
         }
     }
+
 }

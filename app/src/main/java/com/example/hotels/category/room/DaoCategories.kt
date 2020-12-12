@@ -23,6 +23,6 @@ interface DaoCategories {
     fun getAll(): List<Category>?
 
     @Transaction
-    @Query("SELECT * from hotelCategories WHERE id = :categoryId")
-    fun getHotelWithCategories(categoryId: Int): List<HotelWithCategory>?
+    @Query("SELECT * from hotelCategories WHERE name = :name")
+    fun getHotelWithCategories(name: String): List<HotelWithCategory>?
 }

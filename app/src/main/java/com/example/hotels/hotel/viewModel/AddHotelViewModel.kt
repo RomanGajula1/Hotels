@@ -16,15 +16,13 @@ class AddHotelViewModel : ViewModel(), KoinComponent {
     val name = MutableLiveData("")
     val image = MutableLiveData("")
     val description = MutableLiveData("")
-    val category = MutableLiveData("")
-    val city = MutableLiveData("")
     private val repository: RepositoryHotel by inject()
     private val repositoryCategory: RepositoryCategory by inject()
     private val repositoryCity: RepositoryCity by inject()
     val listCity = repositoryCity.getAllCity()
     var listCategory = repositoryCategory.getCategory()
 
-    fun clickAddHotel() {
+    fun clickAddHotel(nameCategory: String, nameCity: String) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addHotel(
                 Hotel(
@@ -32,8 +30,8 @@ class AddHotelViewModel : ViewModel(), KoinComponent {
                     name.value.toString(),
                     image.value.toString(),
                     description.value.toString(),
-                    category.value,
-                    city.value
+                    nameCategory,
+                    nameCity
                 )
             )
         }

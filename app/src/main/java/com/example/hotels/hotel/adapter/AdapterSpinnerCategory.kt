@@ -13,7 +13,8 @@ import kotlinx.android.synthetic.main.task_option.view.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class AdapterSpinnerCategory(context: Context) : ArrayAdapter<Category>(context, R.layout.task_option), KoinComponent {
+class AdapterSpinnerCategory(context: Context) :
+    ArrayAdapter<Category>(context, R.layout.task_option), KoinComponent {
 
     private val addHotelViewModel: AddHotelViewModel by inject()
 

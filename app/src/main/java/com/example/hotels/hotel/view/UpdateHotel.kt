@@ -4,11 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.hotels.R
 import com.example.hotels.hotel.viewModel.UpdateHotelViewModel
 import com.example.hotels.databinding.ActivityUpdateHotelBinding
+import com.example.hotels.hotel.adapter.AdapterSpinnerCategory
+import com.example.hotels.hotel.adapter.AdapterSpinnerCity
+import kotlinx.android.synthetic.main.activity_add_hotel.*
 import kotlinx.android.synthetic.main.activity_update_hotel.*
 import kotlinx.android.synthetic.main.task_hotel.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -17,7 +21,9 @@ import org.koin.core.KoinComponent
 class UpdateHotel : AppCompatActivity(), KoinComponent {
 
     private val updateHotelViewModel: UpdateHotelViewModel by viewModel()
-    var id: Int = 0
+    var idToUpdate: Int = 0
+    var nameCategory = String()
+    var nameCity = String()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,18 +32,42 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
             R.layout.activity_update_hotel
         )
 
-        id = intent.getIntExtra("idToUpdate", 0)
+        idToUpdate = intent.getIntExtra("idToUpdate", 0)
 
-        updateHotelViewModel.loadForUpdate(id)
+        updateHotelViewModel.loadForUpdate(idToUpdate)
 
         binding.apply {
             lifecycleOwner = this@UpdateHotel
             updateHotelViewModel = this@UpdateHotel.updateHotelViewModel
         }
+
+        val adapterSpinnerCategory = AdapterSpinnerCategory(this)
+        val adapterSpinnerCitys = AdapterSpinnerCity(this)
+        spinnerCategoryUpdate.adapter = adapterSpinnerCategory
+        spinnerCityUpdate.adapter = adapterSpinnerCitys
+
+        spinnerCategoryUpdate.onItemSelectedListener = object :  AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                nameCategory = updateHotelViewModel.listCategory!![position].name.toString()
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+
+        spinnerCityUpdate.onItemSelectedListener = object :  AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                nameCity = updateHotelViewModel.listCity[position].name.toString()
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+
     }
 
     fun clickUpdateHotel(view: View) {
-        if (cityUpdate.text.toString() == "" || descriptionUpdate.text.toString() == "" ||
+        if (descriptionUpdate.text.toString() == "" ||
             nameUpdate.text.toString() == ""
         ) {
             Toast.makeText(
@@ -47,12 +77,11 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
             ).show()
             when ("") {
                 nameUpdate.text.toString() -> nameUpdate.error = "Введите название отеля!"
-                cityUpdate.text.toString() -> city.error = "Введите путь к фото отеля!"
                 descriptionUpdate.text.toString() -> descriptionUpdate.error =
                     "Введите описание отеля!"
             }
         } else {
-            updateHotelViewModel.clickUpdateHotel(id)
+            updateHotelViewModel.clickUpdateHotel(idToUpdate, nameCategory, nameCity)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             Toast.makeText(this, "Отель обновлён!", Toast.LENGTH_LONG).show()

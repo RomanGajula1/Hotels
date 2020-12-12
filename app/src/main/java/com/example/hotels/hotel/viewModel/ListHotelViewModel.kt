@@ -20,6 +20,6 @@ class ListHotelViewModel : ViewModel(), KoinComponent {
         repository.deleteHotel(hotel)
     }
 
-    fun getHotelWithCategories(id: Int) = repositoryCategory.getHotelWithCategories(id)
-    fun getHotelWithCity(id: Int) = repositoryCity.getHotelWithCity(id)
+    fun getHotelWithCategories(name: String) = repositoryCategory.getHotelWithCategories(name)
+    fun getHotelWithCity(name: String) = repositoryCity.getHotelWithCity(name)
 }

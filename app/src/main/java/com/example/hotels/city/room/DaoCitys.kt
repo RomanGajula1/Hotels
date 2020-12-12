@@ -22,6 +22,6 @@ interface DaoCitys {
     fun getAllCity(): List<City>
 
     @Transaction
-    @Query("SELECT * from hotelCity WHERE id = :cityId")
-    fun getHotelWithCity(cityId: Int): List<HotelWithCity>?
+    @Query("SELECT * from hotelCity WHERE name = :name")
+    fun getHotelWithCity(name: String): List<HotelWithCity>?
 }

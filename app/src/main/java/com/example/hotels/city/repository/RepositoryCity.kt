@@ -24,7 +24,7 @@ class RepositoryCity : KoinComponent {
        return dabCitys.getById(id)
     }
 
-    fun getHotelWithCity(cityId: Int) = dabCitys.getHotelWithCity(cityId)
+    fun getHotelWithCity(name: String) = dabCitys.getHotelWithCity(name)
 
     fun getAllCity() = dabCitys.getAllCity()
 }
