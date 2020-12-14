@@ -3,6 +3,7 @@ package com.example.hotels.hotel.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
@@ -40,11 +41,13 @@ class UpdateHotel : AppCompatActivity(), KoinComponent {
             lifecycleOwner = this@UpdateHotel
             updateHotelViewModel = this@UpdateHotel.updateHotelViewModel
         }
+        updateHotelViewModel.getCategory(idToUpdate)
 
         val adapterSpinnerCategory = AdapterSpinnerCategory(this)
         val adapterSpinnerCitys = AdapterSpinnerCity(this)
         spinnerCategoryUpdate.adapter = adapterSpinnerCategory
         spinnerCityUpdate.adapter = adapterSpinnerCitys
+
 
         spinnerCategoryUpdate.onItemSelectedListener = object :  AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {

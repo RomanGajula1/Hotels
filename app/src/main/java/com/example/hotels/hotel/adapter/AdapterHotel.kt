@@ -58,9 +58,7 @@ class AdapterHotel() :
 
 
         holder.itemView.categoryHotel.text = city!!.first().city.name.toString() + ",  " +
-            category!!.first().category.name.toString()
-
-//        + city!!.first().city.name.toString()
+                category!!.first().category.name.toString()
 
         if (itemText.image != "") {
             Picasso.get()

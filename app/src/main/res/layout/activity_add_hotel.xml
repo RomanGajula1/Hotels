@@ -44,7 +44,6 @@
             android:hint="Add name hotel"
             android:inputType="textPersonName"
             android:text="@={addViewModel.name}"
-            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/addImages"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

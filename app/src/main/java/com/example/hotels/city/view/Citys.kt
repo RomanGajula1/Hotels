@@ -29,7 +29,6 @@ class Citys : AppCompatActivity() {
             recyclerViewCity.layoutManager = LinearLayoutManager(this@Citys)
             recyclerViewCity.adapter = this@Citys.cityViewModel.adapterCity
         }
-        cityViewModel.adapterCity.setDataCity(cityViewModel.listCity)
     }
 
     fun clickAddCity(view: View) {

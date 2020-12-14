@@ -23,6 +23,14 @@ class UpdateHotelViewModel : ViewModel(), KoinComponent {
     var name = MutableLiveData("")
     var image = MutableLiveData("")
     var description = MutableLiveData("")
+    var category = String()
+    var listCategoryToUpdate = repositoryCategory.getHotelWithCategories(category)
+
+    fun getCategory(id: Int){
+        repository.getById(id).let {
+            category = it.category.toString()
+        }
+    }
 
     fun loadForUpdate(id: Int) {
         repository.getById(id).let {
