@@ -22,6 +22,7 @@ import org.koin.core.KoinComponent
 class MainActivity : AppCompatActivity(), KoinComponent {
 
     private val hotelsListViewModel: ListHotelViewModel by viewModel()
+    val i = String
 
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
