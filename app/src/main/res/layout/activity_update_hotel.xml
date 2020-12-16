@@ -77,7 +77,7 @@
             android:id="@+id/descriptionLabel"
             android:layout_width="120dp"
             android:layout_height="0dp"
-            android:layout_marginStart="22dp"
+            android:layout_marginStart="12dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="48dp"
             android:text="Description: "
@@ -163,6 +163,7 @@
             android:text="Update"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/spinnerCategoryUpdate"
+            app:layout_constraintHorizontal_bias="0.042"
             app:layout_constraintStart_toStartOf="@+id/spinnerCategoryUpdate"
             app:layout_constraintTop_toBottomOf="@+id/spinnerCityUpdate"
             tools:ignore="MissingConstraints" />

@@ -1,10 +1,13 @@
 package com.example.hotels.hotel.viewModel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hotels.category.repository.RepositoryCategory
 import com.example.hotels.city.repository.RepositoryCity
+import com.example.hotels.hotel.adapter.AdapterSpinnerCategory
+import com.example.hotels.hotel.adapter.AdapterSpinnerCity
 import com.example.hotels.hotel.repository.RepositoryHotel
 import com.example.hotels.hotel.model.Hotel
 import kotlinx.coroutines.Dispatchers
@@ -34,6 +37,7 @@ class AddHotelViewModel : ViewModel(), KoinComponent {
                     nameCity
                 )
             )
+            Log.d("Message", name.value.toString())
         }
     }
 }

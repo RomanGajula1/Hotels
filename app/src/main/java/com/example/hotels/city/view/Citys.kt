@@ -14,10 +14,13 @@ import com.example.hotels.databinding.ActivityCityBinding
 import com.example.hotels.hotel.view.MainActivity
 import com.example.hotels.city.viewModel.CityViewModel
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.KoinComponent
+import java.util.Observer
 
-class Citys : AppCompatActivity() {
+class Citys : AppCompatActivity(), KoinComponent {
 
-    val cityViewModel: CityViewModel by inject()
+    val cityViewModel: CityViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +32,10 @@ class Citys : AppCompatActivity() {
             recyclerViewCity.layoutManager = LinearLayoutManager(this@Citys)
             recyclerViewCity.adapter = this@Citys.cityViewModel.adapterCity
         }
+
+        cityViewModel.listCity.observe(this, androidx.lifecycle.Observer {
+            cityViewModel.adapterCity.setDataCity(it)
+        })
     }
 
     fun clickAddCity(view: View) {

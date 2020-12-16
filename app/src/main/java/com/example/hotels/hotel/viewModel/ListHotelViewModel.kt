@@ -6,6 +6,7 @@ import com.example.hotels.category.repository.RepositoryCategory
 import com.example.hotels.city.repository.RepositoryCity
 import com.example.hotels.hotel.model.Hotel
 import com.example.hotels.hotel.repository.RepositoryHotel
+import kotlinx.coroutines.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -16,8 +17,12 @@ class ListHotelViewModel : ViewModel(), KoinComponent {
     val adapter: AdapterHotel = AdapterHotel()
     var hotelList = repository.getHotel()
 
-    fun deleteHotel(hotel: Hotel){
-        repository.deleteHotel(hotel)
+    fun deleteHotel(hotel: Hotel) {
+        MainScope().launch {
+            withContext(Dispatchers.IO) {
+                repository.deleteHotel(hotel)
+            }
+        }
     }
 
     fun getHotelWithCategories(name: String) = repositoryCategory.getHotelWithCategories(name)

@@ -16,11 +16,11 @@ class RepositoryCategory : KoinComponent {
         daoCategories.updateCategory(category)
     }
 
-    fun getById(id: Int): Category {
+    suspend fun getById(id: Int): Category {
         return daoCategories.getById(id)
     }
 
-    fun deleteCategory(category: Category) {
+    suspend fun deleteCategory(category: Category) {
         daoCategories.deleteCategory(category)
     }
 

@@ -7,7 +7,9 @@ import com.example.hotels.city.adapter.AdapterCity
 import com.example.hotels.city.repository.RepositoryCity
 import com.example.hotels.city.model.City
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -23,7 +25,11 @@ class CityViewModel : ViewModel(), KoinComponent {
         }
     }
 
-    fun deleteCity(city: City){
-        repositoryCity.deleteCity(city)
+    fun deleteCity(city: City) {
+        MainScope().launch() {
+            withContext(Dispatchers.IO) {
+                repositoryCity.deleteCity(city)
+            }
+        }
     }
 }

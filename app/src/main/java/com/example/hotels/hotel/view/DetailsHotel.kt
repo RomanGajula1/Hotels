@@ -16,6 +16,9 @@ class DetailsHotel : AppCompatActivity() {
 
     private val detailsViewModel: DetailsViewModel by viewModel()
     var id: Int = 0
+    var name = String()
+    var image = String()
+    var description = String()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +30,6 @@ class DetailsHotel : AppCompatActivity() {
         )
 
         id = intent.getIntExtra("id", 0)
-
         detailsViewModel.loadDetailsHotel(id)
 
         binding.apply {

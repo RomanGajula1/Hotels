@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hotels.R
+import com.example.hotels.category.model.Category
 import com.example.hotels.city.view.UpdateCity
 import com.example.hotels.city.model.City
 import com.example.hotels.city.viewModel.CityViewModel
 import com.example.hotels.databinding.TaskCityBinding
 import com.example.hotels.databinding.TaskHotelBinding
+import com.example.hotels.hotel.model.Hotel
 import kotlinx.android.synthetic.main.task_city.view.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -19,10 +21,11 @@ import org.koin.core.inject
 class AdapterCity : RecyclerView.Adapter<AdapterCity.MyViewHolder>(), KoinComponent {
 
     val cityViewModel: CityViewModel by inject()
+    var cityList = emptyList<City>()
 
     inner class MyViewHolder(val binding: TaskCityBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind() {
-            val city = cityViewModel.listCity[bindingAdapterPosition]
+            val city = cityList[bindingAdapterPosition]
             binding.cityViewModel = city
             val view = binding.root
             view.deleteCity.setOnClickListener {
@@ -49,12 +52,17 @@ class AdapterCity : RecyclerView.Adapter<AdapterCity.MyViewHolder>(), KoinCompon
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind()
-        val items = cityViewModel.listCity[position]
+        val items = cityList[position]
         holder.itemView.nameCity.text = items.name
     }
 
+    fun setDataCity(city: List<City>) {
+        this.cityList = city
+        notifyDataSetChanged()
+    }
+
     override fun getItemCount(): Int {
-        return cityViewModel.listCity.size
+        return cityList.size
     }
 
 }

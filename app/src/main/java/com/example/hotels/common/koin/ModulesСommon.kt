@@ -7,6 +7,6 @@ import org.koin.dsl.module
 val commonModule = module {
     single {
         Room.databaseBuilder(get(), DataBase::class.java, "MyDB")
-            .allowMainThreadQueries().build()
+            .build()
     }
 }

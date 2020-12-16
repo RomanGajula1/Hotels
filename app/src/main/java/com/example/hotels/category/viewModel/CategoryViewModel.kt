@@ -7,7 +7,9 @@ import com.example.hotels.category.adapter.AdapterCategory
 import com.example.hotels.category.repository.RepositoryCategory
 import com.example.hotels.category.model.Category
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -24,7 +26,11 @@ class CategoryViewModel : ViewModel(), KoinComponent {
         }
     }
 
-    fun deleteCategory(category: Category){
-        repositoryCategory.deleteCategory(category)
+    fun deleteCategory(category: Category) {
+        MainScope().launch() {
+            withContext(Dispatchers.IO) {
+                repositoryCategory.deleteCategory(category)
+            }
+        }
     }
 }

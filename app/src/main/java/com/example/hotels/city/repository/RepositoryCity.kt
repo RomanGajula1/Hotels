@@ -12,7 +12,7 @@ class RepositoryCity : KoinComponent {
         dabCitys.insertCity(city)
     }
 
-    fun deleteCity(city: City) {
+    suspend fun deleteCity(city: City) {
         dabCitys.deleteCity(city)
     }
 
@@ -20,8 +20,8 @@ class RepositoryCity : KoinComponent {
         dabCitys.updateCity(city)
     }
 
-    fun getById(id: Int): City {
-       return dabCitys.getById(id)
+    suspend fun getById(id: Int): City {
+        return dabCitys.getById(id)
     }
 
     fun getHotelWithCity(name: String) = dabCitys.getHotelWithCity(name)

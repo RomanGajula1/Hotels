@@ -3,13 +3,12 @@ package com.example.hotels.hotel.view
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hotels.R
 import com.example.hotels.category.view.Categoryes
@@ -29,11 +28,18 @@ class MainActivity : AppCompatActivity(), KoinComponent {
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        hotelsListViewModel.adapter.context = this@MainActivity
+
         binding.apply {
             recyclerView.setHasFixedSize(true)
             recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
             recyclerView.adapter = this@MainActivity.hotelsListViewModel.adapter
         }
+
+        hotelsListViewModel.hotelList.observe(this, Observer {
+            hotelsListViewModel.adapter.setDataHotel(it)
+        })
+
     }
 
     fun clickAddHotel(view: View) {

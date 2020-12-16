@@ -13,15 +13,13 @@ class RepositoryHotel : KoinComponent {
         dao.insert(hotel)
     }
 
-    fun getById(id: Int): Hotel {
-        return dao.getById(id)
-    }
+    suspend fun getById(id: Int) = dao.getById(id)
 
     suspend fun updateHotel(hotel: Hotel) {
         dao.update(hotel)
     }
 
-    fun deleteHotel(hotel: Hotel) {
+    suspend fun deleteHotel(hotel: Hotel) {
         dao.delete(hotel)
     }
 

@@ -12,6 +12,7 @@ import com.example.hotels.category.view.UpdateCategory
 import com.example.hotels.category.model.Category
 import com.example.hotels.category.viewModel.CategoryViewModel
 import com.example.hotels.databinding.TaskCategoryBinding
+import com.example.hotels.hotel.model.Hotel
 import kotlinx.android.synthetic.main.task_category.view.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -19,10 +20,12 @@ import org.koin.core.inject
 class AdapterCategory : RecyclerView.Adapter<AdapterCategory.MyViewHolder>(), KoinComponent {
 
     val categoryViewModel: CategoryViewModel by inject()
+    var listCategory = emptyList<Category>()
 
-    inner class MyViewHolder(val binding: TaskCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MyViewHolder(val binding: TaskCategoryBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind() {
-            val category = categoryViewModel.listCategory!![bindingAdapterPosition]
+            val category = listCategory[bindingAdapterPosition]
             binding.categoryViewModel = category
             val view = binding.root
             view.deleteCategory.setOnClickListener {
@@ -46,25 +49,26 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.MyViewHolder>(), Ko
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemsView = TaskCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val itemsView =
+            TaskCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(itemsView)
     }
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind()
-        val itemText = categoryViewModel.listCategory!![position]
+        val itemText = listCategory[position]
         holder.itemView.nameHotelAndWithCategory.text =
             itemText.name.toString()
     }
 
-    fun setDataCategories(categories: List<Category>) {
-        this.categoryViewModel.listCategory = categories
+    fun setDataCategory(category: List<Category>) {
+        this.listCategory = category
         notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
-        return categoryViewModel.listCategory?.size ?: 0
+        return listCategory.size
     }
 
 }

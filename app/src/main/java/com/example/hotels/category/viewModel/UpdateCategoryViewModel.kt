@@ -5,7 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hotels.category.repository.RepositoryCategory
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -14,16 +16,22 @@ class UpdateCategoryViewModel : ViewModel(), KoinComponent {
     var category = MutableLiveData("")
 
     fun loadForUpdateCategory(id: Int) {
-        repositoryCategory.getById(id).let {
-            category.value = it.name.toString()
+        MainScope().launch() {
+            withContext(Dispatchers.IO) {
+                repositoryCategory.getById(id).let {
+                    category.postValue(it.name.toString())
+                }
+            }
         }
     }
 
     fun clickUpdateCategory(id: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
-            val hotelCategory = repositoryCategory.getById(id)
-            hotelCategory.name = category.value
-            repositoryCategory.updateCategory(hotelCategory)
+        MainScope().launch() {
+            withContext(Dispatchers.IO) {
+                val hotelCategory = repositoryCategory.getById(id)
+                hotelCategory.name = category.value
+                repositoryCategory.updateCategory(hotelCategory)
+            }
         }
     }
 }

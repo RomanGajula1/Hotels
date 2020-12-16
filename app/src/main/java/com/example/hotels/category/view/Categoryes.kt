@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hotels.R
 import com.example.hotels.city.view.Citys
@@ -29,7 +30,11 @@ class Categoryes : AppCompatActivity() {
             recyclerView.layoutManager = LinearLayoutManager(this@Categoryes)
             recyclerView.adapter = this@Categoryes.categoryViewModel.adapterCategories
         }
-        categoryViewModel.adapterCategories.setDataCategories(categoryViewModel.listCategory!!)
+
+        categoryViewModel.listCategory.observe(this, Observer {
+            categoryViewModel.adapterCategories.setDataCategory(it)
+        })
+
     }
 
     fun clickAddCategory(view: View) {
